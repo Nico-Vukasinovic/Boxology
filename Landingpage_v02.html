@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boxology - Premium Geschenkboxen</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--navy: #0a2342;
+--navy-dark: #06152b;
+--navy-light: #1a3a6a;
+--gold: #d4af37;
+--gold-light: #f5e6b3;
+--white: #ffffff;
+--light-gray: #f8f9fa;
+--gray: #6c757d;
+--dark-gray: #212529;
+--text-dark: #2a2a2a;
+--text-light: #f8f9fa;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Montserrat', sans-serif;
+color: var(--text-dark);
+line-height: 1.7;
+background-color: var(--white);
+}
+
+h1, h2, h3, h4 {
+font-family: 'Playfair Display', serif;
+color: var(--white);
+font-weight: 700;
+}
+
+p {
+color: var(--text-light);
+}
+
+/* Enhanced Shadow Boxes */
+.shadow-box {
+background-color: var(--navy);
+border-radius: 10px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+padding: 40px;
+margin: 20px 0;
+border: 1px solid rgba(212, 175, 55, 0.3);
+color: var(--white);
+}
+
+.shadow-box-light {
+background-color: var(--white);
+color: var(--navy);
+box-shadow: 0 5px 20px rgba(10, 35, 66, 0.1);
+}
+
+/* Header Styles */
+header {
+background-color: var(--navy);
+box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+position: sticky;
+top: 0;
+z-index: 1000;
+border-bottom: 1px solid var(--gold);
+}
+
+/* Navigation */
+.nav-links a {
+color: var(--white);
+font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+background: linear-gradient(rgba(10, 35, 66, 0.9), rgba(10, 35, 66, 0.9)), url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+color: var(--white);
+}
+
+/* How It Works Section */
+.how-it-works {
+background-color: var(--navy-light);
+color: var(--white);
+}
+
+.step {
+background-color: var(--navy);
+color: var(--white);
+}
+
+/* Testimonials */
+.testimonials {
+background-color: var(--navy-light);
+}
+
+.testimonial {
+background-color: var(--navy);
+color: var(--white);
+}
+
+/* Gallery Section */
+.gallery {
+background-color: var(--navy-light);
+}
+
+/* Quiz Section */
+.quiz-section {
+background: var(--navy);
+}
+
+.quiz-container {
+background-color: var(--navy-light);
+color: var(--white);
+}
+
+/* Footer */
+footer {
+background-color: var(--navy-dark);
+color: var(--white);
+}
+
+/* Rest of your CSS remains the same */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 0;
+}
+
+.logo {
+font-family: 'Playfair Display', serif;
+font-size: 28px;
+font-weight: 700;
+color: var(--gold);
+text-decoration: none;
+letter-spacing: 1px;
+}
+
+.nav-links {
+display: flex;
+gap: 35px;
+}
+
+.nav-links a {
+text-decoration: none;
+transition: all 0.3s;
+position: relative;
+font-size: 15px;
+letter-spacing: 0.5px;
+}
+
+.nav-links a:after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 0;
+background-color: var(--gold);
+transition: width 0.3s;
+}
+
+.nav-links a:hover {
+color: var(--gold);
+}
+
+.nav-links a:hover:after {
+width: 100%;
+}
+
+.cart-icon {
+position: relative;
+font-size: 20px;
+color: var(--white);
+transition: transform 0.3s;
+}
+
+.cart-icon:hover {
+transform: scale(1.1);
+color: var(--gold);
+}
+
+.cart-count {
+position: absolute;
+top: -10px;
+right: -10px;
+background-color: var(--gold);
+color: var(--navy);
+border-radius: 50%;
+width: 20px;
+height: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 12px;
+font-weight: bold;
+}
+
+.hero {
+background-size: cover;
+background-position: center;
+height: 90vh;
+display: flex;
+align-items: center;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.hero:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+opacity: 0.1;
+pointer-events: none;
+}
+
+.hero-content {
+max-width: 800px;
+margin: 0 auto;
+position: relative;
+z-index: 2;
+animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.hero h1 {
+font-size: 3.8rem;
+margin-bottom: 25px;
+line-height: 1.2;
+letter-spacing: 1px;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+font-size: 1.5rem;
+margin-bottom: 40px;
+font-weight: 400;
+letter-spacing: 0.5px;
+text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.cta-buttons {
+display: flex;
+justify-content: center;
+gap: 25px;
+}
+
+.btn {
+display: inline-block;
+padding: 15px 35px;
+border-radius: 30px;
+font-weight: 600;
+text-decoration: none;
+transition: all 0.4s;
+cursor: pointer;
+letter-spacing: 0.5px;
+font-size: 16px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+background-color: var(--gold);
+color: var(--navy);
+border: 2px solid var(--gold);
+}
+
+.btn-primary:hover {
+background-color: transparent;
+color: var(--gold);
+transform: translateY(-3px);
+box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+background-color: transparent;
+color: var(--white);
+border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+background-color: var(--white);
+color: var(--navy);
+transform: translateY(-3px);
+}
+
+.how-it-works {
+padding: 100px 0;
+position: relative;
+}
+
+.how-it-works:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png');
+opacity: 0.05;
+pointer-events: none;
+}
+
+.section-title {
+text-align: center;
+margin-bottom: 60px;
+font-size: 2.8rem;
+position: relative;
+display: inline-block;
+left: 50%;
+transform: translateX(-50%);
+}
+
+.section-title:after {
+content: '';
+position: absolute;
+bottom: -15px;
+left: 50%;
+transform: translateX(-50%);
+width: 80px;
+height: 3px;
+background-color: var(--gold);
+}
+
+.steps {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 30px;
+position: relative;
+z-index: 2;
+}
+
+.step {
+flex: 1;
+min-width: 250px;
+text-align: center;
+padding: 40px 30px;
+border-radius: 10px;
+transition: all 0.4s;
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.step:hover {
+transform: translateY(-10px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.step-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, var(--gold), #e8c04d);
+    color: var(--navy);
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.step-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    background: linear-gradient(45deg, var(--gold-light), var(--gold));
+}
+
+.step-button i {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.step-button:hover i {
+    transform: translateX(3px);
+}
+
+.step-icon {
+font-size: 3.5rem;
+color: var(--gold);
+margin-bottom: 25px;
+transition: transform 0.3s;
+}
+
+.step:hover .step-icon {
+transform: scale(1.1);
+}
+
+.step h3 {
+margin-bottom: 20px;
+font-size: 1.6rem;
+}
+
+.gallery {
+padding: 100px 0;
+position: relative;
+}
+
+.gallery:after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 100px;
+background: linear-gradient(to bottom, transparent, var(--navy-light));
+z-index: 1;
+}
+
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 25px;
+margin-top: 50px;
+}
+
+.gallery-item {
+position: relative;
+overflow: hidden;
+border-radius: 8px;
+height: 350px;
+box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+transition: all 0.4s;
+}
+
+.gallery-item:hover {
+box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.gallery-item:hover img {
+transform: scale(1.1);
+}
+
+.gallery-overlay {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: linear-gradient(transparent, rgba(10, 35, 66, 0.9));
+padding: 25px;
+transform: translateY(100%);
+transition: transform 0.4s;
+z-index: 2;
+}
+
+.gallery-item:hover .gallery-overlay {
+transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+margin-bottom: 10px;
+font-size: 1.4rem;
+}
+
+.price-tag {
+position: absolute;
+top: 20px;
+right: 20px;
+background-color: var(--gold);
+color: var(--navy);
+padding: 8px 15px;
+border-radius: 20px;
+font-weight: bold;
+font-size: 14px;
+z-index: 3;
+box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+transform: translateY(-20px);
+opacity: 0;
+transition: all 0.4s;
+}
+
+.gallery-item:hover .price-tag {
+transform: translateY(0);
+opacity: 1;
+}
+
+.testimonials {
+padding: 100px 0;
+position: relative;
+}
+
+.testimonial-slider {
+max-width: 800px;
+margin: 0 auto;
+position: relative;
+}
+
+.testimonial {
+text-align: center;
+padding: 50px;
+border-radius: 10px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+border: 1px solid rgba(212, 175, 55, 0.3);
+display: none;
+}
+
+.testimonial.active {
+display: block;
+animation: fadeIn 0.6s;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-text {
+font-size: 1.3rem;
+font-style: italic;
+margin-bottom: 30px;
+position: relative;
+line-height: 1.8;
+}
+
+.testimonial-text::before,
+.testimonial-text::after {
+content: '"';
+font-size: 3rem;
+color: var(--gold);
+opacity: 0.3;
+position: absolute;
+}
+
+.testimonial-text::before {
+top: -20px;
+left: -30px;
+}
+
+.testimonial-text::after {
+bottom: -40px;
+right: -30px;
+}
+
+.testimonial-author {
+margin-top: 20px;
+display: block;
+font-size: 1.1rem;
+color: var(--gold);
+}
+
+.testimonial-role {
+font-size: 0.9rem;
+display: block;
+margin-top: 5px;
+color: var(--gold-light);
+}
+
+.slider-controls {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 40px;
+}
+
+.slider-dot {
+width: 14px;
+height: 14px;
+border-radius: 50%;
+background-color: var(--gold-light);
+cursor: pointer;
+transition: all 0.3s;
+border: 1px solid transparent;
+}
+
+.slider-dot:hover {
+background-color: var(--gold);
+}
+
+.slider-dot.active {
+background-color: var(--gold);
+transform: scale(1.2);
+border-color: var(--navy);
+}
+
+.quiz-section {
+padding: 100px 0;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.quiz-section:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+opacity: 0.05;
+pointer-events: none;
+}
+
+.quiz-section .section-title {
+color: var(--white);
+}
+
+.quiz-section .section-title:after {
+background-color: var(--gold);
+}
+
+.quiz-container {
+max-width: 800px;
+margin: 0 auto;
+padding: 50px;
+border-radius: 10px;
+box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+position: relative;
+z-index: 2;
+}
+
+.quiz-step {
+display: none;
+}
+
+.quiz-step.active {
+display: block;
+animation: fadeInUp 0.6s;
+}
+
+.quiz-question {
+font-size: 1.8rem;
+margin-bottom: 40px;
+position: relative;
+display: inline-block;
+}
+
+.quiz-question:after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 50px;
+height: 2px;
+background-color: var(--gold);
+}
+
+.quiz-options {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+margin-bottom: 40px;
+}
+
+.quiz-option {
+padding: 12px 25px;
+background-color: rgba(255,255,255,0.1);
+border-radius: 30px;
+cursor: pointer;
+transition: all 0.3s;
+border: 1px solid rgba(255,255,255,0.2);
+font-weight: 500;
+color: var(--white);
+}
+
+.quiz-option:hover {
+background-color: var(--gold);
+color: var(--navy);
+border-color: var(--gold);
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.quiz-option.selected {
+background-color: var(--gold);
+color: var(--navy);
+border-color: var(--gold);
+font-weight: 600;
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.quiz-option[data-value="individuell"].selected {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.7);
+    animation: pulse 2s infinite;
+}
+
+.quiz-option[data-value="individuell"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+}
+
+.quiz-option[data-value="individuell"].selected .selection-circle {
+    opacity: 1;
+    transform: scale(1.05);
+    border-width: 4px;
+}
+
+@keyframes pulseSelected {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes pulseCircle {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    }
+}
+
+@keyframes pulseCircle {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.quiz-option[data-value="individuell"]:hover {
+background-color: var(--gold-light);
+color: var(--navy);
+border-color: var(--gold-light);
+}
+
+.quiz-navigation {
+display: flex;
+justify-content: space-between;
+margin-top: 40px;
+}
+
+.quiz-progress {
+height: 6px;
+background-color: rgba(255,255,255,0.2);
+margin-top: 30px;
+border-radius: 3px;
+overflow: hidden;
+position: relative;
+}
+
+.progress-bar {
+height: 100%;
+background: linear-gradient(90deg, var(--gold) 0%, #e8c04d 100%);
+width: 0%;
+transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+position: relative;
+overflow: hidden;
+}
+
+.progress-bar:after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+0% { transform: translateX(-100%); }
+100% { transform: translateX(100%); }
+}
+
+@keyframes pulse {
+0% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5); }
+50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.7); }
+100% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5); }
+}
+
+.quiz-form input,
+.quiz-form textarea {
+width: 100%;
+padding: 15px;
+border: 1px solid rgba(255,255,255,0.3);
+border-radius: 5px;
+margin-bottom: 20px;
+font-family: 'Montserrat', sans-serif;
+transition: all 0.3s;
+font-size: 16px;
+background-color: rgba(255,255,255,0.1);
+color: var(--white);
+}
+
+.quiz-form input::placeholder,
+.quiz-form textarea::placeholder {
+color: rgba(255,255,255,0.7);
+}
+
+.quiz-form input:focus,
+.quiz-form textarea:focus {
+outline: none;
+border-color: var(--gold);
+box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+background-color: rgba(255,255,255,0.2);
+}
+
+.quiz-form textarea {
+height: 120px;
+resize: vertical;
+}
+
+.confirmation-icon {
+font-size: 5rem;
+color: var(--gold);
+margin-bottom: 30px;
+animation: bounceIn 0.8s;
+}
+
+@keyframes bounceIn {
+0% { transform: scale(0.5); opacity: 0; }
+50% { transform: scale(1.2); opacity: 1; }
+100% { transform: scale(1); }
+}
+
+footer {
+padding: 80px 0 30px;
+position: relative;
+}
+
+footer:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 5px;
+background: linear-gradient(90deg, var(--gold) 0%, #e8c04d 100%);
+}
+
+.footer-content {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 50px;
+margin-bottom: 60px;
+}
+
+.footer-column {
+flex: 1;
+min-width: 200px;
+}
+
+.footer-column h3 {
+margin-bottom: 25px;
+font-size: 1.3rem;
+position: relative;
+display: inline-block;
+color: var(--gold);
+}
+
+.footer-column h3:after {
+content: '';
+position: absolute;
+bottom: -8px;
+left: 0;
+width: 40px;
+height: 2px;
+background-color: var(--gold);
+}
+
+.footer-logo {
+font-family: 'Playfair Display', serif;
+font-size: 28px;
+font-weight: 700;
+color: var(--gold);
+margin-bottom: 20px;
+display: inline-block;
+}
+
+.footer-about {
+margin-bottom: 25px;
+line-height: 1.8;
+color: rgba(255,255,255,0.8);
+}
+
+.footer-links {
+list-style: none;
+}
+
+.footer-links li {
+margin-bottom: 12px;
+}
+
+.footer-links a {
+text-decoration: none;
+transition: all 0.3s;
+position: relative;
+display: inline-block;
+color: rgba(255,255,255,0.8);
+}
+
+.footer-links a:after {
+content: '';
+position: absolute;
+width: 0;
+height: 1px;
+bottom: -2px;
+left: 0;
+background-color: var(--gold);
+transition: width 0.3s;
+}
+
+.footer-links a:hover {
+color: var(--white);
+}
+
+.footer-links a:hover:after {
+width: 100%;
+}
+
+.footer-contact-item {
+display: flex;
+align-items: flex-start;
+margin-bottom: 15px;
+color: rgba(255,255,255,0.8);
+}
+
+.footer-contact-icon {
+color: var(--gold);
+margin-right: 15px;
+font-size: 18px;
+margin-top: 3px;
+}
+
+.social-links {
+display: flex;
+gap: 20px;
+margin-top: 30px;
+}
+
+.social-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: rgba(255,255,255,0.1);
+color: var(--white);
+font-size: 18px;
+transition: all 0.3s;
+}
+
+.social-links a:hover {
+background-color: var(--gold);
+color: var(--navy);
+transform: translateY(-3px);
+}
+
+.newsletter-form {
+margin-top: 25px;
+}
+
+.newsletter-form input {
+width: 100%;
+padding: 12px 15px;
+border: none;
+border-radius: 30px;
+margin-bottom: 15px;
+font-family: 'Montserrat', sans-serif;
+background-color: rgba(255,255,255,0.1);
+color: var(--white);
+}
+
+.newsletter-form input::placeholder {
+color: rgba(255,255,255,0.7);
+}
+
+.newsletter-form button {
+width: 100%;
+padding: 12px;
+border: none;
+border-radius: 30px;
+background-color: var(--gold);
+color: var(--navy);
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.newsletter-form button:hover {
+background-color: var(--gold-light);
+}
+
+.copyright {
+text-align: center;
+padding-top: 30px;
+border-top: 1px solid rgba(255,255,255,0.1);
+font-size: 0.9rem;
+color: rgba(255,255,255,0.6);
+}
+
+.back-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 50px;
+height: 50px;
+background-color: var(--gold);
+color: var(--navy);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+cursor: pointer;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s;
+z-index: 999;
+box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.back-to-top.visible {
+opacity: 1;
+visibility: visible;
+}
+
+.back-to-top:hover {
+transform: translateY(-5px);
+background-color: var(--gold-light);
+}
+
+/* Animations */
+.fade-in {
+animation: fadeIn 1s ease-out;
+}
+
+.delay-1 {
+animation-delay: 0.2s;
+}
+
+.delay-2 {
+animation-delay: 0.4s;
+}
+
+.delay-3 {
+animation-delay: 0.6s;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+.hero h1 {
+font-size: 3rem;
+}
+
+.hero p {
+font-size: 1.3rem;
+}
+
+.section-title {
+font-size: 2.5rem;
+}
+}
+
+@media (max-width: 768px) {
+.nav-links {
+display: none;
+}
+
+.hero {
+height: 80vh;
+}
+
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.hero p {
+font-size: 1.2rem;
+}
+
+.cta-buttons {
+flex-direction: column;
+align-items: center;
+}
+
+.btn {
+width: 100%;
+max-width: 250px;
+margin-bottom: 15px;
+}
+
+.steps {
+flex-direction: column;
+}
+
+.step {
+margin-bottom: 30px;
+}
+
+.quiz-options {
+flex-direction: column;
+}
+
+.quiz-option {
+width: 100%;
+}
+
+.footer-content {
+flex-direction: column;
+gap: 40px;
+}
+}
+
+@media (max-width: 576px) {
+.hero h1 {
+font-size: 2rem;
+}
+
+.hero p {
+font-size: 1rem;
+}
+
+.section-title {
+font-size: 2rem;
+}
+
+.quiz-container {
+padding: 30px 20px;
+}
+
+.quiz-question {
+font-size: 1.5rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<nav>
+<a href="#" class="logo">Boxology</a>
+<div class="nav-links">
+<a href="#">Startseite</a>
+<a href="#gallery">Boxen</a>
+<a href="#how-it-works">Über uns</a>
+<a href="#testimonials">Bewertungen</a>
+<a href="#contact">Kontakt</a>
+</div>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1 class="fade-in">Für Familien, die feiern – und schenken wollen, was bleibt.</h1>
+<p class="fade-in delay-1">Personalisierte Geschenkboxen mit Herz, Stil und System.</p>
+<div class="cta-buttons fade-in delay-2">
+<button onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})" class="btn btn-primary">Jetzt deine Box gestalten</button>
+<button onclick="document.querySelector('#gallery').scrollIntoView({behavior: 'smooth'})" class="btn btn-secondary">Ideen entdecken</button>
+</div>
+</div>
+</section>
+
+<section class="how-it-works" id="how-it-works">
+<div class="container">
+<h2 class="section-title">So funktioniert's</h2>
+<div class="steps">
+<div class="step fade-in shadow-box">
+<div class="step-icon">
+<i class="fas fa-question-circle"></i>
+</div>
+<h3>Fragen beantworten</h3>
+<p>Erzählen Sie uns etwas über den Beschenkten - Alter, Hobbys und Ihre Beziehung.</p>
+<button class="step-button" onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})">
+    Jetzt starten <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+<div class="step fade-in delay-1 shadow-box">
+<div class="step-icon">
+<i class="fas fa-magic"></i>
+</div>
+<h3>Wir gestalten</h3>
+<p>Wir kreieren eine einzigartige Box, die eine persönliche Geschichte erzählt.</p>
+<button class="step-button" onclick="document.querySelector('#gallery').scrollIntoView({behavior: 'smooth'})">
+    Beispiele sehen <i class="fas fa-images"></i>
+</button>
+</div>
+<div class="step fade-in delay-2 shadow-box">
+<div class="step-icon">
+<i class="fas fa-gift"></i>
+</div>
+<h3>Geschenk erhalten</h3>
+<p>Ihre personalisierte Box wird verpackt und direkt zu Ihnen nach Hause geliefert.</p>
+<button class="step-button" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+    Kontakt aufnehmen <i class="fas fa-envelope"></i>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="gallery" class="gallery">
+<div class="container">
+<h2 class="section-title">Unsere Kreationen</h2>
+<p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">Jede Box ist ein Unikat, handgefertigt mit Liebe zum Detail und persönlicher Note.</p>
+<div class="gallery-grid">
+<div class="gallery-item">
+<div class="price-tag">Ab €89</div>
+<img src=".\WeddingProposal\FamilyGift.jpg" alt="Familien Geschenkbox">
+<div class="gallery-overlay">
+<h3>Familienbox</h3>
+<p>Perfekt für Eltern und Großeltern</p>
+</div>
+</div>
+<div class="gallery-item">
+<div class="price-tag">Ab €79</div>
+<img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wellness Geschenkbox">
+<div class="gallery-overlay">
+<h3>Wellnessbox</h3>
+<p>Entspannung und Selbstfürsorge</p>
+</div>
+</div>
+<div class="gallery-item">
+<div class="price-tag">Ab €95</div>
+<img src="https://images.unsplash.com/photo-1607082349596-0e4514495f76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Koch Geschenkbox">
+<div class="gallery-overlay">
+<h3>Kochbox</h3>
+<p>Für Feinschmecker und Hobbyköche</p>
+</div>
+</div>
+<div class="gallery-item">
+<div class="price-tag">Ab €109</div>
+<img src=".\WeddingProposal\WeddingGiftsStacked.jpg" alt="Jubiläum Geschenkbox">
+<div class="gallery-overlay">
+<h3>Jubiläumsbox</h3>
+<p>Für besondere Anlässe</p>
+</div>
+</div>
+<div class="gallery-item">
+<div class="price-tag">Ab €69</div>
+<img src=".\WeddingProposal\KinderGeschenksbox.jpg" alt="Kinder Geschenkbox">
+<div class="gallery-overlay">
+<h3>Kinderbox</h3>
+<p>Spielerisch und pädagogisch wertvoll</p>
+</div>
+</div>
+<div class="gallery-item">
+<div class="price-tag">Ab €99</div>
+<img src=".\WeddingProposal\Adventure.jpg" alt="Abenteuer Geschenkbox">
+<div class="gallery-overlay">
+<h3>Abenteuerbox</h3>
+<p>Für Reiseliebhaber und Entdecker</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="testimonials" id="testimonials">
+<div class="container">
+<h2 class="section-title">Was unsere Kunden sagen</h2>
+<div class="testimonial-slider">
+<div class="testimonial active shadow-box">
+<p class="testimonial-text">Ich hatte keine Zeit für Geschenkesuche - Boxology hat mich gerettet! Die Box war perfekt auf meinen Vater abgestimmt und er war völlig begeistert. Die Qualität der Produkte und die persönliche Note haben mich überzeugt.</p>
+<span class="testimonial-author">Sarah M.</span>
+<span class="testimonial-role">Berlin</span>
+</div>
+<div class="testimonial shadow-box">
+<p class="testimonial-text">Alle wollten wissen, woher ich diese Box habe! Die persönlichen Details haben meine Freundin zu Tränen gerührt. Es war mehr als nur ein Geschenk - es war eine Erinnerung, die bleibt.</p>
+<span class="testimonial-author">Thomas K.</span>
+<span class="testimonial-role">München</span>
+</div>
+<div class="testimonial shadow-box">
+<p class="testimonial-text">Endlich ein Geschenk, das nicht im Schrank landet. Die Box wird bei uns regelmäßig genutzt und erinnert uns an besondere Momente. Der Kundenservice war ausgezeichnet und hat sogar eine persönliche Nachricht beigefügt.</p>
+<span class="testimonial-author">Familie Schneider</span>
+<span class="testimonial-role">Hamburg</span>
+</div>
+<div class="slider-controls">
+<div class="slider-dot active" data-slide="0"></div>
+<div class="slider-dot" data-slide="1"></div>
+<div class="slider-dot" data-slide="2"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="quiz" class="quiz-section">
+<div class="container">
+<h2 class="section-title" style="text-align: center; width: 100%;">Gestalte deine perfekte Box</h2>
+<p style="text-align: center; margin: 0 auto 50px; color: var(--gold-light); max-width: 600px;">Beantworte ein paar Fragen und wir erstellen eine einzigartige Geschenkbox, die perfekt auf den Beschenkten abgestimmt ist.</p>
+<div class="quiz-container shadow-box">
+<div class="quiz-progress">
+<div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<!-- Step 1: Recipient -->
+<div class="quiz-step active" id="step1">
+<h3 class="quiz-question">Für wen ist die Box gedacht?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="partner">Partner/Ehepartner</div>
+<div class="quiz-option" data-value="eltern">Eltern/Großeltern</div>
+<div class="quiz-option" data-value="kind">Kind/Enkelkind</div>
+<div class="quiz-option" data-value="freund">Freund/Freundin</div>
+<div class="quiz-option" data-value="kollege">Kollege/Kollegin</div>
+<div class="quiz-option" data-value="geschwister">Geschwister</div>
+<div class="quiz-option" data-value="andere">Andere Person</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 2: Age -->
+<div class="quiz-step" id="step2">
+<h3 class="quiz-question">Wie alt ist die Person?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="under12">Unter 12</div>
+<div class="quiz-option" data-value="12-18">12-18</div>
+<div class="quiz-option" data-value="18-30">18-30</div>
+<div class="quiz-option" data-value="30-50">30-50</div>
+<div class="quiz-option" data-value="50-70">50-70</div>
+<div class="quiz-option" data-value="over70">Über 70</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 3: Gender -->
+<div class="quiz-step" id="step3">
+<h3 class="quiz-question">Geschlecht der Person?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="weiblich">Weiblich</div>
+<div class="quiz-option" data-value="maennlich">Männlich</div>
+<div class="quiz-option" data-value="divers">Divers</div>
+<div class="quiz-option" data-value="egal">Spielt keine Rolle</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 4: Relationship -->
+<div class="quiz-step" id="step4">
+<h3 class="quiz-question">Wie ist deine Beziehung zu der Person?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="familie">Familienmitglied</div>
+<div class="quiz-option" data-value="partner">Partner/Partnerin</div>
+<div class="quiz-option" data-value="freund">Freund/Freundin</div>
+<div class="quiz-option" data-value="kollege">Kollege/Kollegin</div>
+<div class="quiz-option" data-value="geschaeftlich">Geschäftlich</div>
+<div class="quiz-option" data-value="andere">Andere Beziehung</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 5: Interests -->
+<div class="quiz-step" id="step5">
+<h3 class="quiz-question">Was sind ihre/seine Interessen?</h3>
+<p style="text-align: center; margin-bottom: 20px; color: var(--gold-light);">Suche nach Hobbys oder wähle aus unseren Vorschlägen (Mehrfachauswahl möglich)</p>
+
+<div class="interest-search-container" style="margin-bottom: 30px;">
+  <input type="text" id="interest-search" placeholder="Hobbys suchen..." style="width: 100%; padding: 12px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
+</div>
+
+<div class="quiz-options" id="interest-options">
+  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen</div>
+  <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen">Kochen & Backen</div>
+  <div class="quiz-option" data-value="sport" data-categories="fitness,aktiv,gesundheit">Sport & Fitness</div>
+  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur,lernen">Lesen</div>
+  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte,hören">Musik</div>
+  <div class="quiz-option" data-value="kunst" data-categories="kreativ,malen,design">Kunst & Kreativität</div>
+  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa,selbstfürsorge">Wellness</div>
+  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen,outdoor">Garten & Natur</div>
+  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik,innovation">Technik & Gadgets</div>
+  <div class="quiz-option" data-value="mode" data-categories="stil,kleidung,schönheit">Mode & Styling</div>
+  <div class="quiz-option" data-value="gaming" data-categories="videospiele,esport,computer">Gaming</div>
+  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera,kreativ">Fotografie</div>
+  <div class="quiz-option" data-value="handwerk" data-categories="basteln,werken,DIY">Handwerken</div>
+  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur,liebe">Tiere</div>
+  <div class="quiz-option" data-value="film" data-categories="kino,serien,unterhaltung">Filme & Serien</div>
+  <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit,lernen">Geschichte</div>
+  <div class="quiz-option" data-value="wissenschaft" data-categories="forschung,technologie,lernen">Wissenschaft</div>
+  <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik,mechanik">Autos & Fahrzeuge</div>
+  <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft,objekte">Sammeln</div>
+  <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst,ausdruck">Tanzen</div>
+</div>
+
+<div class="selected-interests" id="selected-interests" style="margin-top: 30px; display: none;">
+  <h4 style="margin-bottom: 15px; color: var(--gold);">Ausgewählte Interessen:</h4>
+  <div id="selected-tags" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+</div>
+
+<div class="quiz-navigation">
+  <button class="btn btn-secondary prev-step">Zurück</button>
+  <button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div> <!-- Closing div for step5 -->
+
+<!-- Step 6: Occasion -->
+<div class="quiz-step" id="step6">
+<h3 class="quiz-question">Anlass?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="geburtstag">Geburtstag</div>
+<div class="quiz-option" data-value="weihnachten">Weihnachten</div>
+<div class="quiz-option" data-value="hochzeit">Hochzeit/Jubiläum</div>
+<div class="quiz-option" data-value="danke">Dankeschön</div>
+<div class="quiz-option" data-value="valentinstag">Valentinstag</div>
+<div class="quiz-option" data-value="muttertag">Muttertag/Vatertag</div>
+<div class="quiz-option" data-value="sonstiges">Einfach so</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 7: Budget -->
+<div class="quiz-step" id="step7">
+<h3 class="quiz-question">Welches Budget hast du?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="50">Unter €50</div>
+<div class="quiz-option" data-value="50-100">€50-€100</div>
+<div class="quiz-option" data-value="100-150">€100-€150</div>
+<div class="quiz-option" data-value="150-200">€150-€200</div>
+<div class="quiz-option" data-value="200">Über €200</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 8: Style -->
+<div class="quiz-step" id="step8">
+<h3 class="quiz-question">Welcher Stil passt am besten?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="modern">Modern/Minimalistisch</div>
+<div class="quiz-option" data-value="klassisch">Klassisch/Elegant</div>
+<div class="quiz-option" data-value="rustikal">Rustikal/Natürlich</div>
+<div class="quiz-option" data-value="spielerisch">Spielerisch/Farbenfroh</div>
+<div class="quiz-option" data-value="luxus">Luxuriös/Hochwertig</div>
+<div class="quiz-option" data-value="individuell" style="
+    background: linear-gradient(45deg, var(--gold), #f5e6b3, var(--gold));
+    color: var(--navy); 
+    font-weight: 700; 
+    border: 2px solid var(--gold);
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+">Überrasche mich
+<div class="selection-circle" style="
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid var(--gold);
+    border-radius: 50px;
+    opacity: 0;
+    transition: all 0.3s;
+    animation: pulseCircle 2s infinite;
+    z-index: -1;
+"></div>
+</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 9: Contact Info -->
+<div class="quiz-step" id="step9">
+<h3 class="quiz-question">Deine Kontaktdaten</h3>
+<form id="quiz-form" class="quiz-form">
+<div>
+<input type="text" placeholder="Dein Name" required>
+</div>
+<div>
+<input type="email" placeholder="Deine E-Mail" required>
+</div>
+<div>
+<input type="tel" placeholder="Deine Telefonnummer (optional)">
+</div>
+<div>
+<textarea placeholder="Besondere Wünsche oder Anmerkungen..."></textarea>
+</div>
+</form>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary" id="submit-quiz" onclick="submitQuiz()">Box erstellen</button>
+</div>
+</div>
+
+<!-- Step 10: Confirmation -->
+<div class="quiz-step" id="step10">
+<div style="text-align: center;">
+<div class="confirmation-icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<h3 class="quiz-question">Vielen Dank für deine Anfrage!</h3>
+<p style="margin-bottom: 30px; font-size: 1.1rem; color: var(--gold-light);">Wir erstellen jetzt deine personalisierte Box und melden uns innerhalb von 24 Stunden mit einem Entwurf bei dir. Du erhältst eine E-Mail mit weiteren Details.</p>
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn btn-primary">Zur Startseite</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="contact">
+<div class="container">
+<div class="footer-content">
+<div class="footer-column">
+<div class="footer-logo">Boxology</div>
+<p class="footer-about">Wir kreieren einzigartige, personalisierte Geschenkboxen, die Geschichten erzählen und bleibende Erinnerungen schaffen. Jede Box wird mit Liebe und Sorgfalt in Österreich handgefertigt.</p>
+<div class="social-links">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-pinterest-p"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h3>Links</h3>
+<ul class="footer-links">
+<li><a href="#">Startseite</a></li>
+<li><a href="#gallery">Unsere Boxen</a></li>
+<li><a href="#how-it-works">Über uns</a></li>
+<li><a href="#testimonials">Kundenstimmen</a></li>
+<li><a href="#quiz">Box gestalten</a></li>
+<li><a href="#">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Rechtliches</h3>
+<ul class="footer-links">
+<li><a href="#" onclick="showLegalModal('AGB', 'agb-content')">AGB</a></li>
+<li><a href="#" onclick="showLegalModal('Datenschutz', 'datenschutz-content')">Datenschutz</a></li>
+<li><a href="#" onclick="showLegalModal('Impressum', 'impressum-content')">Impressum</a></li>
+<li><a href="#" onclick="showLegalModal('Widerrufsrecht', 'widerrufsrecht-content')">Widerrufsrecht</a></li>
+<li><a href="#" onclick="showLegalModal('Versand & Lieferung', 'versand-content')">Versand & Lieferung</a></li>
+<li><a href="#" onclick="showLegalModal('Zahlungsmethoden', 'zahlungsmethoden-content')">Zahlungsmethoden</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Kontakt</h3>
+<div class="footer-contact-item">
+<i class="fas fa-envelope footer-contact-icon"></i>
+<span>hallo@boxology.de</span>
+</div>
+<div class="footer-contact-item">
+<i class="fas fa-phone footer-contact-icon"></i>
+<span>+49 123 456789</span>
+</div>
+<div class="footer-contact-item">
+<i class="fas fa-map-marker-alt footer-contact-icon"></i>
+<span>Musterstraße 1, 10115 Berlin</span>
+</div>
+<div class="footer-contact-item">
+<i class="fas fa-clock footer-contact-icon"></i>
+<span>Mo-Fr: 9-18 Uhr</span>
+</div>
+
+<h3 style="margin-top: 30px;">Newsletter</h3>
+<form class="newsletter-form">
+<input type="email" placeholder="Deine E-Mail-Adresse" required>
+<button type="submit" onclick="subscribeNewsletter(event)">Anmelden</button>
+</form>
+</div>
+</div>
+<div class="copyright">
+<p>&copy; 2023 Boxology. Alle Rechte vorbehalten.</p>
+</div>
+</div>
+</footer>
+
+<div class="back-to-top" id="backToTop">
+<i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Legal Modals -->
+<div id="legal-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background-color: white; padding: 30px; max-width: 800px; border-radius: 10px; max-height: 90vh; overflow-y: auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h2 style="color: var(--navy);" id="modal-title">Modal Title</h2>
+      <button onclick="hideLegalModal()" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+    </div>
+    <div style="color: var(--navy);" id="modal-content">
+      <!-- Content will be loaded here -->
+    </div>
+  </div>
+</div>
+
+<!-- Content for each legal document -->
+<div id="agb-content" style="display: none;">
+  <h3>Allgemeine Geschäftsbedingungen</h3>
+  <p>Hier finden Sie unsere Allgemeinen Geschäftsbedingungen...</p>
+  <!-- Add full AGB content here -->
+</div>
+
+<div id="datenschutz-content" style="display: none;">
+  <h3>Datenschutzerklärung</h3>
+  <p>Hier finden Sie unsere Datenschutzbestimmungen...</p>
+  <!-- Add full privacy policy content here -->
+</div>
+
+<div id="impressum-content" style="display: none;">
+  <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+  <p>Boxology GmbH<br>
+  Musterstraße 1<br>
+  10115 Berlin</p>
+  
+  <p><strong>Vertreten durch:</strong><br>
+  Geschäftsführer: Nico Vukasinovic </p>
+  
+  <p><strong>Kontakt:</strong><br>
+  Telefon: +43 670 6050757 <br>
+  E-Mail: buero@boxology.at</p>
+  
+  <p><strong>Registereintrag:</strong><br>
+  Eintragung im Handelsregister.<br>
+  Registergericht: Amtsgericht Berlin<br>
+  Registernummer: HRB 123456</p>
+  
+  <p><strong>Umsatzsteuer-ID:</strong><br>
+  Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz:<br>
+  DE123456789</p>
+  
+  <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+  Max Mustermann<br>
+  Musterstraße 1<br>
+  10115 Berlin</p>
+</div>
+
+<div id="widerrufsrecht-content" style="display: none;">
+  <h3>Widerrufsrecht</h3>
+  <p>Hier finden Sie Informationen zu Ihrem Widerrufsrecht...</p>
+  <!-- Add full cancellation policy content here -->
+</div>
+
+<div id="versand-content" style="display: none;">
+  <h3>Versand & Lieferung</h3>
+  <p>Hier finden Sie unsere Versandbedingungen...</p>
+  <!-- Add full shipping policy content here -->
+</div>
+
+<div id="zahlungsmethoden-content" style="display: none;">
+  <h3>Zahlungsmethoden</h3>
+  <p>Hier finden Sie Informationen zu unseren Zahlungsmethoden...</p>
+  <!-- Add full payment methods content here -->
+</div>
+
+<script>
+function showLegalModal(title, contentId) {
+  event.preventDefault();
+  const modal = document.getElementById('legal-modal');
+  const titleElement = document.getElementById('modal-title');
+  const contentElement = document.getElementById('modal-content');
+  
+  titleElement.textContent = title;
+  contentElement.innerHTML = document.getElementById(contentId).innerHTML;
+  
+  modal.style.display = 'flex';
+}
+
+function hideLegalModal() {
+  document.getElementById('legal-modal').style.display = 'none';
+}
+
+// Close modal when clicking outside content
+document.getElementById('legal-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    hideLegalModal();
+  }
+});
+
+// Testimonial Slider
+const testimonials = document.querySelectorAll('.testimonial');
+const dots = document.querySelectorAll('.slider-dot');
+let currentTestimonial = 0;
+let testimonialInterval;
+
+function showTestimonial(index) {
+testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+dots.forEach(dot => dot.classList.remove('active'));
+
+testimonials[index].classList.add('active');
+dots[index].classList.add('active');
+currentTestimonial = index;
+}
+
+function startTestimonialSlider() {
+clearInterval(testimonialInterval);
+testimonialInterval = setInterval(() => {
+currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+showTestimonial(currentTestimonial);
+}, 6000);
+}
+
+dots.forEach(dot => {
+dot.addEventListener('click', function() {
+const slideIndex = parseInt(this.getAttribute('data-slide'));
+showTestimonial(slideIndex);
+startTestimonialSlider();
+});
+});
+
+startTestimonialSlider();
+
+// Quiz Functionality
+const steps = document.querySelectorAll('.quiz-step');
+const nextButtons = document.querySelectorAll('.next-step');
+const prevButtons = document.querySelectorAll('.prev-step');
+const progressBar = document.getElementById('progress-bar');
+const quizOptions = document.querySelectorAll('.quiz-option');
+const submitButton = document.getElementById('submit-quiz');
+let currentStep = 0;
+const totalSteps = steps.length - 1; // excluding the thank you step
+
+// Store answers
+const answers = {
+recipient: '',
+age: '',
+gender: '',
+relationship: '',
+interests: [],
+occasion: '',
+budget: '',
+style: '',
+contact: {}
+};
+
+function updateProgress() {
+const progress = (currentStep / (totalSteps - 1)) * 100;
+progressBar.style.width = `${progress}%`;
+}
+
+function showStep(stepIndex) {
+steps.forEach(step => step.classList.remove('active'));
+steps[stepIndex].classList.add('active');
+currentStep = stepIndex;
+updateProgress();
+
+// Scroll to top of quiz container
+document.querySelector('.quiz-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Navigation functionality
+function updateNavigationButtons() {
+  const prevButtons = document.querySelectorAll('.prev-step');
+  const nextButtons = document.querySelectorAll('.next-step');
+  
+  prevButtons.forEach(button => {
+    button.style.display = currentStep === 0 ? 'none' : 'block';
+  });
+  
+  nextButtons.forEach(button => {
+    button.textContent = currentStep === totalSteps - 1 ? 'Abschicken' : 'Weiter';
+  });
+}
+
+document.addEventListener('click', function(e) {
+  // Handle next button clicks
+  if (e.target.classList.contains('next-step')) {
+    e.preventDefault();
+    const currentStepId = steps[currentStep].id;
+    let isValid = true;
+
+    // Validate current step
+    if (currentStepId === 'step1' && !answers.recipient) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step2' && !answers.age) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step3' && !answers.gender) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step4' && !answers.relationship) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step5' && answers.interests.length === 0) {
+      alert('Bitte wähle mindestens eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step6' && !answers.occasion) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step7' && !answers.budget) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step8' && !answers.style) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    }
+
+    if (isValid) {
+      if (currentStep === totalSteps - 1) {
+        // Get form data for the last step
+        const form = document.getElementById('quiz-form');
+        const nameInput = form.querySelector('input[type="text"]');
+        const emailInput = form.querySelector('input[type="email"]');
+
+        if (!nameInput.value.trim()) {
+          alert('Bitte gib deinen Namen ein');
+          return;
+        }
+
+        if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+          alert('Bitte gib eine gültige E-Mail-Adresse ein');
+          return;
+        }
+
+        // Save contact info
+        answers.contact = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          phone: form.querySelector('input[type="tel"]').value.trim(),
+          notes: form.querySelector('textarea').value.trim()
+        };
+
+        // Show thank you step
+        showStep(currentStep + 1);
+
+        // Reset form after delay
+        setTimeout(() => {
+          // Reset the entire quiz
+          document.querySelectorAll('.quiz-option').forEach(opt => {
+            opt.classList.remove('selected');
+          });
+          form.reset();
+          showStep(0);
+
+          // Reset answers object
+          answers.recipient = '';
+          answers.age = '';
+          answers.gender = '';
+          answers.relationship = '';
+          answers.interests = [];
+          answers.occasion = '';
+          answers.budget = '';
+          answers.style = '';
+          answers.contact = {};
+        }, 10000);
+      } else {
+        showStep(currentStep + 1);
+      }
+    }
+  }
+
+  // Handle back button clicks
+  if (e.target.classList.contains('prev-step')) {
+    e.preventDefault();
+    showStep(currentStep - 1);
+  }
+});
+
+// Update buttons when step changes
+function showStep(stepIndex) {
+  steps.forEach(step => step.classList.remove('active'));
+  steps[stepIndex].classList.add('active');
+  currentStep = stepIndex;
+  updateProgress();
+  updateNavigationButtons();
+  
+  // Scroll to top of quiz container
+  document.querySelector('.quiz-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Initialize buttons on load
+updateNavigationButtons();
+
+// Interest search functionality
+const interestSearch = document.getElementById('interest-search');
+const interestOptions = document.querySelectorAll('#interest-options .quiz-option');
+const selectedInterestsContainer = document.getElementById('selected-interests');
+const selectedTagsContainer = document.getElementById('selected-tags');
+
+// Search filter
+interestSearch.addEventListener('input', function() {
+  const searchTerm = this.value.toLowerCase();
+  
+  interestOptions.forEach(option => {
+    const text = option.textContent.toLowerCase();
+    const categories = option.getAttribute('data-categories');
+    const matchesSearch = text.includes(searchTerm) || 
+                         (categories && categories.includes(searchTerm));
+    
+    option.style.display = matchesSearch ? 'block' : 'none';
+  });
+});
+
+// Handle quiz option selection
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('quiz-option')) {
+    const option = e.target;
+    const questionId = option.closest('.quiz-step').id;
+    const value = option.getAttribute('data-value');
+
+    if (questionId === 'step5') {
+      // Multiple selection for interests
+      option.classList.toggle('selected');
+      
+      if (option.classList.contains('selected')) {
+        if (!answers.interests.includes(value)) {
+          answers.interests.push(value);
+        }
+      } else {
+        answers.interests = answers.interests.filter(item => item !== value);
+      }
+      updateSelectedInterests();
+    } else {
+      // Single selection for other steps
+      document.querySelectorAll(`#${questionId} .quiz-option`).forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      option.classList.add('selected');
+      
+      // Store the answer
+      switch(questionId) {
+        case 'step1': answers.recipient = value; break;
+        case 'step2': answers.age = value; break;
+        case 'step3': answers.gender = value; break;
+        case 'step4': answers.relationship = value; break;
+        case 'step6': answers.occasion = value; break;
+        case 'step7': answers.budget = value; break;
+        case 'step8': answers.style = value; break;
+      }
+    }
+  }
+});
+
+function updateSelectedInterests() {
+  selectedTagsContainer.innerHTML = '';
+  
+  if (answers.interests.length > 0) {
+    selectedInterestsContainer.style.display = 'block';
+    
+    answers.interests.forEach(interest => {
+      const option = document.querySelector(`.quiz-option[data-value="${interest}"]`);
+      if (option) {
+        const tag = document.createElement('div');
+        tag.className = 'quiz-option selected';
+        tag.textContent = option.textContent;
+        tag.style.margin = '0';
+        tag.style.cursor = 'default';
+        selectedTagsContainer.appendChild(tag);
+      }
+    });
+  } else {
+    selectedInterestsContainer.style.display = 'none';
+  }
+}
+
+// New helper functions
+function validateAndProceed() {
+  // Validate current step before proceeding
+  let isValid = true;
+
+  if (currentStep === 0 && !answers.recipient) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 1 && !answers.age) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 2 && !answers.gender) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 3 && !answers.relationship) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 4 && answers.interests.length === 0) {
+    alert('Bitte wähle mindestens eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 5 && !answers.occasion) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 6 && !answers.budget) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 7 && !answers.style) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+
+  if (isValid) {
+    showStep(currentStep + 1);
+  }
+}
+
+function submitQuiz(e) {
+  e.preventDefault();
+
+  // Validate form
+  const form = document.getElementById('quiz-form');
+  const nameInput = form.querySelector('input[type="text"]');
+  const emailInput = form.querySelector('input[type="email"]');
+
+  if (!nameInput.value.trim()) {
+    alert('Bitte gib deinen Namen ein');
+    return;
+  }
+
+  if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+    alert('Bitte gib eine gültige E-Mail-Adresse ein');
+    return;
+  }
+
+  // Save contact info
+  answers.contact = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    phone: form.querySelector('input[type="tel"]').value.trim(),
+    notes: form.querySelector('textarea').value.trim()
+  };
+
+  // In a real app, you would send this data to your server
+  console.log('Collected answers:', answers);
+
+  // Show thank you step
+  showStep(currentStep + 1);
+
+  // Reset form after delay
+  setTimeout(() => {
+    // Reset the entire quiz
+    document.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.classList.remove('selected');
+    });
+    form.reset();
+    showStep(0);
+
+    // Reset answers object
+    answers.recipient = '';
+    answers.age = '';
+    answers.gender = '';
+    answers.relationship = '';
+    answers.interests = [];
+    answers.occasion = '';
+    answers.budget = '';
+    answers.style = '';
+    answers.contact = {};
+  }, 10000);
+}
+
+function subscribeNewsletter(e) {
+  e.preventDefault();
+  const email = e.target.closest('form').querySelector('input[type="email"]').value;
+  if (!email || !email.includes('@')) {
+    alert('Bitte gib eine gültige E-Mail-Adresse ein');
+    return;
+  }
+  alert('Vielen Dank für deine Anmeldung!');
+  e.target.closest('form').reset();
+}
+
+
+// Cart functionality
+const cartCount = document.querySelector('.cart-count');
+let cartItems = 0;
+
+// In a real app, this would be triggered when adding a product
+function updateCart() {
+cartCount.textContent = cartItems;
+if (cartItems > 0) {
+cartCount.style.display = 'flex';
+} else {
+cartCount.style.display = 'none';
+}
+}
+
+// Simulate adding to cart
+setTimeout(() => {
+cartItems = 1;
+updateCart();
+}, 3000);
+
+// Back to top button
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.add('visible');
+} else {
+backToTopButton.classList.remove('visible');
+}
+});
+
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 100,
+behavior: 'smooth'
+});
+}
+});
+});
+
+// Animation on scroll
+function animateOnScroll() {
+const elements = document.querySelectorAll('.fade-in');
+
+elements.forEach(element => {
+const elementPosition = element.getBoundingClientRect().top;
+const screenPosition = window.innerHeight / 1.3;
+
+if (elementPosition < screenPosition) {
+element.style.opacity = '1';
+}
+});
+}
+
+// Set initial state for fade-in elements
+document.querySelectorAll('.fade-in').forEach(el => {
+el.style.opacity = '0';
+el.style.transition = 'opacity 0.8s ease-out';
+});
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+</script>
+</body>
+</html>
+
