@@ -1581,7 +1581,7 @@ padding: 14px !important;
 </form>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
-<button class="btn btn-primary" id="submit-quiz" onclick="submitQuiz()">Box erstellen</button>
+<button class="btn btn-primary" id="submit-quiz" onclick="submitQuiz(event)">Box erstellen</button>
 </div>
 </div>
 
@@ -1615,9 +1615,9 @@ padding: 14px !important;
 <div class="footer-column">
 <h3>Links</h3>
 <ul class="footer-links">
-<li><a href="#">Startseite</a></li>
-<li><a href="#gallery">Unsere Boxen</a></li>
-<li><a href="#how-it-works">Über uns</a></li>
+<li><a href="Homepage.html">Startseite</a></li>
+<li><a href="#Gallary.html">Unsere Boxen</a></li>
+<li><a href="#About.html">Über uns</a></li>
 <li><a href="#testimonials">Kundenstimmen</a></li>
 <li><a href="#quiz">Box gestalten</a></li>
 <li><a href="#">FAQ</a></li>
@@ -2124,8 +2124,36 @@ function submitQuiz(e) {
     notes: form.querySelector('textarea').value.trim()
   };
 
-  // In a real app, you would send this data to your server
-  console.log('Collected answers:', answers);
+  // Prepare email data
+  const emailData = {
+    to: 'boxology.help@gmail.com',
+    subject: 'Neue Box-Anfrage von ' + answers.contact.name,
+    body: `Neue Box-Anfrage erhalten:
+    
+Name: ${answers.contact.name}
+Email: ${answers.contact.email}
+Telefon: ${answers.contact.phone || 'Keine Angabe'}
+
+Empfänger: ${answers.recipient}
+Alter: ${answers.age}
+Geschlecht: ${answers.gender}
+Beziehung: ${answers.relationship}
+Interessen: ${answers.interests.join(', ')}
+Anlass: ${answers.occasion}
+Budget: ${answers.budget}
+Stil: ${answers.style}
+
+Besondere Wünsche:
+${answers.contact.notes || 'Keine besonderen Wünsche'}
+
+Gesammelte Antworten:
+${JSON.stringify(answers, null, 2)}
+`
+  };
+
+  // Send email using mailto link (will open user's email client)
+  const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
+  window.open(mailtoLink, '_blank');
 
   // Show thank you step
   showStep(currentStep + 1);
