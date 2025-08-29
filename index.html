@@ -13,6 +13,9 @@
 --navy-light: #1a3a6a;
 --gold: #d4af37;
 --gold-light: #f5e6b3;
+--platinum: #e5e4e2;
+--diamond: #e6f2ff;
+--silk: #f8f4e6;
 --white: #ffffff;
 --light-gray: #f8f9fa;
 --gray: #6c757d;
@@ -32,6 +35,8 @@ font-family: 'Montserrat', sans-serif;
 color: var(--text-dark);
 line-height: 1.7;
 background-color: var(--white);
+background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+background-attachment: fixed;
 }
 
 h1, h2, h3, h4 {
@@ -53,6 +58,20 @@ padding: 40px;
 margin: 20px 0;
 border: 1px solid rgba(212, 175, 55, 0.3);
 color: var(--white);
+position: relative;
+overflow: hidden;
+}
+
+.shadow-box::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+opacity: 0.05;
+pointer-events: none;
 }
 
 .shadow-box-light {
@@ -79,7 +98,12 @@ font-weight: 600;
 
 /* Hero Section */
 .hero {
-background: linear-gradient(rgba(10, 35, 66, 0.9), rgba(10, 35, 66, 0.9)), url('https://www.istockphoto.com/de/foto/gua-sha-gesicht-stein-und-gesicht-%C3%B6l-stillleben-modernes-stillleben-gm1462035907-495732290?searchscope=image%2Cfilm');
+background: 
+    linear-gradient(135deg, rgba(10, 35, 66, 0.95) 0%, rgba(10, 35, 66, 0.85) 100%),
+    url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
 color: var(--white);
 }
 
@@ -471,6 +495,24 @@ transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
 .gallery-item:hover img {
 transform: scale(1.1);
+filter: brightness(1.1);
+}
+
+.gallery-item::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, rgba(10,35,66,0.3), rgba(212,175,55,0.1));
+z-index: 1;
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.gallery-item:hover::before {
+opacity: 1;
 }
 
 .gallery-overlay {
@@ -498,17 +540,102 @@ font-size: 1.4rem;
 position: absolute;
 top: 20px;
 right: 20px;
-background-color: var(--gold);
+background: linear-gradient(135deg, var(--gold), #f5e6b3);
 color: var(--navy);
-padding: 8px 15px;
-border-radius: 20px;
+padding: 10px 15px;
+border-radius: 30px;
 font-weight: bold;
 font-size: 14px;
 z-index: 3;
-box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 transform: translateY(-20px);
 opacity: 0;
 transition: all 0.4s;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.price-tag .price {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.price-tag .discount {
+    background: var(--navy);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.premium-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.7);
+    color: var(--gold);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 12px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.premium-badge i {
+    margin-right: 5px;
+}
+
+.gallery-cta {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.gallery-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--gold-light);
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin-top: 10px;
+    animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+    0% { height: 50px; opacity: 1; }
+    50% { height: 70px; opacity: 0.7; }
+    100% { height: 50px; opacity: 1; }
 }
 
 .gallery-item:hover .price-tag {
@@ -1236,12 +1363,20 @@ padding: 14px !important;
 
 <section class="hero">
 <div class="hero-content">
-<h1 class="fade-in">Für Familien, die feiern – und schenken wollen, was bleibt.</h1>
-<p class="fade-in delay-1">Personalisierte Geschenkboxen mit Herz, Stil und System.</p>
+<h1 class="fade-in">Luxuriöse Geschenkboxen - <span style="color: var(--gold);">einzigartig wie Ihre Geschichte</span></h1>
+<p class="fade-in delay-1">Handgefertigte Premium-Boxen, maßgeschneidert für unvergessliche Momente</p>
 <div class="cta-buttons fade-in delay-2">
-<button onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})" class="btn btn-primary">Jetzt deine Box gestalten</button>
-<button onclick="document.querySelector('#gallery').scrollIntoView({behavior: 'smooth'})" class="btn btn-secondary">Ideen entdecken</button>
+<button onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})" class="btn btn-primary">
+    <i class="fas fa-gem" style="margin-right: 10px;"></i> Jetzt Box entwerfen
+</button>
+<button onclick="document.querySelector('#gallery').scrollIntoView({behavior: 'smooth'})" class="btn btn-secondary">
+    <i class="fas fa-crown" style="margin-right: 10px;"></i> Kollektion entdecken
+</button>
 </div>
+</div>
+<div class="hero-scroll-indicator">
+    <span>Scrollen</span>
+    <div class="scroll-line"></div>
 </div>
 </section>
 
@@ -1251,12 +1386,14 @@ padding: 14px !important;
 <div class="steps">
 <div class="step fade-in shadow-box">
 <div class="step-icon">
-<i class="fas fa-question-circle"></i>
+    <div class="icon-circle">
+        <i class="fas fa-hand-holding-heart"></i>
+    </div>
 </div>
-<h3>Fragen beantworten</h3>
-<p>Erzählen Sie uns etwas über den Beschenkten - Alter, Hobbys und Ihre Beziehung.</p>
+<h3>Persönliche Beratung</h3>
+<p>Unser Expertenteam erstellt mit Ihnen gemeinsam ein Konzept für Ihre perfekte Geschenkbox.</p>
 <button class="step-button" onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})">
-    Jetzt starten <i class="fas fa-arrow-right"></i>
+    <i class="fas fa-gem"></i> Beratung anfordern
 </button>
 </div>
 <div class="step fade-in delay-1 shadow-box">
@@ -1289,11 +1426,18 @@ padding: 14px !important;
 <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">Jede Box ist ein Unikat, handgefertigt mit Liebe zum Detail und persönlicher Note.</p>
 <div class="gallery-grid">
 <div class="gallery-item">
-<div class="price-tag">Ab €89</div>
-<img src=".\WeddingProposal\FamilyGift.jpg" alt="Familien Geschenkbox">
+<div class="price-tag">
+    <span class="price">Ab €189</span>
+    <span class="discount">-10%</span>
+</div>
+<div class="premium-badge">
+    <i class="fas fa-crown"></i> Premium
+</div>
+<img src=".\WeddingProposal\FamilyGift.jpg" alt="Luxus Familien Geschenkbox">
 <div class="gallery-overlay">
-<h3>Familienbox</h3>
-<p>Perfekt für Eltern und Großeltern</p>
+<h3>Signature Family Collection</h3>
+<p>Handgefertigte Premium-Box mit personalisierten Familienerinnerungen</p>
+<button class="gallery-cta">Details ansehen</button>
 </div>
 </div>
 <div class="gallery-item">
@@ -1398,19 +1542,43 @@ padding: 14px !important;
 <!-- Step 2: Age -->
 <div class="quiz-step" id="step2">
 <h3 class="quiz-question">Wie alt ist die Person?</h3>
-<div class="quiz-options">
-<div class="quiz-option" data-value="under12">Unter 12</div>
-<div class="quiz-option" data-value="12-18">12-18</div>
-<div class="quiz-option" data-value="18-30">18-30</div>
-<div class="quiz-option" data-value="30-50">30-50</div>
-<div class="quiz-option" data-value="50-70">50-70</div>
-<div class="quiz-option" data-value="over70">Über 70</div>
+
+<div style="margin: 40px 0; text-align: center;">
+    <p style="margin-bottom: 20px; color: var(--gold-light);">Oder wähle das genaue Alter:</p>
+    <div style="max-width: 400px; margin: 0 auto;">
+        <input type="range" id="exact-age-slider" min="1" max="100" value="30" style="width: 100%;">
+        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+            <span>1</span>
+            <span id="exact-age-value" style="font-weight: bold;">30</span>
+            <span>100</span>
+        </div>
+    </div>
 </div>
+
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
 <button class="btn btn-primary next-step">Weiter</button>
 </div>
 </div>
+
+<script>
+// Age slider functionality
+const ageSlider = document.getElementById('exact-age-slider');
+const ageValue = document.getElementById('exact-age-value');
+
+ageSlider.addEventListener('input', function() {
+    ageValue.textContent = this.value;
+    // Store exact age in answers object
+    answers.exactAge = this.value;
+});
+
+// Update answers when age range is selected
+document.querySelectorAll('#step2 .quiz-option').forEach(option => {
+    option.addEventListener('click', function() {
+        answers.exactAge = null; // Clear exact age when range is selected
+    });
+});
+</script>
 
 <!-- Step 3: Gender -->
 <div class="quiz-step" id="step3">
@@ -1825,6 +1993,7 @@ const totalSteps = steps.length - 1; // excluding the thank you step
 const answers = {
 recipient: '',
 age: '',
+exactAge: null,
 gender: '',
 relationship: '',
 interests: [],
@@ -1874,8 +2043,8 @@ document.addEventListener('click', function(e) {
     if (currentStepId === 'step1' && !answers.recipient) {
       alert('Bitte wähle eine Option aus');
       isValid = false;
-    } else if (currentStepId === 'step2' && !answers.age) {
-      alert('Bitte wähle eine Option aus');
+    } else if (currentStepId === 'step2' && !answers.age && !answers.exactAge) {
+      alert('Bitte wähle eine Altersgruppe oder gib das genaue Alter an');
       isValid = false;
     } else if (currentStepId === 'step3' && !answers.gender) {
       alert('Bitte wähle eine Option aus');
