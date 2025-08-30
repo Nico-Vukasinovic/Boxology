@@ -1541,9 +1541,6 @@ padding: 14px !important;
 <div class="quiz-option" data-value="geschwister">Geschwister</div>
 <div class="quiz-option" data-value="andere">Andere Person</div>
 </div>
-<div id="other-recipient-container" style="display: none; margin-top: 20px;">
-  <input type="text" id="other-recipient-input" placeholder="Bitte Person beschreiben..." style="width: 100%; padding: 12px 15px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
-</div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
 <button class="btn btn-primary next-step">Weiter</button>
@@ -1597,6 +1594,7 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-options">
 <div class="quiz-option" data-value="weiblich">Weiblich</div>
 <div class="quiz-option" data-value="maennlich">Männlich</div>
+<div class="quiz-option" data-value="divers">Divers</div>
 <div class="quiz-option" data-value="egal">Spielt keine Rolle</div>
 </div>
 <div class="quiz-navigation">
@@ -1615,9 +1613,6 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-option" data-value="geschaeftlich">Geschäftlich</div>
 <div class="quiz-option" data-value="andere">Andere Beziehung</div>
 </div>
-<div id="other-relationship-container" style="display: none; margin-top: 20px;">
-  <input type="text" id="other-relationship-input" placeholder="Bitte Beziehung beschreiben..." style="width: 100%; padding: 12px 15px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
-</div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
 <button class="btn btn-primary next-step">Weiter</button>
@@ -1634,45 +1629,26 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 </div>
 
 <div class="quiz-options" id="interest-options">
-  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen & Kultur</div>
+  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen</div>
   <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen">Kochen & Backen</div>
-  <div class="quiz-option" data-value="wein" data-categories="küche,genuss">Wein & Genuss</div>
-  <div class="quiz-option" data-value="fitness" data-categories="sport,gesundheit">Fitness & Workouts</div>
-  <div class="quiz-option" data-value="yoga" data-categories="sport,wellness">Yoga & Meditation</div>
-  <div class="quiz-option" data-value="wandern" data-categories="sport,natur">Wandern & Outdoor</div>
-  <div class="quiz-option" data-value="radfahren" data-categories="sport,transport">Radfahren</div>
-  <div class="quiz-option" data-value="schwimmen" data-categories="sport,gesundheit">Schwimmen</div>
-  <div class="quiz-option" data-value="golf" data-categories="sport,freizeit">Golf</div>
-  <div class="quiz-option" data-value="tennis" data-categories="sport,teamsport">Tennis</div>
-  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur,lernen">Lesen & Literatur</div>
-  <div class="quiz-option" data-value="schreiben" data-categories="kreativ,literatur">Schreiben</div>
-  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte,hören">Musik & Konzerte</div>
-  <div class="quiz-option" data-value="instrumente" data-categories="musik,kreativ">Instrumente spielen</div>
-  <div class="quiz-option" data-value="malen" data-categories="kunst,kreativ">Malen & Zeichnen</div>
-  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera,kreativ">Fotografie</div>
-  <div class="quiz-option" data-value="basteln" data-categories="handwerk,kreativ">Basteln & DIY</div>
-  <div class="quiz-option" data-value="nähen" data-categories="handwerk,mode">Nähen & Stricken</div>
-  <div class="quiz-option" data-value="holzwerken" data-categories="handwerk,kreativ">Holzarbeiten</div>
-  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen,outdoor">Garten & Pflanzen</div>
-  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur,liebe">Tiere & Haustiere</div>
+  <div class="quiz-option" data-value="sport" data-categories="fitness,aktiv,gesundheit">Sport & Fitness</div>
+  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur,lernen">Lesen</div>
+  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte,hören">Musik</div>
+  <div class="quiz-option" data-value="kunst" data-categories="kreativ,malen,design">Kunst & Kreativität</div>
+  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa,selbstfürsorge">Wellness</div>
+  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen,outdoor">Garten & Natur</div>
   <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik,innovation">Technik & Gadgets</div>
-  <div class="quiz-option" data-value="programmieren" data-categories="technik,computer">Programmieren</div>
-  <div class="quiz-option" data-value="gaming" data-categories="videospiele,esport,computer">Gaming & eSports</div>
   <div class="quiz-option" data-value="mode" data-categories="stil,kleidung,schönheit">Mode & Styling</div>
-  <div class="quiz-option" data-value="kosmetik" data-categories="schönheit,pflege">Kosmetik & Pflege</div>
+  <div class="quiz-option" data-value="gaming" data-categories="videospiele,esport,computer">Gaming</div>
+  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera,kreativ">Fotografie</div>
+  <div class="quiz-option" data-value="handwerk" data-categories="basteln,werken,DIY">Handwerken</div>
+  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur,liebe">Tiere</div>
   <div class="quiz-option" data-value="film" data-categories="kino,serien,unterhaltung">Filme & Serien</div>
-  <div class="quiz-option" data-value="theater" data-categories="kultur,unterhaltung">Theater & Oper</div>
   <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit,lernen">Geschichte</div>
   <div class="quiz-option" data-value="wissenschaft" data-categories="forschung,technologie,lernen">Wissenschaft</div>
-  <div class="quiz-option" data-value="astronomie" data-categories="wissenschaft,natur">Astronomie</div>
   <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik,mechanik">Autos & Fahrzeuge</div>
-  <div class="quiz-option" data-value="motorrad" data-categories="fahrzeuge,sport">Motorrad</div>
   <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft,objekte">Sammeln</div>
   <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst,ausdruck">Tanzen</div>
-  <div class="quiz-option" data-value="schach" data-categories="spiel,strategie">Schach & Strategiespiele</div>
-  <div class="quiz-option" data-value="puzzles" data-categories="spiel,kreativ">Puzzles & Rätsel</div>
-  <div class="quiz-option" data-value="sprachkurse" data-categories="lernen,kultur">Sprachen lernen</div>
-  <div class="quiz-option" data-value="philosophie" data-categories="lernen,kultur">Philosophie</div>
 </div>
 
 <div class="selected-interests" id="selected-interests" style="margin-top: 30px; display: none;">
@@ -1708,14 +1684,11 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-step" id="step7">
 <h3 class="quiz-question">Welches Budget hast du?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="50"> €50</div>
+<div class="quiz-option" data-value="50">Unter €50</div>
 <div class="quiz-option" data-value="50-100">€50-€100</div>
 <div class="quiz-option" data-value="100-150">€100-€150</div>
 <div class="quiz-option" data-value="150-200">€150-€200</div>
 <div class="quiz-option" data-value="200">Über €200</div>
-<div id="custom-budget-container" style="display: none; margin-top: 20px;">
-  <input type="number" id="custom-budget-input" placeholder="Genauer Betrag (z.B. 250)" min="200" style="width: 100%; padding: 12px 15px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
-</div>
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
@@ -2026,7 +1999,6 @@ const totalSteps = steps.length - 1; // excluding the thank you step
 // Store answers
 const answers = {
 recipient: '',
-otherRecipient: '',
 age: '',
 exactAge: null,
 gender: '',
@@ -2075,14 +2047,9 @@ document.addEventListener('click', function(e) {
     let isValid = true;
 
     // Validate current step
-    if (currentStepId === 'step1') {
-      if (!answers.recipient) {
-        alert('Bitte wähle eine Option aus');
-        isValid = false;
-      } else if (answers.recipient === 'andere' && !document.getElementById('other-recipient-input').value.trim()) {
-        alert('Bitte beschreibe die Person');
-        isValid = false;
-      }
+    if (currentStepId === 'step1' && !answers.recipient) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
     } else if (currentStepId === 'step2' && !answers.age && !answers.exactAge) {
       alert('Bitte geben Sie das genaue Alter an');
       isValid = false;
@@ -2202,55 +2169,8 @@ interestSearch.addEventListener('input', function() {
   });
 });
 
-// Handle quiz option selection and other recipient input
+// Handle quiz option selection
 document.addEventListener('click', function(e) {
-  // Handle custom budget input
-  if (e.target.classList.contains('quiz-option') && e.target.closest('#step7')) {
-    const customContainer = document.getElementById('custom-budget-container');
-    if (e.target.getAttribute('data-value') === '200') {
-      customContainer.style.display = 'block';
-      answers.budget = document.getElementById('custom-budget-input').value || '200+';
-    } else {
-      customContainer.style.display = 'none';
-    }
-  }
-  
-  // Update custom budget when typing
-  const customBudgetInput = document.getElementById('custom-budget-input');
-  if (customBudgetInput) {
-    customBudgetInput.addEventListener('input', function() {
-      if (this.value) {
-        answers.budget = this.value + '€';
-      } else {
-        answers.budget = '200+';
-      }
-    });
-  }
-  // Update other recipient input when typing
-  const otherRecipientInput = document.getElementById('other-recipient-input');
-  if (otherRecipientInput) {
-    otherRecipientInput.addEventListener('input', function() {
-      answers.otherRecipient = this.value.trim();
-    });
-  }
-  
-  // Update other relationship input when typing
-  const otherRelationshipInput = document.getElementById('other-relationship-input');
-  if (otherRelationshipInput) {
-    otherRelationshipInput.addEventListener('input', function() {
-      answers.otherRelationship = this.value.trim();
-    });
-  }
-  // Show/hide other recipient input
-  if (e.target.classList.contains('quiz-option') && e.target.closest('#step1')) {
-    const otherContainer = document.getElementById('other-recipient-container');
-    if (e.target.getAttribute('data-value') === 'andere') {
-      otherContainer.style.display = 'block';
-    } else {
-      otherContainer.style.display = 'none';
-      answers.otherRecipient = ''; // Clear other recipient when selecting different option
-    }
-  }
   if (e.target.classList.contains('quiz-option')) {
     const option = e.target;
     const questionId = option.closest('.quiz-step').id;
@@ -2277,24 +2197,10 @@ document.addEventListener('click', function(e) {
       
       // Store the answer
       switch(questionId) {
-        case 'step1': 
-          answers.recipient = value; 
-          if (value === 'andere') {
-            answers.otherRecipient = document.getElementById('other-recipient-input').value.trim();
-          }
-          break;
+        case 'step1': answers.recipient = value; break;
         case 'step2': answers.age = value; break;
         case 'step3': answers.gender = value; break;
-        case 'step4': 
-          answers.relationship = value;
-          const otherContainer = document.getElementById('other-relationship-container');
-          if (value === 'andere') {
-            otherContainer.style.display = 'block';
-          } else {
-            otherContainer.style.display = 'none';
-            answers.otherRelationship = ''; // Clear other relationship when selecting different option
-          }
-          break;
+        case 'step4': answers.relationship = value; break;
         case 'step6': answers.occasion = value; break;
         case 'step7': answers.budget = value; break;
         case 'step8': answers.style = value; break;
@@ -2394,41 +2300,31 @@ function submitQuiz(e) {
     notes: form.querySelector('textarea').value.trim()
   };
 
-  // Format the email body in a structured way
-  const emailBody = `
-📦 <strong>Neue Box-Anfrage</strong> 📦
-
-👤 <strong>Kontaktdaten:</strong>
-• Name: ${answers.contact.name}
-• Email: ${answers.contact.email}
-• Telefon: ${answers.contact.phone || 'Keine Angabe'}
-
-🎁 <strong>Box-Details:</strong>
-• Empfänger: ${answers.recipient === 'andere' ? answers.otherRecipient : answers.recipient}
-• Alter: ${answers.exactAge || answers.age} Jahre
-• Geschlecht: ${answers.gender}
-• Beziehung: ${answers.relationship === 'andere' ? answers.otherRelationship : answers.relationship}
-
-💡 <strong>Interessen:</strong>
-${answers.interests.map(interest => `• ${document.querySelector(`.quiz-option[data-value="${interest}"]`).textContent}`).join('\n')}
-
-🎉 <strong>Anlass:</strong> ${answers.occasion}
-
-💰 <strong>Budget:</strong> ${answers.budget.includes('€') ? answers.budget : answers.budget + '€'}
-
-🎨 <strong>Stil:</strong> ${answers.style}
-
-📝 <strong>Besondere Wünsche:</strong>
-${answers.contact.notes || 'Keine besonderen Wünsche'}
-
-⏱️ <strong>Zeitstempel:</strong> ${new Date().toLocaleString('de-DE')}
-`;
-
   // Prepare email data
   const emailData = {
     to: 'boxology.help@gmail.com',
-    subject: `📦 Neue Box-Anfrage von ${answers.contact.name}`,
-    body: emailBody
+    subject: 'Neue Box-Anfrage von ' + answers.contact.name,
+    body: `Neue Box-Anfrage erhalten:
+    
+Name: ${answers.contact.name}
+Email: ${answers.contact.email}
+Telefon: ${answers.contact.phone || 'Keine Angabe'}
+
+Empfänger: ${answers.recipient}
+Alter: ${answers.age}
+Geschlecht: ${answers.gender}
+Beziehung: ${answers.relationship}
+Interessen: ${answers.interests.join(', ')}
+Anlass: ${answers.occasion}
+Budget: ${answers.budget}
+Stil: ${answers.style}
+
+Besondere Wünsche:
+${answers.contact.notes || 'Keine besonderen Wünsche'}
+
+Gesammelte Antworten:
+${JSON.stringify(answers, null, 2)}
+`
   };
 
   // Send email using mailto link (will open user's email client)
@@ -2450,7 +2346,6 @@ ${answers.contact.notes || 'Keine besonderen Wünsche'}
     // Reset answers object
     answers.recipient = '';
     answers.age = '';
-    answers.exactAge = null;
     answers.gender = '';
     answers.relationship = '';
     answers.interests = [];
