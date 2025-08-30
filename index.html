@@ -1539,6 +1539,11 @@ padding: 14px !important;
 <div class="quiz-option" data-value="freund">Freund/Freundin</div>
 <div class="quiz-option" data-value="kollege">Kollege/Kollegin</div>
 <div class="quiz-option" data-value="geschwister">Geschwister</div>
+<div class="quiz-option" data-value="andere">Andere Person</div>
+</div>
+<div id="other-recipient-container" style="display: none; margin-top: 20px;">
+  <input type="text" id="other-recipient-input" placeholder="Bitte Person beschreiben..." style="width: 100%; padding: 12px 15px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
+</div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
 <button class="btn btn-primary next-step">Weiter</button>
@@ -1610,6 +1615,9 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-option" data-value="freund">Freund/Freundin</div>
 <div class="quiz-option" data-value="geschaeftlich">Geschäftlich</div>
 <div class="quiz-option" data-value="andere">Andere Beziehung</div>
+</div>
+<div id="other-relationship-container" style="display: none; margin-top: 20px;">
+  <input type="text" id="other-relationship-input" placeholder="Bitte Beziehung beschreiben..." style="width: 100%; padding: 12px 15px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
@@ -1687,6 +1695,9 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-option" data-value="100-150">€100-€150</div>
 <div class="quiz-option" data-value="150-200">€150-€200</div>
 <div class="quiz-option" data-value="200">Über €200</div>
+<div id="custom-budget-container" style="display: none; margin-top: 20px;">
+  <input type="number" id="custom-budget-input" placeholder="Genauer Betrag (z.B. 250)" min="200" style="width: 100%; padding: 12px 15px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
+</div>
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
@@ -1997,6 +2008,7 @@ const totalSteps = steps.length - 1; // excluding the thank you step
 // Store answers
 const answers = {
 recipient: '',
+otherRecipient: '',
 age: '',
 exactAge: null,
 gender: '',
@@ -2045,9 +2057,14 @@ document.addEventListener('click', function(e) {
     let isValid = true;
 
     // Validate current step
-    if (currentStepId === 'step1' && !answers.recipient) {
-      alert('Bitte wähle eine Option aus');
-      isValid = false;
+    if (currentStepId === 'step1') {
+      if (!answers.recipient) {
+        alert('Bitte wähle eine Option aus');
+        isValid = false;
+      } else if (answers.recipient === 'andere' && !document.getElementById('other-recipient-input').value.trim()) {
+        alert('Bitte beschreibe die Person');
+        isValid = false;
+      }
     } else if (currentStepId === 'step2' && !answers.age && !answers.exactAge) {
       alert('Bitte geben Sie das genaue Alter an');
       isValid = false;
@@ -2167,8 +2184,55 @@ interestSearch.addEventListener('input', function() {
   });
 });
 
-// Handle quiz option selection
+// Handle quiz option selection and other recipient input
 document.addEventListener('click', function(e) {
+  // Handle custom budget input
+  if (e.target.classList.contains('quiz-option') && e.target.closest('#step7')) {
+    const customContainer = document.getElementById('custom-budget-container');
+    if (e.target.getAttribute('data-value') === '200') {
+      customContainer.style.display = 'block';
+      answers.budget = document.getElementById('custom-budget-input').value || '200+';
+    } else {
+      customContainer.style.display = 'none';
+    }
+  }
+  
+  // Update custom budget when typing
+  const customBudgetInput = document.getElementById('custom-budget-input');
+  if (customBudgetInput) {
+    customBudgetInput.addEventListener('input', function() {
+      if (this.value) {
+        answers.budget = this.value + '€';
+      } else {
+        answers.budget = '200+';
+      }
+    });
+  }
+  // Update other recipient input when typing
+  const otherRecipientInput = document.getElementById('other-recipient-input');
+  if (otherRecipientInput) {
+    otherRecipientInput.addEventListener('input', function() {
+      answers.otherRecipient = this.value.trim();
+    });
+  }
+  
+  // Update other relationship input when typing
+  const otherRelationshipInput = document.getElementById('other-relationship-input');
+  if (otherRelationshipInput) {
+    otherRelationshipInput.addEventListener('input', function() {
+      answers.otherRelationship = this.value.trim();
+    });
+  }
+  // Show/hide other recipient input
+  if (e.target.classList.contains('quiz-option') && e.target.closest('#step1')) {
+    const otherContainer = document.getElementById('other-recipient-container');
+    if (e.target.getAttribute('data-value') === 'andere') {
+      otherContainer.style.display = 'block';
+    } else {
+      otherContainer.style.display = 'none';
+      answers.otherRecipient = ''; // Clear other recipient when selecting different option
+    }
+  }
   if (e.target.classList.contains('quiz-option')) {
     const option = e.target;
     const questionId = option.closest('.quiz-step').id;
@@ -2195,10 +2259,24 @@ document.addEventListener('click', function(e) {
       
       // Store the answer
       switch(questionId) {
-        case 'step1': answers.recipient = value; break;
+        case 'step1': 
+          answers.recipient = value; 
+          if (value === 'andere') {
+            answers.otherRecipient = document.getElementById('other-recipient-input').value.trim();
+          }
+          break;
         case 'step2': answers.age = value; break;
         case 'step3': answers.gender = value; break;
-        case 'step4': answers.relationship = value; break;
+        case 'step4': 
+          answers.relationship = value;
+          const otherContainer = document.getElementById('other-relationship-container');
+          if (value === 'andere') {
+            otherContainer.style.display = 'block';
+          } else {
+            otherContainer.style.display = 'none';
+            answers.otherRelationship = ''; // Clear other relationship when selecting different option
+          }
+          break;
         case 'step6': answers.occasion = value; break;
         case 'step7': answers.budget = value; break;
         case 'step8': answers.style = value; break;
@@ -2298,31 +2376,41 @@ function submitQuiz(e) {
     notes: form.querySelector('textarea').value.trim()
   };
 
+  // Format the email body in a structured way
+  const emailBody = `
+📦 <strong>Neue Box-Anfrage</strong> 📦
+
+👤 <strong>Kontaktdaten:</strong>
+• Name: ${answers.contact.name}
+• Email: ${answers.contact.email}
+• Telefon: ${answers.contact.phone || 'Keine Angabe'}
+
+🎁 <strong>Box-Details:</strong>
+• Empfänger: ${answers.recipient === 'andere' ? answers.otherRecipient : answers.recipient}
+• Alter: ${answers.exactAge || answers.age} Jahre
+• Geschlecht: ${answers.gender}
+• Beziehung: ${answers.relationship === 'andere' ? answers.otherRelationship : answers.relationship}
+
+💡 <strong>Interessen:</strong>
+${answers.interests.map(interest => `• ${document.querySelector(`.quiz-option[data-value="${interest}"]`).textContent}`).join('\n')}
+
+🎉 <strong>Anlass:</strong> ${answers.occasion}
+
+💰 <strong>Budget:</strong> ${answers.budget.includes('€') ? answers.budget : answers.budget + '€'}
+
+🎨 <strong>Stil:</strong> ${answers.style}
+
+📝 <strong>Besondere Wünsche:</strong>
+${answers.contact.notes || 'Keine besonderen Wünsche'}
+
+⏱️ <strong>Zeitstempel:</strong> ${new Date().toLocaleString('de-DE')}
+`;
+
   // Prepare email data
   const emailData = {
     to: 'boxology.help@gmail.com',
-    subject: 'Neue Box-Anfrage von ' + answers.contact.name,
-    body: `Neue Box-Anfrage erhalten:
-    
-Name: ${answers.contact.name}
-Email: ${answers.contact.email}
-Telefon: ${answers.contact.phone || 'Keine Angabe'}
-
-Empfänger: ${answers.recipient}
-Alter: ${answers.age}
-Geschlecht: ${answers.gender}
-Beziehung: ${answers.relationship}
-Interessen: ${answers.interests.join(', ')}
-Anlass: ${answers.occasion}
-Budget: ${answers.budget}
-Stil: ${answers.style}
-
-Besondere Wünsche:
-${answers.contact.notes || 'Keine besonderen Wünsche'}
-
-Gesammelte Antworten:
-${JSON.stringify(answers, null, 2)}
-`
+    subject: `📦 Neue Box-Anfrage von ${answers.contact.name}`,
+    body: emailBody
   };
 
   // Send email using mailto link (will open user's email client)
@@ -2344,6 +2432,7 @@ ${JSON.stringify(answers, null, 2)}
     // Reset answers object
     answers.recipient = '';
     answers.age = '';
+    answers.exactAge = null;
     answers.gender = '';
     answers.relationship = '';
     answers.interests = [];
@@ -2447,8 +2536,6 @@ window.addEventListener('load', animateOnScroll);
 </script>
 </body>
 </html>
-
-
 
 
 
