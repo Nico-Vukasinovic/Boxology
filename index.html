@@ -1597,7 +1597,6 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-options">
 <div class="quiz-option" data-value="weiblich">Weiblich</div>
 <div class="quiz-option" data-value="maennlich">Männlich</div>
-<div class="quiz-option" data-value="divers">Divers</div>
 <div class="quiz-option" data-value="egal">Spielt keine Rolle</div>
 </div>
 <div class="quiz-navigation">
@@ -1635,26 +1634,45 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 </div>
 
 <div class="quiz-options" id="interest-options">
-  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen</div>
+  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen & Kultur</div>
   <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen">Kochen & Backen</div>
-  <div class="quiz-option" data-value="sport" data-categories="fitness,aktiv,gesundheit">Sport & Fitness</div>
-  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur,lernen">Lesen</div>
-  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte,hören">Musik</div>
-  <div class="quiz-option" data-value="kunst" data-categories="kreativ,malen,design">Kunst & Kreativität</div>
-  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa,selbstfürsorge">Wellness</div>
-  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen,outdoor">Garten & Natur</div>
-  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik,innovation">Technik & Gadgets</div>
-  <div class="quiz-option" data-value="mode" data-categories="stil,kleidung,schönheit">Mode & Styling</div>
-  <div class="quiz-option" data-value="gaming" data-categories="videospiele,esport,computer">Gaming</div>
+  <div class="quiz-option" data-value="wein" data-categories="küche,genuss">Wein & Genuss</div>
+  <div class="quiz-option" data-value="fitness" data-categories="sport,gesundheit">Fitness & Workouts</div>
+  <div class="quiz-option" data-value="yoga" data-categories="sport,wellness">Yoga & Meditation</div>
+  <div class="quiz-option" data-value="wandern" data-categories="sport,natur">Wandern & Outdoor</div>
+  <div class="quiz-option" data-value="radfahren" data-categories="sport,transport">Radfahren</div>
+  <div class="quiz-option" data-value="schwimmen" data-categories="sport,gesundheit">Schwimmen</div>
+  <div class="quiz-option" data-value="golf" data-categories="sport,freizeit">Golf</div>
+  <div class="quiz-option" data-value="tennis" data-categories="sport,teamsport">Tennis</div>
+  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur,lernen">Lesen & Literatur</div>
+  <div class="quiz-option" data-value="schreiben" data-categories="kreativ,literatur">Schreiben</div>
+  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte,hören">Musik & Konzerte</div>
+  <div class="quiz-option" data-value="instrumente" data-categories="musik,kreativ">Instrumente spielen</div>
+  <div class="quiz-option" data-value="malen" data-categories="kunst,kreativ">Malen & Zeichnen</div>
   <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera,kreativ">Fotografie</div>
-  <div class="quiz-option" data-value="handwerk" data-categories="basteln,werken,DIY">Handwerken</div>
-  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur,liebe">Tiere</div>
+  <div class="quiz-option" data-value="basteln" data-categories="handwerk,kreativ">Basteln & DIY</div>
+  <div class="quiz-option" data-value="nähen" data-categories="handwerk,mode">Nähen & Stricken</div>
+  <div class="quiz-option" data-value="holzwerken" data-categories="handwerk,kreativ">Holzarbeiten</div>
+  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen,outdoor">Garten & Pflanzen</div>
+  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur,liebe">Tiere & Haustiere</div>
+  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik,innovation">Technik & Gadgets</div>
+  <div class="quiz-option" data-value="programmieren" data-categories="technik,computer">Programmieren</div>
+  <div class="quiz-option" data-value="gaming" data-categories="videospiele,esport,computer">Gaming & eSports</div>
+  <div class="quiz-option" data-value="mode" data-categories="stil,kleidung,schönheit">Mode & Styling</div>
+  <div class="quiz-option" data-value="kosmetik" data-categories="schönheit,pflege">Kosmetik & Pflege</div>
   <div class="quiz-option" data-value="film" data-categories="kino,serien,unterhaltung">Filme & Serien</div>
+  <div class="quiz-option" data-value="theater" data-categories="kultur,unterhaltung">Theater & Oper</div>
   <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit,lernen">Geschichte</div>
   <div class="quiz-option" data-value="wissenschaft" data-categories="forschung,technologie,lernen">Wissenschaft</div>
+  <div class="quiz-option" data-value="astronomie" data-categories="wissenschaft,natur">Astronomie</div>
   <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik,mechanik">Autos & Fahrzeuge</div>
+  <div class="quiz-option" data-value="motorrad" data-categories="fahrzeuge,sport">Motorrad</div>
   <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft,objekte">Sammeln</div>
   <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst,ausdruck">Tanzen</div>
+  <div class="quiz-option" data-value="schach" data-categories="spiel,strategie">Schach & Strategiespiele</div>
+  <div class="quiz-option" data-value="puzzles" data-categories="spiel,kreativ">Puzzles & Rätsel</div>
+  <div class="quiz-option" data-value="sprachkurse" data-categories="lernen,kultur">Sprachen lernen</div>
+  <div class="quiz-option" data-value="philosophie" data-categories="lernen,kultur">Philosophie</div>
 </div>
 
 <div class="selected-interests" id="selected-interests" style="margin-top: 30px; display: none;">
@@ -1690,7 +1708,7 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-step" id="step7">
 <h3 class="quiz-question">Welches Budget hast du?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="50">Unter €50</div>
+<div class="quiz-option" data-value="50"> €50</div>
 <div class="quiz-option" data-value="50-100">€50-€100</div>
 <div class="quiz-option" data-value="100-150">€100-€150</div>
 <div class="quiz-option" data-value="150-200">€150-€200</div>
