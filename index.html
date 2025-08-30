@@ -57,9 +57,15 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 padding: 40px;
 margin: 20px 0;
 border: 1px solid rgba(212, 175, 55, 0.3);
-color: var(--white);
+color: black;
 position: relative;
 overflow: hidden;
+}
+
+.shadow-box p {
+color: black;
+font-size: 1.1rem;
+line-height: 1.8;
 }
 
 .shadow-box::before {
@@ -78,6 +84,12 @@ pointer-events: none;
 background-color: var(--white);
 color: var(--navy);
 box-shadow: 0 5px 20px rgba(10, 35, 66, 0.1);
+}
+
+.shadow-box-light p {
+color: var(--navy);
+font-size: 1.1rem;
+line-height: 1.8;
 }
 
 /* Header Styles */
@@ -125,7 +137,7 @@ background-color: var(--navy-light);
 
 .testimonial {
 background-color: var(--navy);
-color: var(--white);
+color: black;
 }
 
 /* Gallery Section */
@@ -679,6 +691,7 @@ font-style: italic;
 margin-bottom: 30px;
 position: relative;
 line-height: 1.8;
+color: black;
 }
 
 .testimonial-text::before,
@@ -1549,7 +1562,7 @@ padding: 14px !important;
         <input type="range" id="exact-age-slider" min="1" max="100" value="1" style="width: 100%;">
         <div style="display: flex; justify-content: space-between; margin-top: 10px;">
             <span>1</span>
-            <span id="exact-age-value" style="font-weight: bold;">30</span>
+            <span id="exact-age-value" style="font-weight: bold;">1</span>
             <span>100</span>
         </div>
     </div>
@@ -1602,7 +1615,6 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-option" data-value="familie">Familienmitglied</div>
 <div class="quiz-option" data-value="partner">Partner/Partnerin</div>
 <div class="quiz-option" data-value="freund">Freund/Freundin</div>
-<div class="quiz-option" data-value="kollege">Kollege/Kollegin</div>
 <div class="quiz-option" data-value="geschaeftlich">Geschäftlich</div>
 <div class="quiz-option" data-value="andere">Andere Beziehung</div>
 </div>
@@ -1840,72 +1852,72 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 
 <!-- Legal Modals -->
 <div id="legal-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
-  <div style="background-color: white; padding: 30px; max-width: 800px; border-radius: 10px; max-height: 90vh; overflow-y: auto;">
+  <div style="background-color: white; padding: 30px; max-width: 800px; border-radius: 10px; max-height: 90vh; overflow-y: auto; color: black; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-      <h2 style="color: var(--navy);" id="modal-title">Modal Title</h2>
+      <h2 style="color: var(--navy); font-weight: 700; font-family: 'Playfair Display', serif;" id="modal-title">Modal Title</h2>
       <button onclick="hideLegalModal()" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
     </div>
-    <div style="color: var(--navy);" id="modal-content">
+    <div style="color: #333; line-height: 1.6; font-size: 16px;" id="modal-content">
       <!-- Content will be loaded here -->
     </div>
   </div>
 </div>
 
 <!-- Content for each legal document -->
-<div id="agb-content" style="display: none;">
-  <h3>Allgemeine Geschäftsbedingungen</h3>
-  <p>Hier finden Sie unsere Allgemeinen Geschäftsbedingungen...</p>
+<div id="agb-content" style="display: none; color: black; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Allgemeine Geschäftsbedingungen</h3>
+  <p style="color: black;">Hier finden Sie unsere Allgemeinen Geschäftsbedingungen...</p>
   <!-- Add full AGB content here -->
 </div>
 
-<div id="datenschutz-content" style="display: none;">
-  <h3>Datenschutzerklärung</h3>
-  <p>Hier finden Sie unsere Datenschutzbestimmungen...</p>
+<div id="datenschutz-content" style="display: none; color: #333; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Datenschutzerklärung</h3>
+  <p style="color: black;">Hier finden Sie unsere Allgemeinen Datenschutzrichtlinien...</p>
   <!-- Add full privacy policy content here -->
 </div>
 
-<div id="impressum-content" style="display: none;">
-  <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-  <p>Boxology GmbH<br>
+<div id="impressum-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <p style="color: black !important;"><strong>Angaben gemäß § 5 TMG:</strong></p>
+  <p style="color: black !important;">Boxology GmbH<br>
   Musterstraße 1<br>
   10115 Berlin</p>
   
-  <p><strong>Vertreten durch:</strong><br>
+  <p style="color: black !important;"><strong>Vertreten durch:</strong><br>
   Geschäftsführer: Nico Vukasinovic </p>
   
-  <p><strong>Kontakt:</strong><br>
+  <p style="color: black !important;"><strong>Kontakt:</strong><br>
   Telefon: +43 670 6050757 <br>
   E-Mail: boxology@gmail.com</p>
   
-  <p><strong>Registereintrag:</strong><br>
+  <p style="color: black !important;"><strong>Registereintrag:</strong><br>
   Eintragung im Handelsregister.<br>
   Registergericht: Amtsgericht Berlin<br>
   Registernummer: HRB 123456</p>
   
-  <p><strong>Umsatzsteuer-ID:</strong><br>
+  <p style="color: black !important;"><strong>Umsatzsteuer-ID:</strong><br>
   Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz:<br>
   DE123456789</p>
   
-  <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+  <p style="color: black !important;"><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
   Max Mustermann<br>
   Musterstraße 1<br>
   10115 Berlin</p>
 </div>
 
-<div id="widerrufsrecht-content" style="display: none;">
-  <h3>Widerrufsrecht</h3>
-  <p>Hier finden Sie Informationen zu Ihrem Widerrufsrecht...</p>
+<div id="widerrufsrecht-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Widerrufsrecht</h3>
+  <p style="color: black !important;">Hier finden Sie Informationen zu Ihrem Widerrufsrecht...</p>
   <!-- Add full cancellation policy content here -->
 </div>
 
-<div id="versand-content" style="display: none;">
-  <h3>Versand & Lieferung</h3>
-  <p>Hier finden Sie unsere Versandbedingungen...</p>
+<div id="versand-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Versand & Lieferung</h3>
+  <p style="color: black !important;">Hier finden Sie unsere Versandbedingungen...</p>
   <!-- Add full shipping policy content here -->
 </div>
 
-<div id="zahlungsmethoden-content" style="display: none;">
-  <h3>Zahlungsmethoden</h3>
+<div id="zahlungsmethoden-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Zahlungsmethoden</h3>
   <p>Hier finden Sie Informationen zu unseren Zahlungsmethoden...</p>
   <!-- Add full payment methods content here -->
 </div>
