@@ -1541,9 +1541,12 @@ padding: 14px !important;
 <div class="quiz-option" data-value="geschwister">Geschwister</div>
 <div class="quiz-option" data-value="andere">Andere Person</div>
 </div>
+<div id="other-person-input" style="display: none; margin-top: 20px;">
+  <input type="text" placeholder="Bitte Person angeben" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+</div>
 <div class="quiz-navigation">
-<button class="btn btn-secondary prev-step">Zurück</button>
-<button class="btn btn-primary next-step">Weiter</button>
+  <button class="btn btn-secondary quiz-prev">Zurück</button>
+  <button class="btn btn-primary quiz-next">Weiter</button>
 </div>
 </div>
 
@@ -1607,11 +1610,14 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-step" id="step4">
 <h3 class="quiz-question">Wie ist deine Beziehung zu der Person?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="familie">Familienmitglied</div>
-<div class="quiz-option" data-value="partner">Partner/Partnerin</div>
-<div class="quiz-option" data-value="freund">Freund/Freundin</div>
-<div class="quiz-option" data-value="geschaeftlich">Geschäftlich</div>
-<div class="quiz-option" data-value="andere">Andere Beziehung</div>
+<div class="quiz-option" data-value="familie" onclick="selectOption(this, 'relationship')">Familienmitglied</div>
+<div class="quiz-option" data-value="partner" onclick="selectOption(this, 'relationship')">Partner/Partnerin</div>
+<div class="quiz-option" data-value="freund" onclick="selectOption(this, 'relationship')">Freund/Freundin</div>
+<div class="quiz-option" data-value="geschaeftlich" onclick="selectOption(this, 'relationship')">Geschäftlich</div>
+<div class="quiz-option" data-value="andere" onclick="selectOption(this, 'relationship')">Andere Beziehung</div>
+</div>
+<div id="other-relationship-input" style="display: none; margin-top: 20px;">
+  <input type="text" placeholder="Bitte Beziehung angeben" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
@@ -1629,26 +1635,36 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 </div>
 
 <div class="quiz-options" id="interest-options">
-  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen</div>
-  <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen">Kochen & Backen</div>
-  <div class="quiz-option" data-value="sport" data-categories="fitness,aktiv,gesundheit">Sport & Fitness</div>
-  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur,lernen">Lesen</div>
-  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte,hören">Musik</div>
-  <div class="quiz-option" data-value="kunst" data-categories="kreativ,malen,design">Kunst & Kreativität</div>
-  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa,selbstfürsorge">Wellness</div>
-  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen,outdoor">Garten & Natur</div>
-  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik,innovation">Technik & Gadgets</div>
-  <div class="quiz-option" data-value="mode" data-categories="stil,kleidung,schönheit">Mode & Styling</div>
-  <div class="quiz-option" data-value="gaming" data-categories="videospiele,esport,computer">Gaming</div>
-  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera,kreativ">Fotografie</div>
-  <div class="quiz-option" data-value="handwerk" data-categories="basteln,werken,DIY">Handwerken</div>
-  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur,liebe">Tiere</div>
-  <div class="quiz-option" data-value="film" data-categories="kino,serien,unterhaltung">Filme & Serien</div>
-  <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit,lernen">Geschichte</div>
-  <div class="quiz-option" data-value="wissenschaft" data-categories="forschung,technologie,lernen">Wissenschaft</div>
-  <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik,mechanik">Autos & Fahrzeuge</div>
-  <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft,objekte">Sammeln</div>
-  <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst,ausdruck">Tanzen</div>
+  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen (Städtereisen, Strandurlaub, Wandern)</div>
+  <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen">Kochen (Internationale Küche, Vegan, Grillen)</div>
+  <div class="quiz-option" data-value="backen" data-categories="küche,backen,süß">Backen (Torten, Brot, Desserts)</div>
+  <div class="quiz-option" data-value="fitness" data-categories="sport,gesundheit">Fitness (Yoga, Crossfit, Laufen)</div>
+  <div class="quiz-option" data-value="mannschaftssport" data-categories="sport,team">Mannschaftssport (Fußball, Basketball, Volleyball)</div>
+  <div class="quiz-option" data-value="wintersport" data-categories="sport,winter">Wintersport (Ski, Snowboard, Eislaufen)</div>
+  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur">Lesen (Krimis, Fantasy, Biografien)</div>
+  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte">Musik (Klassik, Rock, Pop, Instrument spielen)</div>
+  <div class="quiz-option" data-value="malen" data-categories="kunst,kreativ">Malen (Aquarell, Öl, Acryl)</div>
+  <div class="quiz-option" data-value="basteln" data-categories="kreativ,DIY">Basteln (Scrapbooking, Handlettering, Upcycling)</div>
+  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa">Wellness (Sauna, Massage, Aromatherapie)</div>
+  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen">Garten (Gemüseanbau, Blumen, Bonsai)</div>
+  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera">Fotografie (Landschaft, Portrait, Makro)</div>
+  <div class="quiz-option" data-value="modellbau" data-categories="basteln,kreativ">Modellbau (Schiffe, Flugzeuge, Eisenbahn)</div>
+  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur">Tiere (Hunde, Pferde, Vogelbeobachtung)</div>
+  <div class="quiz-option" data-value="film" data-categories="kino,serien">Film & Serien (Blockbuster, Arthouse, Dokumentationen)</div>
+  <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit">Geschichte (Mittelalter, Antike, Zeitgeschichte)</div>
+  <div class="quiz-option" data-value="astronomie" data-categories="wissenschaft,weltraum">Astronomie (Sternbeobachtung, Teleskope)</div>
+  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik">Technik (Smart Home, Drohnen, VR)</div>
+  <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik">Autos (Oldtimer, Tuning, Motorsport)</div>
+  <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft">Sammeln (Wein, Münzen, Comics)</div>
+  <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst">Tanzen (Ballett, Salsa, Standardtanz)</div>
+  <div class="quiz-option" data-value="tauchen" data-categories="sport,wasser">Tauchen & Schnorcheln</div>
+  <div class="quiz-option" data-value="angeln" data-categories="sport,wasser">Angeln & Fliegenfischen</div>
+  <div class="quiz-option" data-value="schach" data-categories="spiel,strategie">Schach & Strategiespiele</div>
+  <div class="quiz-option" data-value="kalligraphie" data-categories="kunst,schreiben">Kalligraphie & Handlettering</div>
+  <div class="quiz-option" data-value="uhren" data-categories="sammeln,technik">Uhren & Mechanik</div>
+  <div class="quiz-option" data-value="whisky" data-categories="sammeln,genuss">Whisky & Spirituosen</div>
+  <div class="quiz-option" data-value="kaffee" data-categories="genuss,küche">Kaffee & Barista</div>
+  <div class="quiz-option" data-value="motorrad" data-categories="fahrzeuge,sport">Motorrad & Touren</div>
 </div>
 
 <div class="selected-interests" id="selected-interests" style="margin-top: 30px; display: none;">
@@ -1689,6 +1705,9 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="quiz-option" data-value="100-150">€100-€150</div>
 <div class="quiz-option" data-value="150-200">€150-€200</div>
 <div class="quiz-option" data-value="200">Über €200</div>
+<div id="custom-budget-input" style="display: none; margin-top: 20px;">
+  <input type="number" placeholder="Exakter Betrag (z.B. 250)" min="200" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+</div>
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
@@ -1756,7 +1775,7 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 </form>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
-<button class="btn btn-primary" id="submit-quiz" onclick="submitQuiz(event)">Box erstellen</button>
+<button class="btn btn-primary quiz-submit">Box erstellen</button>
 </div>
 </div>
 
@@ -1918,6 +1937,26 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 </div>
 
 <script>
+// Helper function to handle option selection
+function selectOption(element, answerField) {
+  // Remove selected class from all options in this step
+  const options = element.parentElement.querySelectorAll('.quiz-option');
+  options.forEach(opt => opt.classList.remove('selected'));
+  
+  // Add selected class to clicked option
+  element.classList.add('selected');
+  
+  // Store the selected value
+  answers[answerField] = element.getAttribute('data-value');
+  
+  // Show other input if "Andere" is selected
+  if (answerField === 'relationship' && element.getAttribute('data-value') === 'andere') {
+    document.getElementById('other-relationship-input').style.display = 'block';
+  } else if (answerField === 'relationship') {
+    document.getElementById('other-relationship-input').style.display = 'none';
+  }
+}
+
 // Mobile menu toggle
 document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
   document.querySelector('.nav-links').classList.toggle('active');
@@ -1988,13 +2027,60 @@ startTestimonialSlider();
 
 // Quiz Functionality
 const steps = document.querySelectorAll('.quiz-step');
-const nextButtons = document.querySelectorAll('.next-step');
-const prevButtons = document.querySelectorAll('.prev-step');
 const progressBar = document.getElementById('progress-bar');
-const quizOptions = document.querySelectorAll('.quiz-option');
-const submitButton = document.getElementById('submit-quiz');
 let currentStep = 0;
 const totalSteps = steps.length - 1; // excluding the thank you step
+
+// Navigation functionality
+document.addEventListener('click', function(e) {
+  // Handle next button clicks
+  if (e.target.classList.contains('quiz-next')) {
+    e.preventDefault();
+    const currentStepId = steps[currentStep].id;
+    let isValid = true;
+
+    // Validate current step
+    if (currentStepId === 'step1' && !answers.recipient) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step2' && !answers.age && !answers.exactAge) {
+      alert('Bitte geben Sie das genaue Alter an');
+      isValid = false;
+    } else if (currentStepId === 'step3' && !answers.gender) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step4' && !answers.relationship) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step5' && answers.interests.length === 0) {
+      alert('Bitte wähle mindestens eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step6' && !answers.occasion) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step7' && !answers.budget) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step8' && !answers.style) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    }
+
+    if (isValid) {
+      if (currentStep === totalSteps - 1) {
+        submitQuiz(e);
+      } else {
+        showStep(currentStep + 1);
+      }
+    }
+  }
+
+  // Handle back button clicks
+  if (e.target.classList.contains('quiz-prev')) {
+    e.preventDefault();
+    showStep(currentStep - 1);
+  }
+});
 
 // Store answers
 const answers = {
@@ -2172,11 +2258,28 @@ interestSearch.addEventListener('input', function() {
 // Handle quiz option selection
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('quiz-option')) {
+    // Show/hide custom budget input
+    if (e.target.getAttribute('data-value') === '200') {
+      document.getElementById('custom-budget-input').style.display = 'block';
+      answers.budget = ''; // Reset budget when switching to custom
+    } else {
+      document.getElementById('custom-budget-input').style.display = 'none';
+    }
+    // Show/hide other person input
+    if (e.target.getAttribute('data-value') === 'andere') {
+      document.getElementById('other-person-input').style.display = 'block';
+    } else {
+      document.getElementById('other-person-input').style.display = 'none';
+    }
     const option = e.target;
     const questionId = option.closest('.quiz-step').id;
     const value = option.getAttribute('data-value');
 
-    if (questionId === 'step5') {
+    if (questionId === 'step4' && value === 'andere') {
+      document.getElementById('other-relationship-input').style.display = 'block';
+    } else if (questionId === 'step4') {
+      document.getElementById('other-relationship-input').style.display = 'none';
+    } else if (questionId === 'step5') {
       // Multiple selection for interests
       option.classList.toggle('selected');
       
@@ -2236,6 +2339,17 @@ function validateAndProceed() {
   // Validate current step before proceeding
   let isValid = true;
 
+  // Handle custom budget input
+  if (currentStep === 6 && answers.budget === '200') {
+    const customBudgetInput = document.querySelector('#custom-budget-input input');
+    if (!customBudgetInput.value || parseInt(customBudgetInput.value) < 200) {
+      alert('Bitte gib einen Betrag von mindestens €200 ein');
+      isValid = false;
+    } else {
+      answers.budget = customBudgetInput.value + '€';
+    }
+  }
+
   if (currentStep === 0 && !answers.recipient) {
     alert('Bitte wähle eine Option aus');
     isValid = false;
@@ -2274,38 +2388,39 @@ function validateAndProceed() {
   }
 }
 
-function submitQuiz(e) {
-  e.preventDefault();
-
-  // Validate form
-  const form = document.getElementById('quiz-form');
-  const nameInput = form.querySelector('input[type="text"]');
-  const emailInput = form.querySelector('input[type="email"]');
-
-  if (!nameInput.value.trim()) {
-    alert('Bitte gib deinen Namen ein');
-    return;
-  }
-
-  if (!emailInput.value.trim() || !emailInput.checkValidity()) {
-    alert('Bitte gib eine gültige E-Mail-Adresse ein');
-    return;
-  }
-
-  // Save contact info
-  answers.contact = {
-    name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
-    phone: form.querySelector('input[type="tel"]').value.trim(),
-    notes: form.querySelector('textarea').value.trim()
-  };
-
-  // Prepare email data
-  const emailData = {
-    to: 'boxology.help@gmail.com',
-    subject: 'Neue Box-Anfrage von ' + answers.contact.name,
-    body: `Neue Box-Anfrage erhalten:
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('quiz-submit')) {
+    e.preventDefault();
     
+    // Validate form
+    const form = document.getElementById('quiz-form');
+    const nameInput = form.querySelector('input[type="text"]');
+    const emailInput = form.querySelector('input[type="email"]');
+
+    if (!nameInput.value.trim()) {
+      alert('Bitte gib deinen Namen ein');
+      return;
+    }
+
+    if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+      alert('Bitte gib eine gültige E-Mail-Adresse ein');
+      return;
+    }
+
+    // Save contact info
+    answers.contact = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      phone: form.querySelector('input[type="tel"]').value.trim(),
+      notes: form.querySelector('textarea').value.trim()
+    };
+
+    // Prepare email data
+    const emailData = {
+      to: 'boxology.help@gmail.com',
+      subject: 'Neue Box-Anfrage von ' + answers.contact.name,
+      body: `Neue Box-Anfrage erhalten:
+      
 Name: ${answers.contact.name}
 Email: ${answers.contact.email}
 Telefon: ${answers.contact.phone || 'Keine Angabe'}
@@ -2323,38 +2438,35 @@ Besondere Wünsche:
 ${answers.contact.notes || 'Keine besonderen Wünsche'}
 
 Gesammelte Antworten:
-${JSON.stringify(answers, null, 2)}
-`
-  };
+${JSON.stringify(answers, null, 2)}`
+    };
 
-  // Send email using mailto link (will open user's email client)
-  const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
-  window.open(mailtoLink, '_blank');
+    // Send email using mailto link
+    const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
+    window.open(mailtoLink, '_blank');
 
-  // Show thank you step
-  showStep(currentStep + 1);
+    // Show thank you step
+    showStep(currentStep + 1);
 
-  // Reset form after delay
-  setTimeout(() => {
-    // Reset the entire quiz
-    document.querySelectorAll('.quiz-option').forEach(opt => {
-      opt.classList.remove('selected');
-    });
-    form.reset();
-    showStep(0);
-
-    // Reset answers object
-    answers.recipient = '';
-    answers.age = '';
-    answers.gender = '';
-    answers.relationship = '';
-    answers.interests = [];
-    answers.occasion = '';
-    answers.budget = '';
-    answers.style = '';
-    answers.contact = {};
-  }, 10000);
-}
+    // Reset form after delay
+    setTimeout(() => {
+      document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      form.reset();
+      showStep(0);
+      answers.recipient = '';
+      answers.age = '';
+      answers.gender = '';
+      answers.relationship = '';
+      answers.interests = [];
+      answers.occasion = '';
+      answers.budget = '';
+      answers.style = '';
+      answers.contact = {};
+    }, 10000);
+  }
+});
 
 function subscribeNewsletter(e) {
   e.preventDefault();
