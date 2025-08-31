@@ -1118,13 +1118,13 @@
     <header>
         <div class="container mx-auto px-4">
             <nav>
-                <a href="#" class="logo">Boxology</a>
+                <a href="index.html" class="logo">Boxology</a>
                 <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">Boxen</a>
-                    <a href="#">Über uns</a>
-                    <a href="#">Kontakt</a>
-                    <a href="#" class="cart-icon">
+                    <a href="index.html">Home</a>
+                    <a href="boxes.html">Boxen</a>
+                    <a href="about.html">Über uns</a>
+                    <a href="contact.html">Kontakt</a>
+                    <a href="cart.html" class="cart-icon">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
                     </a>
@@ -1421,6 +1421,191 @@
             </div>
         </div>
     </footer>
+
+    <!-- Sub Pages (initially hidden) -->
+    <div id="sub-pages" style="display: none;">
+        <!-- Cart Page -->
+        <div id="cart-page" class="page">
+            <div class="container mx-auto px-4 py-20">
+                <h1 class="text-4xl font-bold text-center mb-12">Warenkorb</h1>
+                <div class="max-w-4xl mx-auto">
+                    <div class="shadow-box-light mb-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold">Ihre Artikel</h3>
+                            <span class="text-gray-600">1 Artikel</span>
+                        </div>
+                        <div class="border-t border-gray-200 pt-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                         alt="Wellness Box" class="w-20 h-20 object-cover rounded-lg">
+                                    <div class="ml-6">
+                                        <h4 class="font-bold text-lg">Wellness Box Premium Edition</h4>
+                                        <p class="text-gray-600">Menge: 1</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gold text-xl">€69,99</p>
+                                    <button class="text-red-500 text-sm mt-2 hover:text-red-700">
+                                        <i class="fas fa-trash mr-1"></i> Entfernen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="shadow-box-light p-6">
+                            <h3 class="text-xl font-bold mb-4">Zusammenfassung</h3>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between">
+                                    <span>Zwischensumme</span>
+                                    <span>€69,99</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Versand</span>
+                                    <span class="text-green-600">Kostenlos</span>
+                                </div>
+                                <div class="border-t border-gray-200 pt-3 mt-3">
+                                    <div class="flex justify-between font-bold text-lg">
+                                        <span>Gesamtsumme</span>
+                                        <span>€69,99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gold text-navy font-bold py-4 rounded-lg hover:bg-gold-light transition duration-300">
+                                Zur Kasse gehen
+                            </button>
+                        </div>
+                        
+                        <div class="shadow-box-light p-6">
+                            <h3 class="text-xl font-bold mb-4">Gutschein einlösen</h3>
+                            <div class="flex mb-4">
+                                <input type="text" placeholder="Gutscheincode" 
+                                       class="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-gold">
+                                <button class="bg-navy text-white px-6 py-3 rounded-r-lg hover:bg-navy-light transition duration-300">
+                                    Anwenden
+                                </button>
+                            </div>
+                            <p class="text-sm text-gray-600">Haben Sie einen Gutschein? Geben Sie ihn hier ein.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boxen Page -->
+        <div id="boxes-page" class="page">
+            <div class="container mx-auto px-4 py-20">
+                <h1 class="text-4xl font-bold text-center mb-12">Unsere Boxen</h1>
+                <div class="products-grid">
+                    <a href="#" class="product-card">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wellness Box">
+                        <div class="product-info-card">
+                            <h3>Wellness Box</h3>
+                            <p>Entspannung und Selbstfürsorge für Körper und Geist</p>
+                            <span class="product-price-card">€69,99</span>
+                        </div>
+                    </a>
+                    <a href="#" class="product-card">
+                        <img src="https://images.unsplash.com/photo-1600857062241-98c2aae9d15f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Premium Kaffeebox">
+                        <div class="product-info-card">
+                            <h3>Kaffeebox</h3>
+                            <p>Ausgewählte Spezialitätenkaffees aus aller Welt</p>
+                            <span class="product-price-card">ab €49,99</span>
+                        </div>
+                    </a>
+                    <a href="#" class="product-card">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gourmet Box">
+                        <div class="product-info-card">
+                            <h3>Gourmet Box</h3>
+                            <p>Feine Leckereien für Genießer</p>
+                            <span class="product-price-card">ab €59,99</span>
+                        </div>
+                    </a>
+                    <a href="#" class="product-card">
+                        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bücher Box">
+                        <div class="product-info-card">
+                            <h3>Bücher Box</h3>
+                            <p>Literarische Schätze für Lesebegeisterte</p>
+                            <span class="product-price-card">ab €39,99</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Über uns Page -->
+        <div id="about-page" class="page">
+            <div class="container mx-auto px-4 py-20">
+                <h1 class="text-4xl font-bold text-center mb-12">Über Boxology</h1>
+                <div class="shadow-box-light max-w-4xl mx-auto">
+                    <p class="text-lg mb-6">
+                        Bei Boxology glauben wir daran, dass besondere Momente und kleine Aufmerksamkeiten das Leben bereichern. 
+                        Seit unserer Gründung im Jahr 2020 haben wir es uns zur Mission gemacht, einzigartige Geschenkboxen zu kreieren, 
+                        die nicht nur Produkte enthalten, sondern Erlebnisse und Emotionen verschenken.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Jede Box wird mit größter Sorgfalt und Liebe zum Detail zusammengestellt. Wir arbeiten mit lokalen Handwerkern 
+                        und nachhaltigen Marken zusammen, um Ihnen die beste Qualität zu bieten und gleichzeitig unsere Umwelt zu schützen.
+                    </p>
+                    <p class="text-lg">
+                        Unsere Vision ist es, Menschen zu verbinden und Freude zu verbreiten - eine Box nach der anderen.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kontakt Page -->
+        <div id="contact-page" class="page">
+            <div class="container mx-auto px-4 py-20">
+                <h1 class="text-4xl font-bold text-center mb-12">Kontaktieren Sie uns</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div class="shadow-box-light p-8">
+                        <h3 class="text-2xl font-bold mb-6">Schreiben Sie uns</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">E-Mail</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nachricht</label>
+                                <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold"></textarea>
+                            </div>
+                            <button type="submit" class="bg-gold text-navy font-bold py-3 px-8 rounded-lg hover:bg-gold-light transition duration-300">
+                                Nachricht senden
+                            </button>
+                        </form>
+                    </div>
+                    <div class="shadow-box-light p-8">
+                        <h3 class="text-2xl font-bold mb-6">Kontaktinformationen</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-gold mt-1 mr-4"></i>
+                                <span>Musterstraße 123<br>10115 Berlin</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-gold mr-4"></i>
+                                <span>+49 30 12345678</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-gold mr-4"></i>
+                                <span>info@boxology.de</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gold mr-4"></i>
+                                <span>Mo-Fr: 9:00-18:00 Uhr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Back to Top Button -->
     <div class="back-to-top">
