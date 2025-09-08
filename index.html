@@ -199,13 +199,13 @@
 <div class="quiz-step active" id="step1">
 <h3 class="quiz-question">Für wen ist die Box gedacht?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="partner">Partner/Ehepartner</div>
-<div class="quiz-option" data-value="eltern">Eltern/Großeltern</div>
-<div class="quiz-option" data-value="kind">Kind/Enkelkind</div>
-<div class="quiz-option" data-value="freund">Freund/Freundin</div>
-<div class="quiz-option" data-value="kollege">Kollege/Kollegin</div>
-<div class="quiz-option" data-value="geschwister">Geschwister</div>
-<div class="quiz-option" data-value="andere">Andere Person</div>
+<div class="quiz-option" data-value="partner" onclick="selectOption(this, 'recipient')">Partner/Ehepartner</div>
+<div class="quiz-option" data-value="eltern" onclick="selectOption(this, 'recipient')">Eltern/Großeltern</div>
+<div class="quiz-option" data-value="kind" onclick="selectOption(this, 'recipient')">Kind/Enkelkind</div>
+<div class="quiz-option" data-value="freund" onclick="selectOption(this, 'recipient')">Freund/Freundin</div>
+<div class="quiz-option" data-value="kollege" onclick="selectOption(this, 'recipient')">Kollege/Kollegin</div>
+<div class="quiz-option" data-value="geschwister" onclick="selectOption(this, 'recipient')">Geschwister</div>
+<div class="quiz-option" data-value="andere" onclick="selectOption(this, 'recipient')">Andere Person</div>
 </div>
 <div id="other-person-input" style="display: none; margin-top: 20px;">
   <input type="text" placeholder="Bitte Person angeben" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
@@ -328,10 +328,10 @@ document.querySelector('.quiz-submit').addEventListener('click', function() {
 <div class="quiz-step" id="step3">
 <h3 class="quiz-question">Geschlecht der Person?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="weiblich">Weiblich</div>
-<div class="quiz-option" data-value="maennlich">Männlich</div>
-<div class="quiz-option" data-value="divers">Divers</div>
-<div class="quiz-option" data-value="egal">Spielt keine Rolle</div>
+<div class="quiz-option" data-value="weiblich" onclick="selectOption(this, 'gender')">Weiblich</div>
+<div class="quiz-option" data-value="maennlich" onclick="selectOption(this, 'gender')">Männlich</div>
+<div class="quiz-option" data-value="divers" onclick="selectOption(this, 'gender')">Divers</div>
+<div class="quiz-option" data-value="egal" onclick="selectOption(this, 'gender')">Spielt keine Rolle</div>
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
@@ -368,36 +368,36 @@ document.querySelector('.quiz-submit').addEventListener('click', function() {
 </div>
 
 <div class="quiz-options" id="interest-options">
-  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen (Städtereisen, Strandurlaub, Wandern)</div>
-  <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen">Kochen (Internationale Küche, Vegan, Grillen)</div>
-  <div class="quiz-option" data-value="backen" data-categories="küche,backen,süß">Backen (Torten, Brot, Desserts)</div>
-  <div class="quiz-option" data-value="fitness" data-categories="sport,gesundheit">Fitness (Yoga, Crossfit, Laufen)</div>
-  <div class="quiz-option" data-value="mannschaftssport" data-categories="sport,team">Mannschaftssport (Fußball, Basketball, Volleyball)</div>
-  <div class="quiz-option" data-value="wintersport" data-categories="sport,winter">Wintersport (Ski, Snowboard, Eislaufen)</div>
-  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur">Lesen (Krimis, Fantasy, Biografien)</div>
-  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte">Musik (Klassik, Rock, Pop, Instrument spielen)</div>
-  <div class="quiz-option" data-value="malen" data-categories="kunst,kreativ">Malen (Aquarell, Öl, Acryl)</div>
-  <div class="quiz-option" data-value="basteln" data-categories="kreativ,DIY">Basteln (Scrapbooking, Handlettering, Upcycling)</div>
-  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa">Wellness (Sauna, Massage, Aromatherapie)</div>
-  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen">Garten (Gemüseanbau, Blumen, Bonsai)</div>
-  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera">Fotografie (Landschaft, Portrait, Makro)</div>
-  <div class="quiz-option" data-value="modellbau" data-categories="basteln,kreativ">Modellbau (Schiffe, Flugzeuge, Eisenbahn)</div>
-  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur">Tiere (Hunde, Pferde, Vogelbeobachtung)</div>
-  <div class="quiz-option" data-value="film" data-categories="kino,serien">Film & Serien (Blockbuster, Arthouse, Dokumentationen)</div>
-  <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit">Geschichte (Mittelalter, Antike, Zeitgeschichte)</div>
-  <div class="quiz-option" data-value="astronomie" data-categories="wissenschaft,weltraum">Astronomie (Sternbeobachtung, Teleskope)</div>
-  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik">Technik (Smart Home, Drohnen, VR)</div>
-  <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik">Autos (Oldtimer, Tuning, Motorsport)</div>
-  <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft">Sammeln (Wein, Münzen, Comics)</div>
-  <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst">Tanzen (Ballett, Salsa, Standardtanz)</div>
-  <div class="quiz-option" data-value="tauchen" data-categories="sport,wasser">Tauchen & Schnorcheln</div>
-  <div class="quiz-option" data-value="angeln" data-categories="sport,wasser">Angeln & Fliegenfischen</div>
-  <div class="quiz-option" data-value="schach" data-categories="spiel,strategie">Schach & Strategiespiele</div>
-  <div class="quiz-option" data-value="kalligraphie" data-categories="kunst,schreiben">Kalligraphie & Handlettering</div>
-  <div class="quiz-option" data-value="uhren" data-categories="sammeln,technik">Uhren & Mechanik</div>
-  <div class="quiz-option" data-value="whisky" data-categories="sammeln,genuss">Whisky & Spirituosen</div>
-  <div class="quiz-option" data-value="kaffee" data-categories="genuss,küche">Kaffee & Barista</div>
-  <div class="quiz-option" data-value="motorrad" data-categories="fahrzeuge,sport">Motorrad & Touren</div>
+  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur" onclick="toggleInterest(this)">Reisen (Städtereisen, Strandurlaub, Wandern)</div>
+  <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen" onclick="toggleInterest(this)">Kochen (Internationale Küche, Vegan, Grillen)</div>
+  <div class="quiz-option" data-value="backen" data-categories="küche,backen,süß" onclick="toggleInterest(this)">Backen (Torten, Brot, Desserts)</div>
+  <div class="quiz-option" data-value="fitness" data-categories="sport,gesundheit" onclick="toggleInterest(this)">Fitness (Yoga, Crossfit, Laufen)</div>
+  <div class="quiz-option" data-value="mannschaftssport" data-categories="sport,team" onclick="toggleInterest(this)">Mannschaftssport (Fußball, Basketball, Volleyball)</div>
+  <div class="quiz-option" data-value="wintersport" data-categories="sport,winter" onclick="toggleInterest(this)">Wintersport (Ski, Snowboard, Eislaufen)</div>
+  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur" onclick="toggleInterest(this)">Lesen (Krimis, Fantasy, Biografien)</div>
+  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte" onclick="toggleInterest(this)">Musik (Klassik, Rock, Pop, Instrument spielen)</div>
+  <div class="quiz-option" data-value="malen" data-categories="kunst,kreativ" onclick="toggleInterest(this)">Malen (Aquarell, Öl, Acryl)</div>
+  <div class="quiz-option" data-value="basteln" data-categories="kreativ,DIY" onclick="toggleInterest(this)">Basteln (Scrapbooking, Handlettering, Upcycling)</div>
+  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa" onclick="toggleInterest(this)">Wellness (Sauna, Massage, Aromatherapie)</div>
+  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen" onclick="toggleInterest(this)">Garten (Gemüseanbau, Blumen, Bonsai)</div>
+  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera" onclick="toggleInterest(this)">Fotografie (Landschaft, Portrait, Makro)</div>
+  <div class="quiz-option" data-value="modellbau" data-categories="basteln,kreativ" onclick="toggleInterest(this)">Modellbau (Schiffe, Flugzeuge, Eisenbahn)</div>
+  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur" onclick="toggleInterest(this)">Tiere (Hunde, Pferde, Vogelbeobachtung)</div>
+  <div class="quiz-option" data-value="film" data-categories="kino,serien" onclick="toggleInterest(this)">Film & Serien (Blockbuster, Arthouse, Dokumentationen)</div>
+  <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit" onclick="toggleInterest(this)">Geschichte (Mittelalter, Antike, Zeitgeschichte)</div>
+  <div class="quiz-option" data-value="astronomie" data-categories="wissenschaft,weltraum" onclick="toggleInterest(this)">Astronomie (Sternbeobachtung, Teleskope)</div>
+  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik" onclick="toggleInterest(this)">Technik (Smart Home, Drohnen, VR)</div>
+  <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik" onclick="toggleInterest(this)">Autos (Oldtimer, Tuning, Motorsport)</div>
+  <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft" onclick="toggleInterest(this)">Sammeln (Wein, Münzen, Comics)</div>
+  <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst" onclick="toggleInterest(this)">Tanzen (Ballett, Salsa, Standardtanz)</div>
+  <div class="quiz-option" data-value="tauchen" data-categories="sport,wasser" onclick="toggleInterest(this)">Tauchen & Schnorcheln</div>
+  <div class="quiz-option" data-value="angeln" data-categories="sport,wasser" onclick="toggleInterest(this)">Angeln & Fliegenfischen</div>
+  <div class="quiz-option" data-value="schach" data-categories="spiel,strategie" onclick="toggleInterest(this)">Schach & Strategiespiele</div>
+  <div class="quiz-option" data-value="kalligraphie" data-categories="kunst,schreiben" onclick="toggleInterest(this)">Kalligraphie & Handlettering</div>
+  <div class="quiz-option" data-value="uhren" data-categories="sammeln,technik" onclick="toggleInterest(this)">Uhren & Mechanik</div>
+ 极 <div class="quiz-option" data-value="whisky" data-categories="sammeln,genuss" onclick="toggleInterest(this)">Whisky & Spirituosen</div>
+  <div class="quiz-option" data-value="kaffee" data-categories="genuss,küche" onclick="toggleInterest(this)">Kaffee & Barista</div>
+  <div class="quiz-option" data-value="motorrad" data-categories="fahrzeuge,sport" onclick="toggleInterest(this)">Motorrad & Touren</div>
 </div>
 
 <div class="selected-interests" id="selected-interests" style="margin-top: 30px; display: none;">
@@ -415,13 +415,13 @@ document.querySelector('.quiz-submit').addEventListener('click', function() {
 <div class="quiz-step" id="step6">
 <h3 class="quiz-question">Anlass?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="geburtstag">Geburtstag</div>
-<div class="quiz-option" data-value="weihnachten">Weihnachten</div>
-<div class="quiz-option" data-value="hochzeit">Hochzeit/Jubiläum</div>
-<div class="quiz-option" data-value="danke">Dankeschön</div>
-<div class="quiz-option" data-value="valentinstag">Valentinstag</div>
-<div class="quiz-option" data-value="muttertag">Muttertag/Vatertag</div>
-<div class="quiz-option" data-value="sonstiges">Einfach so</div>
+<div class="quiz-option" data-value="geburtstag" onclick="selectOption(this, 'occasion')">Geburtstag</div>
+<div class="quiz-option" data-value="weihnachten" onclick="selectOption(this, 'occasion')">Weihnachten</div>
+<div class="quiz-option" data-value="hochzeit" onclick="selectOption(this, 'occasion')">Hochzeit/Jubiläum</div>
+<div class="quiz-option" data-value="danke" onclick="selectOption(this, 'occasion')">Dankeschön</div>
+<div class="quiz-option" data-value="valentinstag" onclick="selectOption(this, 'occasion')">Valentinstag</div>
+<div class="quiz-option" data-value="muttertag" onclick="selectOption(this, 'occasion')">Muttertag/Vatertag</div>
+<div class="quiz-option" data-value="sonstiges" onclick="selectOption(this, 'occasion')">Einfach so</div>
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary prev-step">Zurück</button>
@@ -433,11 +433,11 @@ document.querySelector('.quiz-submit').addEventListener('click', function() {
 <div class="quiz-step" id="step7">
 <h3 class="quiz-question">Welches Budget hast du?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="50">Unter €50</div>
-<div class="quiz-option" data-value="50-100">€50-€100</div>
-<div class="quiz-option" data-value="100-150">€100-€150</div>
-<div class="quiz-option" data-value="150-200">€150-€200</div>
-<div class="quiz-option" data-value="200">Über €200</div>
+<div class="quiz-option" data-value="50" onclick="selectOption(this, 'budget')">Unter €50</div>
+<div class="quiz-option" data-value="50-100" onclick="selectOption(this, 'budget')">€50-€100</div>
+<div class="quiz-option" data-value="100-150" onclick="selectOption(this, 'budget')">€100-€150</div>
+<div class="quiz-option" data-value="150-200" onclick="selectOption(this, 'budget')">€150-€200</div>
+<div class="quiz-option" data-value="200" onclick="selectOption(this, 'budget')">Über €200</div>
 <div id="custom-budget-input" style="display: none; margin-top: 20px;">
   <input type="number" placeholder="Exakter Betrag (z.B. 250)" min="200" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
 </div>
@@ -452,12 +452,12 @@ document.querySelector('.quiz-submit').addEventListener('click', function() {
 <div class="quiz-step" id="step8">
 <h3 class="quiz-question">Welcher Stil passt am besten?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="modern">Modern/Minimalistisch</div>
-<div class="quiz-option" data-value="klassisch">Klassisch/Elegant</div>
-<div class="quiz-option" data-value="rustikal">Rustikal/Natürlich</div>
-<div class="quiz-option" data-value="spielerisch">Spielerisch/Farbenfroh</div>
-<div class="quiz-option" data-value="luxus">Luxuriös/Hochwertig</div>
-<div class="quiz-option" data-value="individuell" style="
+<div class="quiz-option" data-value="modern" onclick="selectOption(this, 'style')">Modern/Minimalistisch</div>
+<div class="quiz-option" data-value="klassisch" onclick="selectOption(this, 'style')">Klassisch/Elegant</div>
+<div class="quiz-option" data-value="rustikal" onclick="selectOption(this, 'style')">Rustikal/Natürlich</div>
+<div class="quiz-option" data-value="spielerisch" onclick="selectOption(this, 'style')">Spielerisch/Farbenfroh</div>
+<div class="quiz-option" data-value="luxus" onclick="selectOption(this, 'style')">Luxuriös/Hochwertig</div>
+<div class="quiz-option" data-value="individuell" onclick="selectOption(this, 'style')" style="
     background: linear-gradient(45deg, var(--gold), #f5e6b3, var(--gold));
     color: var(--navy); 
     font-weight: 700; 
