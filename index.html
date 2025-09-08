@@ -14,6 +14,13 @@
 <link href=".\WeddingProposal\frontend-integration.js" rel="stylesheet">
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS with your public key
+    (function(){
+        emailjs.init("YOUR_PUBLIC_KEY_HERE"); // Replace with your actual EmailJS public key
+    })();
+</script>
 <header>
 <div class="container">
 <nav>
@@ -248,6 +255,73 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
         answers.exactAge = null; // Clear exact age when range is selected
     });
 });
+
+// Email sending function
+function sendQuizEmail(answers, contactInfo) {
+    const emailData = {
+        service_id: 'default_service',
+        template_id: 'quiz_submission',
+        user_id: 'user_12345',
+        template_params: {
+            recipient: 'boxology.help@gmail.com',
+            subject: 'Neue Quiz-Anfrage - Boxology',
+            message: `
+Neue Quiz-Anfrage erhalten:
+
+PERSÖNLICHE DATEN:
+Name: ${contactInfo.name}
+Email: ${contactInfo.email}
+Telefon: ${contactInfo.phone || 'Nicht angegeben'}
+Besondere Wünsche: ${contactInfo.notes || 'Keine'}
+
+EMPFAÄNGER INFORMATIONEN:
+Für wen: ${answers.recipient}
+Alter: ${answers.exactAge || answers.ageRange}
+Geschlecht: ${answers.gender}
+Beziehung: ${answers.relationship}
+
+INTERESSEN:
+${answers.interests ? answers.interests.join(', ') : 'Keine ausgewählt'}
+
+ANLASS: ${answers.occasion}
+BUDGET: ${answers.budget}
+STIL: ${answers.style}
+
+Datum: ${new Date().toLocaleString('de-DE')}
+            `
+        }
+    };
+
+    // Send email using EmailJS
+    emailjs.send(emailData.service_id, emailData.template_id, emailData.template_params)
+        .then(function(response) {
+            console.log('Email erfolgreich gesendet:', response.status, response.text);
+        }, function(error) {
+            console.log('Email konnte nicht gesendet werden:', error);
+            // Fallback: Open mail client
+            const subject = 'Neue Quiz-Anfrage - Boxology';
+            const body = encodeURIComponent(emailData.template_params.message);
+            window.open(`mailto:boxology.help@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`);
+        });
+}
+
+// Modify quiz submission to include email sending
+document.querySelector('.quiz-submit').addEventListener('click', function() {
+    // Get contact info from form
+    const form = document.getElementById('quiz-form');
+    const contactInfo = {
+        name: form.querySelector('input[type="text"]').value,
+        email: form.querySelector('input[type="email"]').value,
+        phone: form.querySelector('input[type="tel"]').value,
+        notes: form.querySelector('textarea').value
+    };
+    
+    // Send email with quiz data
+    sendQuizEmail(answers, contactInfo);
+    
+    // Proceed to confirmation step
+    goToStep(10);
+});
 </script>
 
 <!-- Step 3: Gender -->
@@ -444,94 +518,6 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="confirmation-icon">
 <i class="fas fa-check-circle"></i>
 </div>
-
-    // Validate form
-    const form = document.getElementById('quiz-form');
-    const nameInput = form.querySelector('input[type="text"]');
-    const emailInput = form.querySelector('input[type="email"]');
-
-    if (!nameInput.value.trim()) {
-      alert('Bitte gib deinen Namen ein');
-      return;
-    }
-
-    if (!emailInput.value.trim() || !emailInput.checkValidity()) {
-      alert('Bitte gib eine gültige E-Mail-Adresse ein');
-      return;
-    }
-
-    // Save contact info
-    answers.contact = {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      phone: form.querySelector('input[type="tel"]').value.trim(),
-      notes: form.querySelector('textarea').value.trim()
-    };
-
-    // Prepare email data
-    const emailData = {
-      to: 'boxology.help@gmail.com',
-      subject: 'Neue Box-Anfrage von ' + answers.contact.name,
-      body: `Neue Box-Anfrage erhalten:
-      
-Name: ${answers.contact.name}
-Email: ${answers.contact.email}
-Telefon: ${answers.contact.phone || 'Keine Angabe'}
-
-Empfänger: ${answers.recipient}
-Alter: ${answers.age}
-Geschlecht: ${answers.gender}
-Beziehung: ${answers.relationship}
-Interessen: ${answers.interests.join(', ')}
-Anlass: ${answers.occasion}
-Budget: ${answers.budget}
-Stil: ${answers.style}
-
-Besondere Wünsche:
-${answers.contact.notes || 'Keine besonderen Wünsche'}
-
-Gesammelte Antworten:
-${JSON.stringify(answers, null, 2)}`
-    };
-
-    // Send email using mailto link
-    const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
-    window.open(mailtoLink, '_blank');
-
-    // Show thank you step
-    showStep(currentStep + 1);
-
-    // Reset form after delay
-    setTimeout(() => {
-      document.querySelectorAll('.quiz-option').forEach(opt => {
-        opt.classList.remove('selected');
-      });
-      form.reset();
-      showStep(0);
-      answers.recipient = '';
-      answers.age = '';
-      answers.gender = '';
-      answers.relationship = '';
-      answers.interests = [];
-      answers.occasion = '';
-      answers.budget = '';
-      answers.style = '';
-      answers.contact = {};
-    }, 10000);
-  }
-});
-
-function subscribeNewsletter(e) {
-  e.preventDefault();
-  const email = e.target.closest('form').querySelector('input[type="email"]').value;
-  if (!email || !email.includes('@')) {
-    alert('Bitte gib eine gültige E-Mail-Adresse ein');
-    return;
-  }
-  alert('Vielen Dank für deine Anmeldung!');
-  e.target.closest('form').reset();
-}
-
 <h3 class="quiz-question">Vielen Dank für deine Anfrage!</h3>
 <p style="margin-bottom: 30px; font-size: 1.1rem; color: var(--gold-light);">Wir erstellen jetzt deine personalisierte Box und melden uns innerhalb von 24 Stunden mit einem Entwurf bei dir. Du erhältst eine E-Mail mit weiteren Details.</p>
 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn btn-primary">Zur Startseite</button>
@@ -684,10 +670,4 @@ function subscribeNewsletter(e) {
 </div>
 </body>
 </html>
-
-
-
-
-
-
 
