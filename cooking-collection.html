@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -1236,7 +1237,7 @@
                         <button class="quantity-btn" id="increase-qty">+</button>
                     </div>
 
-                    <button class="add-to-cart-btn">
+                    <button class="add-to-cart-btn" data-id="kochbox-chef" data-product="Kochbox Chef Edition" data-price="99.99" data-img="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">
                         <i class="fas fa-shopping-cart"></i> In den Warenkorb
                     </button>
                 </div>
@@ -1388,6 +1389,7 @@
                         <h3>Kaffeebox</h3>
                         <p>Ausgewählte Spezialitätenkaffees aus aller Welt</p>
                         <span class="product-price-card">ab €49,99</span>
+                            <button class="add-to-cart-btn" data-id="kaffeebox" data-product="Kaffeebox" data-price="49.99" data-img="https://images.unsplash.com/photo-1600857062241-98c2aae9d15f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">In den Warenkorb</button>
                     </div>
                 </a>
                 <a href="#" class="product-card">
@@ -1396,6 +1398,7 @@
                         <h3>Gourmet Box</h3>
                         <p>Feine Leckereien für Genießer</p>
                         <span class="product-price-card">ab €59,99</span>
+                            <button class="add-to-cart-btn" data-id="gourmetbox" data-product="Gourmet Box" data-price="59.99" data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">In den Warenkorb</button>
                     </div>
                 </a>
                 <a href="#" class="product-card">
@@ -1404,6 +1407,7 @@
                         <h3>Bücher Box</h3>
                         <p>Literarische Schätze für Lesebegeisterte</p>
                         <span class="product-price-card">ab €39,99</span>
+                            <button class="add-to-cart-btn" data-id="buecherbox" data-product="Bücher Box" data-price="39.99" data-img="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">In den Warenkorb</button>
                     </div>
                 </a>
             </div>
@@ -1557,25 +1561,30 @@
             });
         });
 
-        // Add to Cart Animation
+        // Add to Cart Animation (safe)
         const addToCartBtn = document.querySelector('.add-to-cart-btn');
         const cartCount = document.querySelector('.cart-count');
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', function() {
+                // Animation effect
+                this.innerHTML = '<i class="fas fa-check"></i> Hinzugefügt';
+                this.style.backgroundColor = '#4CAF50';
 
-        addToCartBtn.addEventListener('click', function() {
-            // Animation effect
-            this.innerHTML = '<i class="fas fa-check"></i> Hinzugefügt';
-            this.style.backgroundColor = '#4CAF50';
+                // Update cart count (only if element exists)
+                if (cartCount) {
+                    const qtyEl = document.getElementById('quantity');
+                    const inc = qtyEl ? parseInt(qtyEl.value || '1', 10) : 1;
+                    const current = parseInt(cartCount.textContent || '0', 10) || 0;
+                    cartCount.textContent = String(current + inc);
+                }
 
-            // Update cart count
-            let currentCount = parseInt(cartCount.textContent);
-            cartCount.textContent = currentCount + parseInt(document.getElementById('quantity').value);
-
-            // Reset button after 2 seconds
-            setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-shopping-cart"></i> In den Warenkorb';
-                this.style.backgroundColor = '';
-            }, 2000);
-        });
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-shopping-cart"></i> In den Warenkorb';
+                    this.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
 
         // Create floating spices animation
         function createFloatingSpices() {
@@ -1594,5 +1603,6 @@
         // Initialize animations
         document.addEventListener('DOMContentLoaded', createFloatingSpices);
     </script>
+    <script src="assets/cart.js"></script>
 </body>
 </html>
