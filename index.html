@@ -444,6 +444,94 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 <div class="confirmation-icon">
 <i class="fas fa-check-circle"></i>
 </div>
+
+    // Validate form
+    const form = document.getElementById('quiz-form');
+    const nameInput = form.querySelector('input[type="text"]');
+    const emailInput = form.querySelector('input[type="email"]');
+
+    if (!nameInput.value.trim()) {
+      alert('Bitte gib deinen Namen ein');
+      return;
+    }
+
+    if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+      alert('Bitte gib eine gültige E-Mail-Adresse ein');
+      return;
+    }
+
+    // Save contact info
+    answers.contact = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      phone: form.querySelector('input[type="tel"]').value.trim(),
+      notes: form.querySelector('textarea').value.trim()
+    };
+
+    // Prepare email data
+    const emailData = {
+      to: 'boxology.help@gmail.com',
+      subject: 'Neue Box-Anfrage von ' + answers.contact.name,
+      body: `Neue Box-Anfrage erhalten:
+      
+Name: ${answers.contact.name}
+Email: ${answers.contact.email}
+Telefon: ${answers.contact.phone || 'Keine Angabe'}
+
+Empfänger: ${answers.recipient}
+Alter: ${answers.age}
+Geschlecht: ${answers.gender}
+Beziehung: ${answers.relationship}
+Interessen: ${answers.interests.join(', ')}
+Anlass: ${answers.occasion}
+Budget: ${answers.budget}
+Stil: ${answers.style}
+
+Besondere Wünsche:
+${answers.contact.notes || 'Keine besonderen Wünsche'}
+
+Gesammelte Antworten:
+${JSON.stringify(answers, null, 2)}`
+    };
+
+    // Send email using mailto link
+    const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
+    window.open(mailtoLink, '_blank');
+
+    // Show thank you step
+    showStep(currentStep + 1);
+
+    // Reset form after delay
+    setTimeout(() => {
+      document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      form.reset();
+      showStep(0);
+      answers.recipient = '';
+      answers.age = '';
+      answers.gender = '';
+      answers.relationship = '';
+      answers.interests = [];
+      answers.occasion = '';
+      answers.budget = '';
+      answers.style = '';
+      answers.contact = {};
+    }, 10000);
+  }
+});
+
+function subscribeNewsletter(e) {
+  e.preventDefault();
+  const email = e.target.closest('form').querySelector('input[type="email"]').value;
+  if (!email || !email.includes('@')) {
+    alert('Bitte gib eine gültige E-Mail-Adresse ein');
+    return;
+  }
+  alert('Vielen Dank für deine Anmeldung!');
+  e.target.closest('form').reset();
+}
+
 <h3 class="quiz-question">Vielen Dank für deine Anfrage!</h3>
 <p style="margin-bottom: 30px; font-size: 1.1rem; color: var(--gold-light);">Wir erstellen jetzt deine personalisierte Box und melden uns innerhalb von 24 Stunden mit einem Entwurf bei dir. Du erhältst eine E-Mail mit weiteren Details.</p>
 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn btn-primary">Zur Startseite</button>
@@ -596,6 +684,7 @@ document.querySelectorAll('#step2 .quiz-option').forEach(option => {
 </div>
 </body>
 </html>
+
 
 
 
