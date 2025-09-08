@@ -1,0 +1,467 @@
+# Docker-Compose für komplette Boxology-Infrastruktur
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: boxology-db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: boxology
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d
+    ports:
+      - "27017:27017"
+    networks:
+      - boxology-network
+
+  # Backend API
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: boxology-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      MONGODB_URI: mongodb://mongodb:27017/boxology
+      PORT: 3000
+    env_file:
+      - .env
+    volumes:
+      - ./uploads:/app/uploads
+    depends_on:
+      - mongodb
+    networks:
+      - boxology-network
+
+  # Frontend (Static Files)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: boxology-frontend
+    restart: unless-stopped
+    volumes:
+      - frontend_build:/usr/share/nginx/html
+    networks:
+      - boxology-network
+
+  # Nginx Reverse Proxy & Load Balancer
+  nginx:
+    image: nginx:alpine
+    container_name: boxology-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - frontend_build:/usr/share/nginx/html
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - boxology-network
+
+  # Redis für Session Management & Caching
+  redis:
+    image: redis:7-alpine
+    container_name: boxology-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    networks:
+      - boxology-network
+
+  # Admin Panel (React-basiert)
+  admin:
+    build:
+      context: ./admin-panel
+      dockerfile: Dockerfile
+    container_name: boxology-admin
+    restart: unless-stopped
+    environment:
+      REACT_APP_API_URL: ${API_URL}
+    networks:
+      - boxology-network
+
+volumes:
+  mongodb_data:
+  redis_data:
+  frontend_build:
+
+networks:
+  boxology-network:
+    driver: bridge
+
+---
+# Backend Dockerfile
+# ./backend/Dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Copy source code
+COPY . .
+
+# Create uploads directory
+RUN mkdir -p uploads
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:3000/api/health || exit 1
+
+# Start application
+CMD ["node", "server.js"]
+
+---
+# Frontend Dockerfile  
+# ./frontend/Dockerfile
+FROM nginx:alpine
+
+# Copy static files
+COPY dist/ /usr/share/nginx/html/
+
+# Copy nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port
+EXPOSE 80
+
+---
+# Nginx Configuration
+# ./nginx/nginx.conf
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log warn;
+pid /var/run/nginx.pid;
+
+events {
+    worker_connections 1024;
+    use epoll;
+    multi_accept on;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    # Logging
+    log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                   '$status $body_bytes_sent "$http_referer" '
+                   '"$http_user_agent" "$http_x_forwarded_for"';
+    access_log /var/log/nginx/access.log main;
+
+    # Performance
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    client_max_body_size 10M;
+
+    # Gzip Compression
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_types
+        text/plain
+        text/css
+        text/xml
+        text/javascript
+        application/json
+        application/javascript
+        application/xml+rss
+        image/svg+xml;
+
+    # Security Headers
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+    add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'" always;
+
+    # Rate Limiting
+    limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
+    limit_req_zone $binary_remote_addr zone=login:10m rate=1r/s;
+
+    # Upstream Backend
+    upstream backend {
+        server backend:3000;
+        keepalive 32;
+    }
+
+    # Main Website
+    server {
+        listen 80;
+        listen [::]:80;
+        server_name boxology.at www.boxology.at;
+
+        # Redirect HTTP to HTTPS
+        return 301 https://$server_name$request_uri;
+    }
+
+    # HTTPS Website
+    server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        server_name boxology.at www.boxology.at;
+
+        # SSL Configuration
+        ssl_certificate /etc/nginx/ssl/boxology.crt;
+        ssl_certificate_key /etc/nginx/ssl/boxology.key;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512;
+        ssl_prefer_server_ciphers off;
+        ssl_session_cache shared:SSL:10m;
+
+        # Static Files (Frontend)
+        location / {
+            root /usr/share/nginx/html;
+            try_files $uri $uri/ /index.html;
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+
+        # API Routes
+        location /api/ {
+            limit_req zone=api burst=20 nodelay;
+            proxy_pass http://backend;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_cache_bypass $http_upgrade;
+            proxy_connect_timeout 30s;
+            proxy_send_timeout 30s;
+            proxy_read_timeout 30s;
+        }
+
+        # Webhook Endpoints (no rate limiting)
+        location /api/webhook/ {
+            proxy_pass http://backend;
+            proxy_http_version 1.1;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        # File Uploads
+        location /uploads/ {
+            alias /app/uploads/;
+            expires 1y;
+            add_header Cache-Control "public";
+        }
+    }
+
+    # Admin Panel
+    server {
+        listen 443 ssl http2;
+        server_name admin.boxology.at;
+
+        # SSL Configuration (same as main site)
+        ssl_certificate /etc/nginx/ssl/boxology.crt;
+        ssl_certificate_key /etc/nginx/ssl/boxology.key;
+        ssl_protocols TLSv1.2 TLSv1.3;
+
+        # Basic Auth for additional security
+        auth_basic "Admin Area";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+
+        location / {
+            proxy_pass http://admin:3000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
+
+---
+# Deployment Script
+# ./deploy.sh
+#!/bin/bash
+
+set -e
+
+echo "🚀 Boxology Deployment Script"
+
+# Load environment variables
+if [ -f .env ]; then
+    export $(cat .env | xargs)
+fi
+
+# Build and deploy
+echo "📦 Building containers..."
+docker-compose build --no-cache
+
+echo "🔄 Starting services..."
+docker-compose up -d
+
+echo "⏳ Waiting for services to start..."
+sleep 30
+
+echo "🏥 Health check..."
+docker-compose ps
+
+# Check if backend is healthy
+if curl -f http://localhost/api/health > /dev/null 2>&1; then
+    echo "✅ Backend is healthy"
+else
+    echo "❌ Backend health check failed"
+    docker-compose logs backend
+    exit 1
+fi
+
+echo "📊 Service status:"
+docker-compose ps
+
+echo "🎉 Deployment completed successfully!"
+echo "🌐 Website: https://boxology.at"
+echo "🔧 Admin: https://admin.boxology.at"
+
+# Backup database
+echo "💾 Creating database backup..."
+docker exec boxology-db mongodump --out /data/backup/$(date +%Y%m%d_%H%M%S)
+
+echo "✨ All done!"
+
+---
+# Environment Template für Production
+# .env.production
+NODE_ENV=production
+PORT=3000
+
+# Database
+MONGO_ROOT_USER=admin
+MONGO_ROOT_PASSWORD=your-super-secure-password
+MONGODB_URI=mongodb://admin:your-super-secure-password@mongodb:27017/boxology?authSource=admin
+
+# Redis
+REDIS_PASSWORD=your-redis-password
+
+# URLs
+FRONTEND_URL=https://boxology.at
+API_URL=https://boxology.at/api
+ADMIN_URL=https://admin.boxology.at
+
+# Email
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=info@boxology.at
+SMTP_PASSWORD=your-app-specific-password
+ADMIN_EMAIL=admin@boxology.at
+
+# Stripe
+STRIPE_PUBLISHABLE_KEY=pk_live_...
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+# JWT
+JWT_SECRET=your-super-long-random-jwt-secret-here
+
+# File Storage
+UPLOAD_PATH=./uploads
+MAX_FILE_SIZE=10485760
+
+# Monitoring
+SENTRY_DSN=https://your-sentry-dsn@sentry.io/project-id
+
+---
+# SSL Certificate Setup (Let's Encrypt)
+# ./ssl-setup.sh
+#!/bin/bash
+
+echo "🔐 Setting up SSL certificates with Let's Encrypt"
+
+# Install Certbot
+sudo apt update
+sudo apt install -y certbot python3-certbot-nginx
+
+# Get certificate
+sudo certbot --nginx -d boxology.at -d www.boxology.at -d admin.boxology.at
+
+# Auto-renewal
+sudo crontab -e
+# Add this line:
+# 0 12 * * * /usr/bin/certbot renew --quiet
+
+echo "✅ SSL certificates configured"
+
+---
+# Monitoring & Logging Setup
+# ./monitoring/docker-compose.monitoring.yml
+version: '3.8'
+
+services:
+  # Prometheus for metrics
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - boxology-network
+
+  # Grafana for dashboards
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3001:3000"
+    networks:
+      - boxology-network
+
+  # ELK Stack for logging
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - boxology-network
+
+volumes:
+  prometheus_data:
+  grafana_data:
+  elasticsearch_data:
+
+networks:
+  boxology-network:
+    external: true
