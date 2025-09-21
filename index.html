@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boxology - Business Lösungen</title>
+<title>Boxology - Premium Geschenkboxen</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,31 +42,52 @@ background-attachment: fixed;
 
 h1, h2, h3, h4 {
 font-family: 'Playfair Display', serif;
+color: var(--white);
 font-weight: 700;
 }
 
-h2 {
-color: var(--gold) !important;
-}
-
 p {
-color: var(--text-dark);
+color: var(--text-light);
 }
 
 /* Enhanced Shadow Boxes */
 .shadow-box {
-background-color: var(--white);
+background-color: var(--navy);
 border-radius: 10px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 padding: 40px;
 margin: 20px 0;
-border: 1px solid rgba(212, 175, 55, 0.2);
-color: var(--navy);
+border: 1px solid rgba(212, 175, 55, 0.3);
+color: black;
 position: relative;
 overflow: hidden;
 }
 
 .shadow-box p {
+color: black;
+font-size: 1.1rem;
+line-height: 1.8;
+}
+
+.shadow-box::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+opacity: 0.05;
+pointer-events: none;
+}
+
+.shadow-box-light {
+background-color: var(--white);
+color: var(--navy);
+box-shadow: 0 5px 20px rgba(10, 35, 66, 0.1);
+}
+
+.shadow-box-light p {
 color: var(--navy);
 font-size: 1.1rem;
 line-height: 1.8;
@@ -98,7 +120,49 @@ background-attachment: fixed;
 color: var(--white);
 }
 
-/* Container */
+/* How It Works Section */
+.how-it-works {
+background-color: var(--navy-light);
+color: var(--white);
+}
+
+.step {
+background-color: var(--navy);
+color: var(--white);
+}
+
+/* Testimonials */
+.testimonials {
+background-color: var(--navy-light);
+}
+
+.testimonial {
+background-color: var(--navy);
+color: black;
+}
+
+/* Gallery Section */
+.gallery {
+background-color: var(--navy-light);
+}
+
+/* Quiz Section */
+.quiz-section {
+background: var(--navy);
+}
+
+.quiz-container {
+background-color: var(--navy-light);
+color: var(--white);
+}
+
+/* Footer */
+footer {
+background-color: var(--navy-dark);
+color: var(--white);
+}
+
+/* Rest of your CSS remains the same */
 .container {
 max-width: 1200px;
 margin: 0 auto;
@@ -159,6 +223,98 @@ color: var(--gold);
 width: 100%;
 }
 
+.cart-icon {
+position: relative;
+font-size: 20px;
+color: var(--white);
+transition: transform 0.3s;
+}
+
+.cart-icon:hover {
+transform: scale(1.1);
+color: var(--gold);
+}
+
+.cart-count {
+position: absolute;
+top: -10px;
+right: -10px;
+background-color: var(--gold);
+color: var(--navy);
+border-radius: 50%;
+width: 20px;
+height: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 12px;
+font-weight: bold;
+}
+
+.hero {
+background-size: cover;
+background-position: center;
+height: 90vh;
+display: flex;
+align-items: center;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.hero:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+opacity: 0.1;
+pointer-events: none;
+}
+
+.hero-content {
+max-width: 800px;
+margin: 0 auto;
+position: relative;
+z-index: 2;
+animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.hero h1 {
+font-size: 3.8rem;
+margin-bottom: 25px;
+line-height: 1.2;
+letter-spacing: 1px;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+font-size: 1.5rem;
+margin-bottom: 40px;
+font-weight: 400;
+letter-spacing: 0.5px;
+text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.cta-buttons {
+display: flex;
+justify-content: center;
+gap: 25px;
+}
+
 .btn {
 display: inline-block;
 padding: 18px 40px;
@@ -199,30 +355,21 @@ color: var(--navy);
 transform: translateY(-3px);
 }
 
-/* Business Hero */
-.business-hero {
-background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
-color: var(--white);
-padding: 120px 0 80px;
-text-align: center;
-}
-
-.business-hero h1 {
-font-size: 3.8rem;
-margin-bottom: 25px;
-color: var(--white);
-}
-
-.business-hero p {
-font-size: 1.5rem;
-margin-bottom: 40px;
-color: var(--gold-light);
-}
-
-/* Solutions Section */
-.solutions {
+.how-it-works {
 padding: 100px 0;
-background-color: var(--white);
+position: relative;
+}
+
+.how-it-works:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png');
+opacity: 0.05;
+pointer-events: none;
 }
 
 .section-title {
@@ -233,7 +380,6 @@ position: relative;
 display: inline-block;
 left: 50%;
 transform: translateX(-50%);
-color: var(--navy);
 }
 
 .section-title:after {
@@ -247,180 +393,406 @@ height: 3px;
 background-color: var(--gold);
 }
 
-.solutions-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-gap: 40px;
+.steps {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 30px;
+position: relative;
+z-index: 2;
 }
 
-.solution-card {
-background: var(--white);
-padding: 40px;
-border-radius: 15px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-border: 2px solid var(--gold);
-transition: all 0.3s;
+.step {
+flex: 1;
+min-width: 250px;
+text-align: center;
+padding: 40px 30px;
+border-radius: 10px;
+transition: all 0.4s;
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.solution-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+.step:hover {
+transform: translateY(-10px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
-.solution-icon {
-font-size: 3rem;
+.step-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, var(--gold), #e8c04d);
+    color: var(--navy);
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.step-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    background: linear-gradient(45deg, var(--gold-light), var(--gold));
+}
+
+.step-button i {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.step-button:hover i {
+    transform: translateX(3px);
+}
+
+.step-icon {
+font-size: 3.5rem;
 color: var(--gold);
-margin-bottom: 20px;
+margin-bottom: 25px;
+transition: transform 0.3s;
 }
 
-.solution-card h3 {
-color: var(--navy);
+.step:hover .step-icon {
+transform: scale(1.1);
+}
+
+.step h3 {
 margin-bottom: 20px;
 font-size: 1.6rem;
 }
 
-/* Calendar Section */
-.calendar-section {
+.gallery {
 padding: 100px 0;
-background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 100%);
-color: var(--white);
+position: relative;
 }
 
-.calendar-container {
-background: var(--white);
-padding: 40px;
-border-radius: 15px;
-box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-color: var(--navy);
+.gallery:after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 100px;
+background: linear-gradient(to bottom, transparent, var(--navy-light));
+z-index: 1;
 }
 
-.calendar-header {
-text-align: center;
-margin-bottom: 40px;
-}
-
-.calendar-header h2 {
-color: var(--gold) !important;
-margin-bottom: 20px;
-font-size: 2.5rem;
-}
-
-.calendar-grid {
+.gallery-grid {
 display: grid;
-grid-template-columns: repeat(7, 1fr);
-gap: 10px;
-margin-bottom: 30px;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 25px;
+margin-top: 50px;
 }
 
-.calendar-day {
-padding: 15px;
-text-align: center;
+.gallery-item {
+position: relative;
+overflow: hidden;
 border-radius: 8px;
-background: var(--light-gray);
-font-weight: 600;
+height: 350px;
+box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+transition: all 0.4s;
+display: block;
+color: inherit;
+text-decoration: none;
 }
 
-.calendar-date {
-padding: 15px;
-text-align: center;
-border-radius: 8px;
-border: 2px solid var(--gold-light);
-cursor: pointer;
-transition: all 0.3s;
-min-height: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
+.gallery-item:hover {
+box-shadow: 0 12px 35px rgba(0,0,0,0.3);
 }
 
-.calendar-date:hover {
-background: var(--gold);
-color: var(--navy);
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.calendar-date.unavailable {
-background: var(--gray);
-color: var(--light-gray);
-cursor: not-allowed;
-opacity: 0.5;
-}
-
-.calendar-date.empty {
-background: transparent;
-border: none;
-cursor: default;
-}
-
-.calendar-date.selected {
-background: var(--gold);
-color: var(--navy);
-font-weight: bold;
-transform: scale(1.05);
-box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-}
-
-.calendar-nav-btn {
-background: var(--gold);
-color: var(--navy);
-border: none;
-border-radius: 50%;
-width: 40px;
-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-transition: all 0.3s;
-font-size: 16px;
-}
-
-.calendar-nav-btn:hover {
-background: var(--gold-light);
+.gallery-item:hover img {
 transform: scale(1.1);
+filter: brightness(1.1);
 }
 
-.time-slots {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-gap: 10px;
-margin-top: 30px;
+.gallery-item::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, rgba(10,35,66,0.3), rgba(212,175,55,0.1));
+z-index: 1;
+opacity: 0;
+transition: opacity 0.3s;
 }
 
-.time-slot {
-padding: 12px;
-text-align: center;
-border: 2px solid var(--gold);
-border-radius: 8px;
-cursor: pointer;
-transition: all 0.3s;
-opacity: 0.5;
-cursor: not-allowed;
-}
-
-.time-slot:hover {
-background: var(--gold);
-color: var(--navy);
-}
-
-.time-slot.selected {
-background: var(--gold);
-color: var(--navy);
-font-weight: bold;
+.gallery-item:hover::before {
 opacity: 1;
 }
 
-/* Quiz Section */
+.gallery-overlay {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: linear-gradient(transparent, rgba(10, 35, 66, 0.9));
+padding: 25px;
+transform: translateY(100%);
+transition: transform 0.4s;
+z-index: 2;
+}
+
+.gallery-item:hover .gallery-overlay {
+transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+margin-bottom: 10px;
+font-size: 1.4rem;
+}
+
+.price-tag {
+position: absolute;
+top: 20px;
+right: 20px;
+background: linear-gradient(135deg, var(--gold), #f5e6b3);
+color: var(--navy);
+padding: 10px 15px;
+border-radius: 30px;
+font-weight: bold;
+font-size: 14px;
+z-index: 3;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+transform: translateY(-20px);
+opacity: 0;
+transition: all 0.4s;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.price-tag .price {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.price-tag .discount {
+    background: var(--navy);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.premium-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.7);
+    color: var(--gold);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 12px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.premium-badge i {
+    margin-right: 5px;
+}
+
+.gallery-cta {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.gallery-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--gold-light);
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin-top: 10px;
+    animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+    0% { height: 50px; opacity: 1; }
+    50% { height: 70px; opacity: 0.7; }
+    100% { height: 50px; opacity: 1; }
+}
+
+.gallery-item:hover .price-tag {
+transform: translateY(0);
+opacity: 1;
+}
+
+.testimonials {
+padding: 100px 0;
+position: relative;
+}
+
+.testimonial-slider {
+max-width: 800px;
+margin: 0 auto;
+position: relative;
+}
+
+.testimonial {
+text-align: center;
+padding: 50px;
+border-radius: 10px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+border: 1px solid rgba(212, 175, 55, 0.3);
+display: none;
+}
+
+.testimonial.active {
+display: block;
+animation: fadeIn 0.6s;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-text {
+font-size: 1.3rem;
+font-style: italic;
+margin-bottom: 30px;
+position: relative;
+line-height: 1.8;
+color: black;
+}
+
+.testimonial-text::before,
+.testimonial-text::after {
+content: '"';
+font-size: 3rem;
+color: var(--gold);
+opacity: 0.3;
+position: absolute;
+}
+
+.testimonial-text::before {
+top: -20px;
+left: -30px;
+}
+
+.testimonial-text::after {
+bottom: -40px;
+right: -30px;
+}
+
+.testimonial-author {
+margin-top: 20px;
+display: block;
+font-size: 1.1rem;
+color: var(--gold);
+}
+
+.testimonial-role {
+font-size: 0.9rem;
+display: block;
+margin-top: 5px;
+color: var(--gold-light);
+}
+
+.slider-controls {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 40px;
+}
+
+.slider-dot {
+width: 14px;
+height: 14px;
+border-radius: 50%;
+background-color: var(--gold-light);
+cursor: pointer;
+transition: all 0.3s;
+border: 1px solid transparent;
+}
+
+.slider-dot:hover {
+background-color: var(--gold);
+}
+
+.slider-dot.active {
+background-color: var(--gold);
+transform: scale(1.2);
+border-color: var(--navy);
+}
+
 .quiz-section {
 padding: 100px 0;
-background-color: var(--white);
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.quiz-section:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+opacity: 0.05;
+pointer-events: none;
+}
+
+.quiz-section .section-title {
+color: var(--white);
+}
+
+.quiz-section .section-title:after {
+background-color: var(--gold);
 }
 
 .quiz-container {
-background: var(--navy);
+max-width: 800px;
+margin: 0 auto;
 padding: 50px;
-border-radius: 15px;
-box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-color: var(--white);
+border-radius: 10px;
+box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+position: relative;
+z-index: 2;
 }
 
 .quiz-step {
@@ -429,45 +801,114 @@ display: none;
 
 .quiz-step.active {
 display: block;
+animation: fadeInUp 0.6s;
 }
 
 .quiz-question {
 font-size: 1.8rem;
 margin-bottom: 40px;
-text-align: center;
-color: var(--gold);
+position: relative;
+display: inline-block;
+}
+
+.quiz-question:after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 50px;
+height: 2px;
+background-color: var(--gold);
 }
 
 .quiz-options {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
 gap: 15px;
 margin-bottom: 40px;
 }
 
 .quiz-option {
-padding: 20px;
-background: rgba(255,255,255,0.1);
-border-radius: 10px;
+padding: 16px 30px;
+background-color: rgba(255,255,255,0.1);
+border-radius: 30px;
 cursor: pointer;
 transition: all 0.3s;
-border: 2px solid transparent;
-text-align: center;
+border: 1px solid rgba(255,255,255,0.2);
+font-weight: 500;
 color: var(--white);
+margin: 8px;
+min-width: 120px;
+text-align: center;
 }
 
 .quiz-option:hover {
-background: var(--gold);
+background-color: var(--gold);
 color: var(--navy);
+border-color: var(--gold);
 transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 .quiz-option.selected {
-background: var(--gold);
+background-color: var(--gold);
+color: var(--navy);
+border-color: var(--gold);
+font-weight: 600;
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.quiz-option[data-value="individuell"].selected {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.7);
+    animation: pulse 2s infinite;
+}
+
+.quiz-option[data-value="individuell"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+}
+
+.quiz-option[data-value="individuell"].selected .selection-circle {
+    opacity: 1;
+    transform: scale(1.05);
+    border-width: 4px;
+}
+
+@keyframes pulseSelected {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes pulseCircle {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    }
+}
+
+@keyframes pulseCircle {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.quiz-option[data-value="individuell"]:hover {
+background-color: var(--gold-light);
 color: var(--navy);
 border-color: var(--gold-light);
-font-weight: bold;
-transform: translateY(-3px);
 }
 
 .quiz-navigation {
@@ -478,23 +919,90 @@ margin-top: 40px;
 
 .quiz-progress {
 height: 6px;
-background: rgba(255,255,255,0.2);
-margin: 30px 0;
+background-color: rgba(255,255,255,0.2);
+margin-top: 30px;
 border-radius: 3px;
 overflow: hidden;
+position: relative;
 }
 
 .progress-bar {
 height: 100%;
-background: linear-gradient(90deg, var(--gold), #e8c04d);
+background: linear-gradient(90deg, var(--gold) 0%, #e8c04d 100%);
 width: 0%;
-transition: width 0.6s;
+transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+position: relative;
+overflow: hidden;
 }
 
-/* Footer */
-footer {
-background-color: var(--navy-dark);
+.progress-bar:after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+0% { transform: translateX(-100%); }
+100% { transform: translateX(100%); }
+}
+
+@keyframes pulse {
+0% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5); }
+50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.7); }
+100% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5); }
+}
+
+.quiz-form input,
+.quiz-form textarea {
+width: 100%;
+padding: 15px;
+border: 1px solid rgba(255,255,255,0.3);
+border-radius: 5px;
+margin-bottom: 20px;
+font-family: 'Montserrat', sans-serif;
+transition: all 0.3s;
+font-size: 16px;
+background-color: rgba(255,255,255,0.1);
 color: var(--white);
+}
+
+.quiz-form input::placeholder,
+.quiz-form textarea::placeholder {
+color: rgba(255,255,255,0.7);
+}
+
+.quiz-form input:focus,
+.quiz-form textarea:focus {
+outline: none;
+border-color: var(--gold);
+box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+background-color: rgba(255,255,255,0.2);
+}
+
+.quiz-form textarea {
+height: 120px;
+resize: vertical;
+}
+
+.confirmation-icon {
+font-size: 5rem;
+color: var(--gold);
+margin-bottom: 30px;
+animation: bounceIn 0.8s;
+}
+
+@keyframes bounceIn {
+0% { transform: scale(0.5); opacity: 0; }
+50% { transform: scale(1.2); opacity: 1; }
+100% { transform: scale(1); }
+}
+
+footer {
 padding: 80px 0 30px;
 position: relative;
 }
@@ -672,7 +1180,69 @@ font-size: 0.9rem;
 color: rgba(255,255,255,0.6);
 }
 
+.back-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 50px;
+height: 50px;
+background-color: var(--gold);
+color: var(--navy);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+cursor: pointer;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s;
+z-index: 999;
+box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.back-to-top.visible {
+opacity: 1;
+visibility: visible;
+}
+
+.back-to-top:hover {
+transform: translateY(-5px);
+background-color: var(--gold-light);
+}
+
+/* Animations */
+.fade-in {
+animation: fadeIn 1s ease-out;
+}
+
+.delay-1 {
+animation-delay: 0.2s;
+}
+
+.delay-2 {
+animation-delay: 0.4s;
+}
+
+.delay-3 {
+animation-delay: 0.6s;
+}
+
 /* Responsive Styles */
+@media (max-width: 992px) {
+.hero h1 {
+font-size: 3rem;
+}
+
+.hero p {
+font-size: 1.3rem;
+}
+
+.section-title {
+font-size: 2.5rem;
+}
+}
+
 @media (max-width: 768px) {
 .nav-links {
 position: fixed;
@@ -699,24 +1269,92 @@ color: white;
 cursor: pointer;
 }
 
-.business-hero h1 {
+.hero {
+height: 80vh;
+}
+
+.hero h1 {
 font-size: 2.5rem;
+}
+
+.hero p {
+font-size: 1.2rem;
+}
+
+.cta-buttons {
+flex-direction: column;
+align-items: center;
+}
+
+.btn {
+width: 100%;
+max-width: 250px;
+margin-bottom: 15px;
+}
+
+.steps {
+flex-direction: column;
+}
+
+.step {
+margin-bottom: 30px;
+}
+
+.quiz-options {
+flex-direction: column;
+}
+
+.quiz-option {
+width: 100%;
+}
+
+.footer-content {
+flex-direction: column;
+gap: 40px;
+}
+}
+
+@media (max-width: 576px) {
+.hero h1 {
+font-size: 2.2rem;
+line-height: 1.3;
+}
+
+.hero p {
+font-size: 1.2rem;
 }
 
 .section-title {
 font-size: 2.2rem;
 }
 
-.solutions-grid {
-grid-template-columns: 1fr;
+.quiz-container {
+padding: 30px 20px;
+}
+
+.quiz-question {
+font-size: 1.5rem;
 }
 
 .quiz-options {
-grid-template-columns: 1fr;
+gap: 10px;
 }
 
-.footer-content {
-flex-direction: column;
+.quiz-option {
+padding: 14px 20px;
+font-size: 15px;
+min-width: 100px;
+}
+
+.btn {
+padding: 16px 30px;
+font-size: 16px;
+min-width: 160px;
+}
+
+input, textarea, select {
+font-size: 16px !important;
+padding: 14px !important;
 }
 }
 </style>
@@ -727,10 +1365,11 @@ flex-direction: column;
 <nav>
 <a href="index.html" class="logo">Boxology</a>
 <div class="nav-links">
-<a href="index.html">Startseite</a>
-<a href="#solutions">Lösungen</a>
-<a href="#calendar">Termin buchen</a>
-<a href="#quiz">Business-Quiz</a>
+<a href="Homepage.html">Startseite</a>
+<a href="#gallery">Boxen</a>
+<a href="About.html">Über uns</a>
+<a href="business.html">Business</a>
+<a href="#testimonials">Bewertungen</a>
 <a href="#contact">Kontakt</a>
 </div>
 <div class="mobile-menu-toggle">
@@ -740,165 +1379,440 @@ flex-direction: column;
 </div>
 </header>
 
-<section class="business-hero">
-<div class="container">
-<h1>Corporate Gifting Excellence</h1>
-<p>Maßgeschneiderte Geschenklösungen für Ihr Unternehmen</p>
-<button class="btn btn-primary" onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})">
-    <i class="fas fa-crown"></i> Jetzt Beratung anfragen
+<section class="hero">
+<div class="hero-content">
+<h1 class="fade-in">Luxuriöse Geschenkboxen - <span style="color: var(--gold);">einzigartig wie Ihre Geschichte</span></h1>
+<p class="fade-in delay-1">Handgefertigte Premium-Boxen, maßgeschneidert für unvergessliche Momente</p>
+<div class="cta-buttons fade-in delay-2">
+<button onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})" class="btn btn-primary">
+    <i class="fas fa-gem" style="margin-right: 10px;"></i> Jetzt Box entwerfen
+</button>
+<button onclick="document.querySelector('#gallery').scrollIntoView({behavior: 'smooth'})" class="btn btn-secondary">
+    <i class="fas fa-crown" style="margin-right: 10px;"></i> Kollektion entdecken
 </button>
 </div>
 </section>
 
-<section id="solutions" class="solutions">
+<section class="how-it-works" id="how-it-works">
 <div class="container">
-<h2 class="section-title">Unsere Business-Lösungen</h2>
-<div class="solutions-grid">
-<div class="solution-card">
-<div class="solution-icon">
-    <i class="fas fa-users"></i>
-</div>
-<h3>Team Events & Incentives</h3>
-<p>Motivieren Sie Ihr Team mit personalisierten Geschenkboxen für besondere Leistungen, Jubiläen oder Weihnachtsfeiern.</p>
-</div>
-<div class="solution-card">
-<div class="solution-icon">
-    <i class="fas fa-handshake"></i>
-</div>
-<h3>Kundenbeziehungen</h3>
-<p>Stärken Sie Ihre Kundenbindung mit einzigartigen Geschenken, die Ihre Wertschätzung zeigen.</p>
-</div>
-<div class="solution-card">
-<div class="solution-icon">
-    <i class="fas fa-gift"></i>
-</div>
-<h3>Konferenz & Event Packages</h3>
-<p>Beeindrucken Sie Ihre Gäste mit maßgeschneiderten Willkommenspaketen für Veranstaltungen.</p>
-</div>
-<div class="solution-card">
-<div class="solution-icon">
-    <i class="fas fa-building"></i>
-</div>
-<h3>Corporate Branding</h3>
-<p>Integrieren Sie Ihr Corporate Design in hochwertige Geschenkboxen für maximale Markenpräsenz.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="calendar" class="calendar-section">
-<div class="container">
-<h2 class="section-title" style="color: var(--white) !important;">Beratungstermin vereinbaren</h2>
-<p style="text-align: center; color: var(--gold-light); margin-bottom: 50px;">Wählen Sie einen passenden Termin für Ihre persönliche Business-Beratung</p>
-<div class="calendar-container">
-<div class="calendar-header">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <button class="calendar-nav-btn" onclick="changeMonth(-1)">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <h2 style="color: var(--gold) !important; margin: 0;" id="calendar-month-year">Oktober 2024</h2>
-        <button class="calendar-nav-btn" onclick="changeMonth(1)">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+<h2 class="section-title">So funktioniert's</h2>
+<div class="steps">
+<div class="step fade-in shadow-box">
+<div class="step-icon">
+    <div class="icon-circle">
+        <i class="fas fa-hand-holding-heart"></i>
     </div>
 </div>
-<div class="calendar-grid" id="calendar-grid">
-<div class="calendar-day">Mo</div>
-<div class="calendar-day">Di</div>
-<div class="calendar-day">Mi</div>
-<div class="calendar-day">Do</div>
-<div class="calendar-day">Fr</div>
-<div class="calendar-day">Sa</div>
-<div class="calendar-day">So</div>
-<!-- Calendar dates will be generated dynamically -->
-</div>
-
-<div class="time-slots">
-<div class="time-slot">09:00</div>
-<div class="time-slot">10:00</div>
-<div class="time-slot">11:00</div>
-<div class="time-slot">14:00</div>
-<div class="time-slot">15:00</div>
-<div class="time-slot">16:00</div>
-</div>
-
-<button class="btn btn-primary" style="margin-top: 30px; width: 100%;" onclick="confirmAppointment()">
-    <i class="fas fa-calendar-check"></i> Termin bestätigen
+<h3>Persönliche Beratung</h3>
+<p style="color: white !important;"><strong>Unser Expertenteam erstellt mit Ihnen gemeinsam ein Konzept für Ihre perfekte Geschenkbox.</strong></p>
+<button class="step-button" onclick="document.querySelector('#quiz').scrollIntoView({behavior: 'smooth'})">
+    <i class="fas fa-gem"></i> Beratung anfordern
 </button>
+</div>
+<div class="step fade-in delay-1 shadow-box">
+<div class="step-icon">
+<i class="fas fa-magic"></i>
+</div>
+<h3>Wir gestalten</h3>
+<p style="color: white !important;"><strong>Wir kreieren eine einzigartige Box, die eine persönliche Geschichte erzählt.</strong></p>
+<button class="step-button" onclick="document.querySelector('#gallery').scrollIntoView({behavior: 'smooth'})">
+    Beispiele sehen <i class="fas fa-images"></i>
+</button>
+</div>
+<div class="step fade-in delay-2 shadow-box">
+<div class="step-icon">
+<i class="fas fa-gift"></i>
+</div>
+<h3>Geschenk erhalten</h3>
+<p style="color: white !important;"><strong>Ihre personalisierte Box wird verpackt und direkt zu Ihnen nach Hause geliefert.</strong></p>
+<button class="step-button" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+    Kontakt aufnehmen <i class="fas fa-envelope"></i>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="gallery" class="gallery">
+<div class="container">
+<h2 class="section-title">Unsere Kreationen</h2>
+<p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">Jede Box ist ein Unikat, handgefertigt mit Liebe zum Detail und persönlicher Note.</p>
+<div class="gallery-grid">
+<a href="family-collection.html" class="gallery-item">
+<div class="price-tag">
+    <span class="price">Ab €189</span>
+    <span class="discount">-10%</span>
+</div>
+<div class="premium-badge">
+    <i class="fas fa-crown"></i> Premium
+</div>
+<img src=".\WeddingProposal\FamilyGift.jpg" alt="Luxus Familien Geschenkbox">
+<div class="gallery-overlay">
+<h3>Signature Family Collection</h3>
+<p>Handgefertigte Premium-Box mit personalisierten Familienerinnerungen</p>
+<button class="gallery-cta">Details ansehen</button>
+</div>
+</a>
+<a href="wellness-collection.html" class="gallery-item">
+<div class="price-tag">Ab €79</div>
+<img src=".\WeddingProposal\Wellness1.jpg" alt="Wellness Geschenkbox">
+<div class="gallery-overlay">
+<h3>Wellnessbox</h3>
+<p>Entspannung und Selbstfürsorge</p>
+</div>
+</a>
+<a href="cooking-collection.html" class="gallery-item">
+<div class="price-tag">Ab €95</div>
+<img src=".\WeddingProposal\Kochbox.jpg" alt="Koch Geschenkbox">
+<div class="gallery-overlay">
+<h3>Kochbox</h3>
+<p>Für Feinschmecker und Hobbyköche</p>
+</div>
+</a>
+<a href="anniversary-collection.html" class="gallery-item">
+<div class="price-tag">Ab €109</div>
+<img src=".\WeddingProposal\WeddingGiftsStacked.jpg" alt="Jubiläum Geschenkbox">
+<div class="gallery-overlay">
+<h3>Jubiläumsbox</h3>
+<p>Für besondere Anlässe</p>
+</div>
+</a>
+<a href="kids-collection.html" class="gallery-item">
+<div class="price-tag">Ab €69</div>
+<img src=".\WeddingProposal\KinderGeschenksbox.jpg" alt="Kinder Geschenkbox">
+<div class="gallery-overlay">
+<h3>Kinderbox</h3>
+<p>Spielerisch und pädagogisch wertvoll</p>
+</div>
+</a>
+<a href="adventure-collection.html" class="gallery-item">
+<div class="price-tag">Ab €99</div>
+<img src=".\WeddingProposal\Adventure.jpg" alt="Abenteuer Geschenkbox">
+<div class="gallery-overlay">
+<h3>Abenteuerbox</h3>
+<p>Für Reiseliebhaber und Entdecker</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="testimonials" id="testimonials">
+<div class="container">
+<h2 class="section-title">Was unsere Kunden sagen</h2>
+<div class="testimonial-slider">
+<div class="testimonial active shadow-box">
+<p class="testimonial-text">Ich hatte keine Zeit für Geschenkesuche - Boxology hat mich gerettet! Die Box war perfekt auf meinen Vater abgestimmt und er war völlig begeistert. Die Qualität der Produkte und die persönliche Note haben mich überzeugt.</p>
+<span class="testimonial-author">Sarah M.</span>
+<span class="testimonial-role">Berlin</span>
+</div>
+<div class="testimonial shadow-box">
+<p class="testimonial-text">Wunderschön verpackte Box mit hochwertigen Geschenken drinnen. Nach dem Öffnen der Box strömt Einem ein mega guter Duft entgegen. Würde ich jederzeit wieder bestellen. Klare Empfehlung! </p>
+<span class="testimonial-author">Maximilian S.</span>
+<span class="testimonial-role">Wien</span>
+</div>
+<div class="testimonial shadow-box">
+<p class="testimonial-text">Endlich ein Geschenk, das nicht im Schrank landet. Die Box wird bei uns regelmäßig genutzt und erinnert uns an besondere Momente. Der Kundenservice war ausgezeichnet und hat sogar eine persönliche Nachricht beigefügt.</p>
+<span class="testimonial-author">Familie Schneider</span>
+<span class="testimonial-role">Hamburg</span>
+</div>
+<div class="slider-controls">
+<div class="slider-dot active" data-slide="0"></div>
+<div class="slider-dot" data-slide="1"></div>
+<div class="slider-dot" data-slide="2"></div>
+</div>
 </div>
 </div>
 </section>
 
 <section id="quiz" class="quiz-section">
 <div class="container">
-<h2 class="section-title">Business-Quiz</h2>
-<p style="text-align: center; margin-bottom: 50px;">Beantworten Sie ein paar Fragen und wir erstellen ein maßgeschneidertes Angebot für Ihr Unternehmen</p>
-<div class="quiz-container">
+<h2 class="section-title" style="text-align: center; width: 100%;">Gestalte deine perfekte Box</h2>
+<p style="text-align: center; margin: 0 auto 50px; color: var(--gold-light); max-width: 600px;">Beantworte ein paar Fragen und wir erstellen eine einzigartige Geschenkbox, die perfekt auf den Beschenkten abgestimmt ist.</p>
+<div class="quiz-container shadow-box">
 <div class="quiz-progress">
 <div class="progress-bar" id="progress-bar"></div>
 </div>
 
+<!-- Step 1: Recipient -->
 <div class="quiz-step active" id="step1">
-<h3 class="quiz-question">Welche Art von Unternehmen sind Sie?</h3>
+<h3 class="quiz-question">Für wen ist die Box gedacht?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="kleines">Kleines Unternehmen (<50 MA)</div>
-<div class="quiz-option" data-value="mittleres">Mittelständisches Unternehmen (50-250 MA)</div>
-<div class="quiz-option" data-value="grosses">Großunternehmen (>250 MA)</div>
-<div class="quiz-option" data-value="neues">Startup</div>
+<div class="quiz-option" data-value="partner">Partner/Ehepartner</div>
+<div class="quiz-option" data-value="eltern">Eltern/Großeltern</div>
+<div class="quiz-option" data-value="kind">Kind/Enkelkind</div>
+<div class="quiz-option" data-value="freund">Freund/Freundin</div>
+<div class="quiz-option" data-value="kollege">Kollege/Kollegin</div>
+<div class="quiz-option" data-value="geschwister">Geschwister</div>
+<div class="quiz-option" data-value="andere">Andere Person</div>
+</div>
+<div id="other-person-input" style="display: none; margin-top: 20px;">
+  <input type="text" placeholder="Bitte Person angeben" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
 </div>
 <div class="quiz-navigation">
-<button class="btn btn-secondary quiz-prev">Zurück</button>
-<button class="btn btn-primary quiz-next">Weiter</button>
+  <button class="btn btn-secondary quiz-prev">Zurück</button>
+  <button class="btn btn-primary quiz-next">Weiter</button>
 </div>
 </div>
 
+<!-- Step 2: Age -->
 <div class="quiz-step" id="step2">
-<h3 class="quiz-question">Für welchen Anlass benötigen Sie die Boxen?</h3>
-<div class="quiz-options">
-<div class="quiz-option" data-value="Weihnachten">Weihnachtsgeschenke</div>
-<div class="quiz-option" data-value="ein Jubilaeum">Firmenjubiläum</div>
-<div class="quiz-option" data-value="Kundengeschenke">Kundengeschenke</div>
-<div class="quiz-option" data-value="Mitarbeiter-Geschenke">Mitarbeiter-Geschenke</div>
-<div class="quiz-option" data-value="ein Event/Conference">Event/Conference</div>
-<div class="quiz-option" data-value="andere">Anderer Anlass</div>
+<h3 class="quiz-question">Wie alt ist die Person?</h3>
+
+<div style="margin: 40px 0; text-align: center;">
+    <p style="margin-bottom: 20px; color: var(--gold-light);">Bitte das genaue Alter angeben:</p>
+    <div style="max-width: 400px; margin: 0 auto;">
+        <input type="range" id="exact-age-slider" min="1" max="100" value="1" style="width: 100%;">
+        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+            <span>1</span>
+            <span id="exact-age-value" style="font-weight: bold;">1</span>
+            <span>100</span>
+        </div>
+    </div>
 </div>
+
 <div class="quiz-navigation">
-<button class="btn btn-secondary quiz-prev">Zurück</button>
-<button class="btn btn-primary quiz-next">Weiter</button>
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
 </div>
 </div>
 
+<script>
+// Age slider functionality
+const ageSlider = document.getElementById('exact-age-slider');
+const ageValue = document.getElementById('exact-age-value');
+
+ageSlider.addEventListener('input', function() {
+    ageValue.textContent = this.value;
+    // Store exact age in answers object
+    answers.exactAge = this.value;
+});
+
+// Update answers when age range is selected
+document.querySelectorAll('#step2 .quiz-option').forEach(option => {
+    option.addEventListener('click', function() {
+        answers.exactAge = null; // Clear exact age when range is selected
+    });
+});
+
+// Enhanced quiz navigation function
+function navigateQuiz(direction) {
+    const currentStepId = steps[currentStep].id;
+    let isValid = true;
+
+    // Validate current step
+    if (currentStepId === 'step2' && !answers.exactAge) {
+        alert('Bitte geben Sie das genaue Alter an, bevor Sie fortfahren.');
+        isValid = false;
+    }
+
+    if (isValid) {
+        if (direction === 1 && currentStep < totalSteps - 1) {
+            showStep(currentStep + 1);
+        } else if (direction === -1 && currentStep > 0) {
+            showStep(currentStep - 1);
+        }
+    }
+}
+</script>
+
+<!-- Step 3: Gender -->
 <div class="quiz-step" id="step3">
-<h3 class="quiz-question">Wie viele Boxen benötigen Sie?</h3>
+<h3 class="quiz-question">Geschlecht der Person?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="10-50">10-50 Boxen</div>
-<div class="quiz-option" data-value="50-100">50-100 Boxen</div>
-<div class="quiz-option" data-value="100-500">100-500 Boxen</div>
-<div class="quiz-option" data-value="500+">500+ Boxen</div>
-</div>
-<div id="custom-quantity-input" style="display: none; margin-top: 20px;">
-  <input type="number" id="custom-quantity" placeholder="Spezifische Anzahl eingeben (z.B. 750)" min="500" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+<div class="quiz-option" data-value="weiblich">Weiblich</div>
+<div class="quiz-option" data-value="maennlich">Männlich</div>
+<div class="quiz-option" data-value="divers">Divers</div>
+<div class="quiz-option" data-value="egal">Spielt keine Rolle</div>
 </div>
 <div class="quiz-navigation">
-<button class="btn btn-secondary quiz-prev">Zurück</button>
-<button class="btn btn-primary quiz-next">Weiter</button>
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
 </div>
 </div>
 
+<!-- Step 4: Relationship -->
 <div class="quiz-step" id="step4">
-<h3 class="quiz-question">Welches Budget haben Sie pro Box?</h3>
+<h3 class="quiz-question">Wie ist deine Beziehung zu der Person?</h3>
 <div class="quiz-options">
+<div class="quiz-option" data-value="familie" onclick="selectOption(this, 'relationship')">Familienmitglied</div>
+<div class="quiz-option" data-value="partner" onclick="selectOption(this, 'relationship')">Partner/Partnerin</div>
+<div class="quiz-option" data-value="freund" onclick="selectOption(this, 'relationship')">Freund/Freundin</div>
+<div class="quiz-option" data-value="geschaeftlich" onclick="selectOption(this, 'relationship')">Geschäftlich</div>
+<div class="quiz-option" data-value="andere" onclick="selectOption(this, 'relationship')">Andere Beziehung</div>
+</div>
+<div id="other-relationship-input" style="display: none; margin-top: 20px;">
+  <input type="text" placeholder="Bitte Beziehung angeben" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 5: Interests -->
+<div class="quiz-step" id="step5">
+<h3 class="quiz-question">Was sind ihre/seine Interessen?</h3>
+<p style="text-align: center; margin-bottom: 20px; color: var(--gold-light);">Suche nach Hobbys oder wähle aus unseren Vorschlägen (Mehrfachauswahl möglich)</p>
+
+<div class="interest-search-container" style="margin-bottom: 30px;">
+  <input type="text" id="interest-search" placeholder="Hobbys suchen..." style="width: 100%; padding: 12px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; font-family: 'Montserrat', sans-serif;">
+</div>
+
+<div class="quiz-options" id="interest-options">
+  <div class="quiz-option" data-value="reisen" data-categories="aktivität,urlaub,kultur">Reisen (Städtereisen, Strandurlaub, Wandern)</div>
+  <div class="quiz-option" data-value="kochen" data-categories="küche,essen,backen">Kochen (Internationale Küche, Vegan, Grillen)</div>
+  <div class="quiz-option" data-value="backen" data-categories="küche,backen,süß">Backen (Torten, Brot, Desserts)</div>
+  <div class="quiz-option" data-value="fitness" data-categories="sport,gesundheit">Fitness (Yoga, Crossfit, Laufen)</div>
+  <div class="quiz-option" data-value="mannschaftssport" data-categories="sport,team">Mannschaftssport (Fußball, Basketball, Volleyball)</div>
+  <div class="quiz-option" data-value="wintersport" data-categories="sport,winter">Wintersport (Ski, Snowboard, Eislaufen)</div>
+  <div class="quiz-option" data-value="lesen" data-categories="bücher,literatur">Lesen (Krimis, Fantasy, Biografien)</div>
+  <div class="quiz-option" data-value="musik" data-categories="instrumente,konzerte">Musik (Klassik, Rock, Pop, Instrument spielen)</div>
+  <div class="quiz-option" data-value="malen" data-categories="kunst,kreativ">Malen (Aquarell, Öl, Acryl)</div>
+  <div class="quiz-option" data-value="basteln" data-categories="kreativ,DIY">Basteln (Scrapbooking, Handlettering, Upcycling)</div>
+  <div class="quiz-option" data-value="wellness" data-categories="entspannung,spa">Wellness (Sauna, Massage, Aromatherapie)</div>
+  <div class="quiz-option" data-value="garten" data-categories="natur,pflanzen">Garten (Gemüseanbau, Blumen, Bonsai)</div>
+  <div class="quiz-option" data-value="fotografie" data-categories="fotos,kamera">Fotografie (Landschaft, Portrait, Makro)</div>
+  <div class="quiz-option" data-value="modellbau" data-categories="basteln,kreativ">Modellbau (Schiffe, Flugzeuge, Eisenbahn)</div>
+  <div class="quiz-option" data-value="tiere" data-categories="haustiere,natur">Tiere (Hunde, Pferde, Vogelbeobachtung)</div>
+  <div class="quiz-option" data-value="film" data-categories="kino,serien">Film & Serien (Blockbuster, Arthouse, Dokumentationen)</div>
+  <div class="quiz-option" data-value="geschichte" data-categories="kultur,vergangenheit">Geschichte (Mittelalter, Antike, Zeitgeschichte)</div>
+  <div class="quiz-option" data-value="astronomie" data-categories="wissenschaft,weltraum">Astronomie (Sternbeobachtung, Teleskope)</div>
+  <div class="quiz-option" data-value="technik" data-categories="gadgets,elektronik">Technik (Smart Home, Drohnen, VR)</div>
+  <div class="quiz-option" data-value="autos" data-categories="fahrzeuge,technik">Autos (Oldtimer, Tuning, Motorsport)</div>
+  <div class="quiz-option" data-value="sammeln" data-categories="hobby,leidenschaft">Sammeln (Wein, Münzen, Comics)</div>
+  <div class="quiz-option" data-value="tanzen" data-categories="bewegung,kunst">Tanzen (Ballett, Salsa, Standardtanz)</div>
+  <div class="quiz-option" data-value="tauchen" data-categories="sport,wasser">Tauchen & Schnorcheln</div>
+  <div class="quiz-option" data-value="angeln" data-categories="sport,wasser">Angeln & Fliegenfischen</div>
+  <div class="quiz-option" data-value="schach" data-categories="spiel,strategie">Schach & Strategiespiele</div>
+  <div class="quiz-option" data-value="kalligraphie" data-categories="kunst,schreiben">Kalligraphie & Handlettering</div>
+  <div class="quiz-option" data-value="uhren" data-categories="sammeln,technik">Uhren & Mechanik</div>
+  <div class="quiz-option" data-value="whisky" data-categories="sammeln,genuss">Whisky & Spirituosen</div>
+  <div class="quiz-option" data-value="kaffee" data-categories="genuss,küche">Kaffee & Barista</div>
+  <div class="quiz-option" data-value="motorrad" data-categories="fahrzeuge,sport">Motorrad & Touren</div>
+</div>
+
+<div class="selected-interests" id="selected-interests" style="margin-top: 30px; display: none;">
+  <h4 style="margin-bottom: 15px; color: var(--gold);">Ausgewählte Interessen:</h4>
+  <div id="selected-tags" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+</div>
+
+<div class="quiz-navigation">
+  <button class="btn btn-secondary prev-step">Zurück</button>
+  <button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div> <!-- Closing div for step5 -->
+
+<!-- Step 6: Occasion -->
+<div class="quiz-step" id="step6">
+<h3 class="quiz-question">Anlass?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="geburtstag">Geburtstag</div>
+<div class="quiz-option" data-value="weihnachten">Weihnachten</div>
+<div class="quiz-option" data-value="hochzeit">Hochzeit/Jubiläum</div>
+<div class="quiz-option" data-value="danke">Dankeschön</div>
+<div class="quiz-option" data-value="valentinstag">Valentinstag</div>
+<div class="quiz-option" data-value="muttertag">Muttertag/Vatertag</div>
+<div class="quiz-option" data-value="sonstiges">Einfach so</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 7: Budget -->
+<div class="quiz-step" id="step7">
+<h3 class="quiz-question">Welches Budget hast du?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="50">Unter €50</div>
 <div class="quiz-option" data-value="50-100">€50-€100</div>
 <div class="quiz-option" data-value="100-150">€100-€150</div>
 <div class="quiz-option" data-value="150-200">€150-€200</div>
-<div class="quiz-option" data-value="200+">€200+</div>
-</div>
+<div class="quiz-option" data-value="200">Über €200</div>
 <div id="custom-budget-input" style="display: none; margin-top: 20px;">
-  <input type="number" id="custom-budget" placeholder="Spezifisches Budget eingeben (z.B. 250)" min="200" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+  <input type="number" placeholder="Exakter Betrag (z.B. 250)" min="200" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+</div>
 </div>
 <div class="quiz-navigation">
-<button class="btn btn-secondary quiz-prev">Zurück</button>
-<button class="btn btn-primary quiz-submit" onclick="requestOffer()">Angebot anfordern</button>
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 8: Style -->
+<div class="quiz-step" id="step8">
+<h3 class="quiz-question">Welcher Stil passt am besten?</h3>
+<div class="quiz-options">
+<div class="quiz-option" data-value="modern">Modern/Minimalistisch</div>
+<div class="quiz-option" data-value="klassisch">Klassisch/Elegant</div>
+<div class="quiz-option" data-value="rustikal">Rustikal/Natürlich</div>
+<div class="quiz-option" data-value="spielerisch">Spielerisch/Farbenfroh</div>
+<div class="quiz-option" data-value="luxus">Luxuriös/Hochwertig</div>
+<div class="quiz-option" data-value="individuell" style="
+    background: linear-gradient(45deg, var(--gold), #f5e6b3, var(--gold));
+    color: var(--navy); 
+    font-weight: 700; 
+    border: 2px solid var(--gold);
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+">Überrasche mich
+<div class="selection-circle" style="
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid var(--gold);
+    border-radius: 50px;
+    opacity: 0;
+    transition: all 0.3s;
+    animation: pulseCircle 2s infinite;
+    z-index: -1;
+"></div>
+</div>
+</div>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary next-step">Weiter</button>
+</div>
+</div>
+
+<!-- Step 9: Contact Info -->
+<div class="quiz-step" id="step9">
+<h3 class="quiz-question">Deine Kontaktdaten</h3>
+<form id="quiz-form" class="quiz-form">
+<div>
+<input type="text" placeholder="Dein Name" required>
+</div>
+<div>
+<input type="email" placeholder="Deine E-Mail" required>
+</div>
+<div>
+<input type="tel" placeholder="Deine Telefonnummer (optional)">
+</div>
+<div>
+<textarea placeholder="Besondere Wünsche oder Anmerkungen..."></textarea>
+</div>
+</form>
+<div class="quiz-navigation">
+<button class="btn btn-secondary prev-step">Zurück</button>
+<button class="btn btn-primary quiz-submit">Box erstellen</button>
+</div>
+</div>
+
+<!-- Step 10: Confirmation -->
+<div class="quiz-step" id="step10">
+<div style="text-align: center;">
+<div class="confirmation-icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<h3 class="quiz-question">Vielen Dank für deine Anfrage!</h3>
+<p style="margin-bottom: 30px; font-size: 1.1rem; color: var(--gold-light);">Wir erstellen jetzt deine personalisierte Box und melden uns innerhalb von 24 Stunden mit einem Entwurf bei dir. Du erhältst eine E-Mail mit weiteren Details.</p>
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn btn-primary">Zur Startseite</button>
 </div>
 </div>
 </div>
@@ -920,19 +1834,23 @@ flex-direction: column;
 <div class="footer-column">
 <h3>Links</h3>
 <ul class="footer-links">
-<li><a href="index.html">Startseite</a></li>
-<li><a href="#solutions">Business-Lösungen</a></li>
-<li><a href="#calendar">Termin buchen</a></li>
-<li><a href="#quiz">Business-Quiz</a></li>
+<li><a href="Homepage.html">Startseite</a></li>
+<li><a href="#Gallary.html">Unsere Boxen</a></li>
+<li><a href="#About.html">Über uns</a></li>
+<li><a href="#testimonials">Kundenstimmen</a></li>
+<li><a href="#quiz">Box gestalten</a></li>
 <li><a href="#">FAQ</a></li>
 </ul>
 </div>
 <div class="footer-column">
 <h3>Rechtliches</h3>
 <ul class="footer-links">
-<li><a href="#">AGB</a></li>
-<li><a href="#">Datenschutz</a></li>
-<li><a href="#">Impressum</a></li>
+<li><a href="#" onclick="showLegalModal('AGB', 'agb-content')">AGB</a></li>
+<li><a href="#" onclick="showLegalModal('Datenschutz', 'datenschutz-content')">Datenschutz</a></li>
+<li><a href="#" onclick="showLegalModal('Impressum', 'impressum-content')">Impressum</a></li>
+<li><a href="#" onclick="showLegalModal('Widerrufsrecht', 'widerrufsrecht-content')">Widerrufsrecht</a></li>
+<li><a href="#" onclick="showLegalModal('Versand & Lieferung', 'versand-content')">Versand & Lieferung</a></li>
+<li><a href="#" onclick="showLegalModal('Zahlungsmethoden', 'zahlungsmethoden-content')">Zahlungsmethoden</a></li>
 </ul>
 </div>
 <div class="footer-column">
@@ -957,7 +1875,7 @@ flex-direction: column;
 <h3 style="margin-top: 30px;">Newsletter</h3>
 <form class="newsletter-form">
 <input type="email" placeholder="Deine E-Mail-Adresse" required>
-<button type="submit">Anmelden</button>
+<button type="submit" onclick="subscribeNewsletter(event)">Anmelden</button>
 </form>
 </div>
 </div>
@@ -967,20 +1885,249 @@ flex-direction: column;
 </div>
 </footer>
 
+<div class="back-to-top" id="backToTop">
+<i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Legal Modals -->
+<div id="legal-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background-color: white; padding: 30px; max-width: 800px; border-radius: 10px; max-height: 90vh; overflow-y: auto; color: black; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h2 style="color: var(--navy); font-weight: 700; font-family: 'Playfair Display', serif;" id="modal-title">Modal Title</h2>
+      <button onclick="hideLegalModal()" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+    </div>
+    <div style="color: #333; line-height: 1.6; font-size: 16px;" id="modal-content">
+      <!-- Content will be loaded here -->
+    </div>
+  </div>
+</div>
+
+<!-- Content for each legal document -->
+<div id="agb-content" style="display: none; color: black; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Allgemeine Geschäftsbedingungen</h3>
+  <p style="color: black;">Hier finden Sie unsere Allgemeinen Geschäftsbedingungen...</p>
+  <!-- Add full AGB content here -->
+</div>
+
+<div id="datenschutz-content" style="display: none; color: #333; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Datenschutzerklärung</h3>
+  <p style="color: black;">Hier finden Sie unsere Allgemeinen Datenschutzrichtlinien...</p>
+  <!-- Add full privacy policy content here -->
+</div>
+
+<div id="impressum-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <p style="color: black !important;"><strong>Angaben gemäß § 5 TMG:</strong></p>
+  <p style="color: black !important;">Boxology GmbH<br>
+  Musterstraße 1<br>
+  10115 Berlin</p>
+  
+  <p style="color: black !important;"><strong>Vertreten durch:</strong><br>
+  Geschäftsführer: Nico Vukasinovic </p>
+  
+  <p style="color: black !important;"><strong>Kontakt:</strong><br>
+  Telefon: +43 670 6050757 <br>
+  E-Mail: boxology@gmail.com</p>
+  
+  <p style="color: black !important;"><strong>Registereintrag:</strong><br>
+  Eintragung im Handelsregister.<br>
+  Registergericht: Amtsgericht Berlin<br>
+  Registernummer: HRB 123456</p>
+  
+  <p style="color: black !important;"><strong>Umsatzsteuer-ID:</strong><br>
+  Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz:<br>
+  DE123456789</p>
+  
+  <p style="color: black !important;"><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+  Max Mustermann<br>
+  Musterstraße 1<br>
+  10115 Berlin</p>
+</div>
+
+<div id="widerrufsrecht-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Widerrufsrecht</h3>
+  <p style="color: black !important;">Hier finden Sie Informationen zu Ihrem Widerrufsrecht...</p>
+  <!-- Add full cancellation policy content here -->
+</div>
+
+<div id="versand-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Versand & Lieferung</h3>
+  <p style="color: black !important;">Hier finden Sie unsere Versandbedingungen...</p>
+  <!-- Add full shipping policy content here -->
+</div>
+
+<div id="zahlungsmethoden-content" style="display: none; color: black !important; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.6;">
+  <h3 style="color: var(--navy); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Zahlungsmethoden</h3>
+  <p>Hier finden Sie Informationen zu unseren Zahlungsmethoden...</p>
+  <!-- Add full payment methods content here -->
+</div>
+
 <script>
+// Helper function to handle option selection
+function selectOption(element, answerField) {
+  // Remove selected class from all options in this step
+  const options = element.parentElement.querySelectorAll('.quiz-option');
+  options.forEach(opt => opt.classList.remove('selected'));
+  
+  // Add selected class to clicked option
+  element.classList.add('selected');
+  
+  // Store the selected value
+  answers[answerField] = element.getAttribute('data-value');
+  
+  // Show other input if "Andere" is selected
+  if (answerField === 'relationship' && element.getAttribute('data-value') === 'andere') {
+    document.getElementById('other-relationship-input').style.display = 'block';
+  } else if (answerField === 'relationship') {
+    document.getElementById('other-relationship-input').style.display = 'none';
+  }
+}
+
 // Mobile menu toggle
 document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-document.querySelector('.nav-links').classList.toggle('active');
+  document.querySelector('.nav-links').classList.toggle('active');
 });
 
-// Quiz functionality
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('active');
+  });
+});
+
+function showLegalModal(title, contentId) {
+  event.preventDefault();
+  const modal = document.getElementById('legal-modal');
+  const titleElement = document.getElementById('modal-title');
+  const contentElement = document.getElementById('modal-content');
+  
+  titleElement.textContent = title;
+  contentElement.innerHTML = document.getElementById(contentId).innerHTML;
+  
+  modal.style.display = 'flex';
+}
+
+function hideLegalModal() {
+  document.getElementById('legal-modal').style.display = 'none';
+}
+
+// Close modal when clicking outside content
+document.getElementById('legal-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    hideLegalModal();
+  }
+});
+
+// Testimonial Slider
+const testimonials = document.querySelectorAll('.testimonial');
+const dots = document.querySelectorAll('.slider-dot');
+let currentTestimonial = 0;
+let testimonialInterval;
+
+function showTestimonial(index) {
+testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+dots.forEach(dot => dot.classList.remove('active'));
+
+testimonials[index].classList.add('active');
+dots[index].classList.add('active');
+currentTestimonial = index;
+}
+
+function startTestimonialSlider() {
+clearInterval(testimonialInterval);
+testimonialInterval = setInterval(() => {
+currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+showTestimonial(currentTestimonial);
+}, 6000);
+}
+
+dots.forEach(dot => {
+dot.addEventListener('click', function() {
+const slideIndex = parseInt(this.getAttribute('data-slide'));
+showTestimonial(slideIndex);
+startTestimonialSlider();
+});
+});
+
+startTestimonialSlider();
+
+// Quiz Functionality
 const steps = document.querySelectorAll('.quiz-step');
 const progressBar = document.getElementById('progress-bar');
 let currentStep = 0;
-const totalSteps = steps.length;
+const totalSteps = steps.length - 1; // excluding the thank you step
+
+// Enhanced navigation functionality
+function navigateQuiz(direction) {
+    const currentStepId = steps[currentStep].id;
+    let isValid = true;
+
+    // Validate current step
+    if (currentStepId === 'step1' && !answers.recipient) {
+        alert('Bitte wähle eine Option aus');
+        isValid = false;
+    } else if (currentStepId === 'step2' && !answers.exactAge) {
+        alert('Bitte geben Sie das genaue Alter an');
+        isValid = false;
+    } else if (currentStepId === 'step3' && !answers.gender) {
+        alert('Bitte wähle eine Option aus');
+        isValid = false;
+    } else if (currentStepId === 'step4' && !answers.relationship) {
+        alert('Bitte wähle eine Option aus');
+        isValid = false;
+    } else if (currentStepId === 'step5' && answers.interests.length === 0) {
+        alert('Bitte wähle mindestens eine Option aus');
+        isValid = false;
+    } else if (currentStepId === 'step6' && !answers.occasion) {
+        alert('Bitte wähle eine Option aus');
+        isValid = false;
+    } else if (currentStepId === 'step7' && !answers.budget) {
+        alert('Bitte wähle eine Option aus');
+        isValid = false;
+    } else if (currentStepId === 'step8' && !answers.style) {
+        alert('Bitte wähle eine Option aus');
+        isValid = false;
+    }
+
+    if (isValid) {
+        if (direction === 1 && currentStep < totalSteps - 1) {
+            showStep(currentStep + 1);
+        } else if (direction === -1 && currentStep > 0) {
+            showStep(currentStep - 1);
+        } else if (direction === 1 && currentStep === totalSteps - 1) {
+            submitQuiz();
+        }
+    }
+}
+
+// Update button event listeners
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('quiz-next')) {
+        e.preventDefault();
+        navigateQuiz(1);
+    }
+
+    if (e.target.classList.contains('quiz-prev')) {
+        e.preventDefault();
+        navigateQuiz(-1);
+    }
+});
+
+// Store answers
+const answers = {
+recipient: '',
+age: '',
+exactAge: null,
+gender: '',
+relationship: '',
+interests: [],
+occasion: '',
+budget: '',
+style: '',
+contact: {}
+};
 
 function updateProgress() {
-const progress = ((currentStep + 1) / totalSteps) * 100;
+const progress = (currentStep / totalSteps) * 100;
 progressBar.style.width = `${progress}%`;
 }
 
@@ -989,262 +2136,465 @@ steps.forEach(step => step.classList.remove('active'));
 steps[stepIndex].classList.add('active');
 currentStep = stepIndex;
 updateProgress();
+
+// Scroll to top of quiz container
+document.querySelector('.quiz-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Option selection
-document.querySelectorAll('.quiz-option').forEach(option => {
-option.addEventListener('click', function() {
-const parentStep = this.closest('.quiz-step');
-parentStep.querySelectorAll('.quiz-option').forEach(opt => {
-    opt.classList.remove('selected');
-});
-this.classList.add('selected');
-    
-// Show/hide custom quantity input
-if (this.getAttribute('data-value') === '500+') {
-    document.getElementById('custom-quantity-input').style.display = 'block';
-} else {
-    document.getElementById('custom-quantity-input').style.display = 'none';
+// Navigation functionality
+function updateNavigationButtons() {
+  const prevButtons = document.querySelectorAll('.prev-step');
+  const nextButtons = document.querySelectorAll('.next-step');
+  
+  prevButtons.forEach(button => {
+    button.style.display = currentStep === 0 ? 'none' : 'block';
+  });
+  
+  nextButtons.forEach(button => {
+    button.textContent = currentStep === totalSteps - 1 ? 'Abschicken' : 'Weiter';
+  });
 }
-    
-// Show/hide custom budget input
-if (this.getAttribute('data-value') === '200+') {
-    document.getElementById('custom-budget-input').style.display = 'block';
-} else {
-    document.getElementById('custom-budget-input').style.display = 'none';
-}
-});
-});
 
-// Navigation
-document.querySelectorAll('.quiz-next').forEach(button => {
-button.addEventListener('click', function() {
-if (currentStep < totalSteps - 1) {
-    const currentStepOptions = steps[currentStep].querySelectorAll('.quiz-option.selected');
-    if (currentStepOptions.length === 0) {
-        alert('Bitte wählen Sie eine Option aus');
-        return;
+document.addEventListener('click', function(e) {
+  // Handle next button clicks
+  if (e.target.classList.contains('next-step')) {
+    e.preventDefault();
+    const currentStepId = steps[currentStep].id;
+    let isValid = true;
+
+    // Validate current step
+    if (currentStepId === 'step1' && !answers.recipient) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step2' && !answers.age && !answers.exactAge) {
+      alert('Bitte geben Sie das genaue Alter an');
+      isValid = false;
+    } else if (currentStepId === 'step3' && !answers.gender) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step4' && !answers.relationship) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step5' && answers.interests.length === 0) {
+      alert('Bitte wähle mindestens eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step6' && !answers.occasion) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step7' && !answers.budget) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
+    } else if (currentStepId === 'step8' && !answers.style) {
+      alert('Bitte wähle eine Option aus');
+      isValid = false;
     }
-    showStep(currentStep + 1);
-}
-});
-});
 
-document.querySelectorAll('.quiz-prev').forEach(button => {
-button.addEventListener('click', function() {
-if (currentStep > 0) {
+    if (isValid) {
+      if (currentStep === totalSteps - 1) {
+        // Get form data for the last step
+        const form = document.getElementById('quiz-form');
+        const nameInput = form.querySelector('input[type="text"]');
+        const emailInput = form.querySelector('input[type="email"]');
+
+        if (!nameInput.value.trim()) {
+          alert('Bitte gib deinen Namen ein');
+          return;
+        }
+
+        if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+          alert('Bitte gib eine gültige E-Mail-Adresse ein');
+          return;
+        }
+
+        // Save contact info
+        answers.contact = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          phone: form.querySelector('input[type="tel"]').value.trim(),
+          notes: form.querySelector('textarea').value.trim()
+        };
+
+        // Show thank you step
+        showStep(currentStep + 1);
+
+        // Reset form after delay
+        setTimeout(() => {
+          // Reset the entire quiz
+          document.querySelectorAll('.quiz-option').forEach(opt => {
+            opt.classList.remove('selected');
+          });
+          form.reset();
+          showStep(0);
+
+          // Reset answers object
+          answers.recipient = '';
+          answers.age = '';
+          answers.gender = '';
+          answers.relationship = '';
+          answers.interests = [];
+          answers.occasion = '';
+          answers.budget = '';
+          answers.style = '';
+          answers.contact = {};
+        }, 10000);
+      } else {
+        showStep(currentStep + 1);
+      }
+    }
+  }
+
+  // Handle back button clicks
+  if (e.target.classList.contains('prev-step')) {
+    e.preventDefault();
     showStep(currentStep - 1);
-}
-});
-});
-
-// Calendar functionality
-let currentDate = new Date();
-let selectedDate = null;
-let selectedTime = null;
-
-// Generate calendar for current month
-function generateCalendar() {
-    const calendarGrid = document.getElementById('calendar-grid');
-    const monthYearElement = document.getElementById('calendar-month-year');
-    
-    // Clear existing dates (keep day headers)
-    while (calendarGrid.children.length > 7) {
-        calendarGrid.removeChild(calendarGrid.lastChild);
-    }
-    
-    // Update month/year display
-    const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 
-                       'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-    monthYearElement.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-    
-    // Get first day of month and total days
-    const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-    const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-    const totalDays = lastDay.getDate();
-    const startingDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1; // Adjust for Monday start
-    
-    // Add empty cells for days before first day of month
-    for (let i = 0; i < startingDay; i++) {
-        const emptyCell = document.createElement('div');
-        emptyCell.className = 'calendar-date empty';
-        calendarGrid.appendChild(emptyCell);
-    }
-    
-    // Add days of the month
-    const today = new Date();
-    for (let day = 1; day <= totalDays; day++) {
-        const dateCell = document.createElement('div');
-        dateCell.className = 'calendar-date';
-        dateCell.textContent = day;
-        
-        // Mark weekends as unavailable
-        const dayOfWeek = new Date(currentDate.getFullYear(), currentDate.getMonth(), day).getDay();
-        if (dayOfWeek === 0 || dayOfWeek === 6) { // Sunday or Saturday
-            dateCell.classList.add('unavailable');
-        }
-        
-        // Mark past dates as unavailable
-        const cellDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-        if (cellDate < today) {
-            dateCell.classList.add('unavailable');
-        }
-        
-        // Add click event
-        if (!dateCell.classList.contains('unavailable')) {
-            dateCell.addEventListener('click', function() {
-                selectDate(this, day);
-            });
-        }
-        
-        calendarGrid.appendChild(dateCell);
-    }
-}
-
-function changeMonth(direction) {
-    currentDate.setMonth(currentDate.getMonth() + direction);
-    generateCalendar();
-}
-
-function selectDate(element, day) {
-    // Remove selection from all dates
-    document.querySelectorAll('.calendar-date').forEach(date => {
-        date.classList.remove('selected');
-    });
-    
-    // Add selection to clicked date
-    element.classList.add('selected');
-    
-    // Store selected date
-    selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-    
-    // Enable time slots
-    document.querySelectorAll('.time-slot').forEach(slot => {
-        slot.style.opacity = '1';
-        slot.style.cursor = 'pointer';
-    });
-}
-
-// Time slot selection
-document.querySelectorAll('.time-slot').forEach(slot => {
-    slot.addEventListener('click', function() {
-        if (selectedDate) {
-            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-            this.classList.add('selected');
-            selectedTime = this.textContent;
-        } else {
-            alert('Bitte wählen Sie zuerst ein Datum aus');
-        }
-    });
+  }
 });
 
-// Initialize calendar
-generateCalendar();
+// Update buttons when step changes
+function showStep(stepIndex) {
+  steps.forEach(step => step.classList.remove('active'));
+  steps[stepIndex].classList.add('active');
+  currentStep = stepIndex;
+  updateProgress();
+  updateNavigationButtons();
+  
+  // Scroll to top of quiz container
+  document.querySelector('.quiz-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
-// Initialize
-updateProgress();
+// Initialize buttons on load
+updateNavigationButtons();
 
-// Appointment confirmation function
-function confirmAppointment() {
-    if (!selectedDate || !selectedTime) {
-        alert('Bitte wählen Sie ein Datum und eine Uhrzeit aus');
-        return;
+// Interest search functionality
+const interestSearch = document.getElementById('interest-search');
+const interestOptions = document.querySelectorAll('#interest-options .quiz-option');
+const selectedInterestsContainer = document.getElementById('selected-interests');
+const selectedTagsContainer = document.getElementById('selected-tags');
+
+// Search filter
+interestSearch.addEventListener('input', function() {
+  const searchTerm = this.value.toLowerCase();
+  
+  interestOptions.forEach(option => {
+    const text = option.textContent.toLowerCase();
+    const categories = option.getAttribute('data-categories');
+    const matchesSearch = text.includes(searchTerm) || 
+                         (categories && categories.includes(searchTerm));
+    
+    option.style.display = matchesSearch ? 'block' : 'none';
+  });
+});
+
+// Handle quiz option selection
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('quiz-option')) {
+    // Show/hide custom budget input
+    if (e.target.getAttribute('data-value') === '200') {
+      document.getElementById('custom-budget-input').style.display = 'block';
+      answers.budget = ''; // Reset budget when switching to custom
+    } else {
+      document.getElementById('custom-budget-input').style.display = 'none';
     }
+    // Show/hide other person input
+    if (e.target.getAttribute('data-value') === 'andere') {
+      document.getElementById('other-person-input').style.display = 'block';
+    } else {
+      document.getElementById('other-person-input').style.display = 'none';
+    }
+    const option = e.target;
+    const questionId = option.closest('.quiz-step').id;
+    const value = option.getAttribute('data-value');
+
+    if (questionId === 'step4' && value === 'andere') {
+      document.getElementById('other-relationship-input').style.display = 'block';
+    } else if (questionId === 'step4') {
+      document.getElementById('other-relationship-input').style.display = 'none';
+    } else if (questionId === 'step5') {
+      // Multiple selection for interests
+      option.classList.toggle('selected');
+      
+      if (option.classList.contains('selected')) {
+        if (!answers.interests.includes(value)) {
+          answers.interests.push(value);
+        }
+      } else {
+        answers.interests = answers.interests.filter(item => item !== value);
+      }
+      updateSelectedInterests();
+    } else {
+      // Single selection for other steps
+      document.querySelectorAll(`#${questionId} .quiz-option`).forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      option.classList.add('selected');
+      
+      // Store the answer
+      switch(questionId) {
+        case 'step1': answers.recipient = value; break;
+        case 'step2': answers.age = value; break;
+        case 'step3': answers.gender = value; break;
+        case 'step4': answers.relationship = value; break;
+        case 'step6': answers.occasion = value; break;
+        case 'step7': answers.budget = value; break;
+        case 'step8': answers.style = value; break;
+      }
+    }
+  }
+});
+
+function updateSelectedInterests() {
+  selectedTagsContainer.innerHTML = '';
+  
+  if (answers.interests.length > 0) {
+    selectedInterestsContainer.style.display = 'block';
     
-    const formattedDate = selectedDate.toLocaleDateString('de-DE', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+    answers.interests.forEach(interest => {
+      const option = document.querySelector(`.quiz-option[data-value="${interest}"]`);
+      if (option) {
+        const tag = document.createElement('div');
+        tag.className = 'quiz-option selected';
+        tag.textContent = option.textContent;
+        tag.style.margin = '0';
+        tag.style.cursor = 'default';
+        selectedTagsContainer.appendChild(tag);
+      }
     });
+  } else {
+    selectedInterestsContainer.style.display = 'none';
+  }
+}
+
+// New helper functions
+function validateAndProceed() {
+  // Validate current step before proceeding
+  let isValid = true;
+
+  // Handle custom budget input
+  if (currentStep === 6 && answers.budget === '200') {
+    const customBudgetInput = document.querySelector('#custom-budget-input input');
+    if (!customBudgetInput.value || parseInt(customBudgetInput.value) < 200) {
+      alert('Bitte gib einen Betrag von mindestens €200 ein');
+      isValid = false;
+    } else {
+      answers.budget = customBudgetInput.value + '€';
+    }
+  }
+
+  if (currentStep === 0 && !answers.recipient) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 1 && !answers.age) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 2 && !answers.gender) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 3 && !answers.relationship) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 4 && answers.interests.length === 0) {
+    alert('Bitte wähle mindestens eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 5 && !answers.occasion) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 6 && !answers.budget) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+  if (currentStep === 7 && !answers.style) {
+    alert('Bitte wähle eine Option aus');
+    isValid = false;
+  }
+
+  if (isValid) {
+    showStep(currentStep + 1);
+  }
+}
+
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('quiz-submit')) {
+    e.preventDefault();
     
+    // Validate form
+    const form = document.getElementById('quiz-form');
+    const nameInput = form.querySelector('input[type="text"]');
+    const emailInput = form.querySelector('input[type="email"]');
+
+    if (!nameInput.value.trim()) {
+      alert('Bitte gib deinen Namen ein');
+      return;
+    }
+
+    if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+      alert('Bitte gib eine gültige E-Mail-Adresse ein');
+      return;
+    }
+
+    // Save contact info
+    answers.contact = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      phone: form.querySelector('input[type="tel"]').value.trim(),
+      notes: form.querySelector('textarea').value.trim()
+    };
+
     // Prepare email data
-    const emailSubject = encodeURIComponent('Terminanfrage Boxology Business-Beratung');
-    const emailBody = encodeURIComponent(`Sehr geehrtes Boxology Team,
+    const emailData = {
+      to: 'boxology.help@gmail.com',
+      subject: 'Neue Box-Anfrage von ' + answers.contact.name,
+      body: `Neue Box-Anfrage erhalten:
+      
+Name: ${answers.contact.name}
+Email: ${answers.contact.email}
+Telefon: ${answers.contact.phone || 'Keine Angabe'}
 
-ich möchte gerne einen Beratungstermin am ${formattedDate} um  ${selectedTime} mit Ihnen vereinbaren.
+Empfänger: ${answers.recipient}
+Alter: ${answers.age}
+Geschlecht: ${answers.gender}
+Beziehung: ${answers.relationship}
+Interessen: ${answers.interests.join(', ')}
+Anlass: ${answers.occasion}
+Budget: ${answers.budget}
+Stil: ${answers.style}
 
-Bitte bestätigen Sie mir diesen Termin oder schlagen Sie mir bitte einen Alternativtermin vor.
+Besondere Wünsche:
+${answers.contact.notes || 'Keine besonderen Wünsche'}
 
-Mit freundlichen Grüßen,
-[Ihr Name]
-[Ihre Firma]
-[Ihre Telefonnummer]
-[Ihre E-Mail Adresse]`);
+Gesammelte Antworten:
+${JSON.stringify(answers, null, 2)}`
+    };
 
-    // Open email client
-    window.location.href = `mailto:boxology.help@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    
-    alert(`Terminanfrage gesendet!\n\nDatum: ${formattedDate}\nUhrzeit: ${selectedTime}\n\nIhr E-Mail-Client wird geöffnet. Bitte senden Sie die Nachricht ab, um Ihren Termin anzufragen. Wir werden uns umgehend bei Ihnen melden.`);
-    
-    // Reset selection
-    selectedDate = null;
-    selectedTime = null;
-    document.querySelectorAll('.calendar-date').forEach(date => date.classList.remove('selected'));
-    document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
-    document.querySelectorAll('.time-slot').forEach(slot => {
-        slot.style.opacity = '0.5';
-        slot.style.cursor = 'not-allowed';
-    });
+    // Send email using mailto link
+    const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
+    window.open(mailtoLink, '_blank');
+
+    // Show thank you step
+    showStep(currentStep + 1);
+
+    // Reset form after delay
+    setTimeout(() => {
+      document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      form.reset();
+      showStep(0);
+      answers.recipient = '';
+      answers.age = '';
+      answers.gender = '';
+      answers.relationship = '';
+      answers.interests = [];
+      answers.occasion = '';
+      answers.budget = '';
+      answers.style = '';
+      answers.contact = {};
+    }, 10000);
+  }
+});
+
+function subscribeNewsletter(e) {
+  e.preventDefault();
+  const email = e.target.closest('form').querySelector('input[type="email"]').value;
+  if (!email || !email.includes('@')) {
+    alert('Bitte gib eine gültige E-Mail-Adresse ein');
+    return;
+  }
+  alert('Vielen Dank für deine Anmeldung!');
+  e.target.closest('form').reset();
 }
 
-// Offer request function
-function requestOffer() {
-    // Collect all selected answers
-    const companyType = document.querySelector('#step1 .quiz-option.selected')?.getAttribute('data-value') || '';
-    const occasion = document.querySelector('#step2 .quiz-option.selected')?.getAttribute('data-value') || '';
-    const quantityOption = document.querySelector('#step3 .quiz-option.selected')?.getAttribute('data-value') || '';
-    const budgetOption = document.querySelector('#step4 .quiz-option.selected')?.getAttribute('data-value') || '';
-    
-    // Validate that all questions are answered
-    if (!companyType || !occasion || !quantityOption || !budgetOption) {
-        alert('Bitte beantworten Sie alle Fragen, bevor Sie ein Angebot anfordern');
-        return;
-    }
-    
-    // Handle custom quantity
-    let quantity = quantityOption;
-    if (quantityOption === '500+') {
-        const customQuantity = document.getElementById('custom-quantity').value;
-        if (!customQuantity || parseInt(customQuantity) < 500) {
-            alert('Bitte geben Sie eine Menge von mindestens 500 Boxen ein');
-            return;
-        }
-        quantity = customQuantity + ' Boxen';
-    }
-    
-    // Handle custom budget
-    let budget = budgetOption;
-    if (budgetOption === '200+') {
-        const customBudget = document.getElementById('custom-budget').value;
-        if (!customBudget || parseInt(customBudget) < 200) {
-            alert('Bitte geben Sie ein Budget von mindestens €200 ein');
-            return;
-        }
-        budget = customBudget + '€';
-    }
-    
-    // Prepare email data
-    const emailSubject = encodeURIComponent('Business-Angebotsanfrage von Boxology Website');
-    const emailBody = encodeURIComponent(`Sehr geehrtes Boxology Team,
 
-ich interessiere mich für eine Kooperation mit Ihnen. Wir sind ein ${companyType} Unternehmen,
-und würden Ihr Service für ${occasion} benötigen. Wir bräuchten ${quantity} Stk.
-Unser Budget pro Box liegt bei: ${budget} €.
+// Cart functionality
+const cartCount = document.querySelector('.cart-count');
+let cartItems = 0;
 
-Bitte senden Sie mir ein maßgeschneidertes Angebot zu.
-
-Mit freundlichen Grüßen,
-[Ihr Name]
-[Ihre Firma]
-[Ihre Telefonnummer]`);
-
-    // Open email client
-    window.location.href = `mailto:boxology.help@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    
-    // Show confirmation
-    alert('Vielen Dank! Ihr E-Mail-Client wird geöffnet. Bitte senden Sie die Nachricht ab, um Ihr Angebot anzufordern.');
+// In a real app, this would be triggered when adding a product
+function updateCart() {
+cartCount.textContent = cartItems;
+if (cartItems > 0) {
+cartCount.style.display = 'flex';
+} else {
+cartCount.style.display = 'none';
 }
+}
+
+// Simulate adding to cart
+setTimeout(() => {
+cartItems = 1;
+updateCart();
+}, 3000);
+
+// Back to top button
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.add('visible');
+} else {
+backToTopButton.classList.remove('visible');
+}
+});
+
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 100,
+behavior: 'smooth'
+});
+}
+});
+});
+
+// Animation on scroll
+function animateOnScroll() {
+const elements = document.querySelectorAll('.fade-in');
+
+elements.forEach(element => {
+const elementPosition = element.getBoundingClientRect().top;
+const screenPosition = window.innerHeight / 1.3;
+
+if (elementPosition < screenPosition) {
+element.style.opacity = '1';
+}
+});
+}
+
+// Set initial state for fade-in elements
+document.querySelectorAll('.fade-in').forEach(el => {
+el.style.opacity = '0';
+el.style.transition = 'opacity 0.8s ease-out';
+});
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
 </script>
+<script src="assets/cart.js"></script>
 </body>
 </html>
+
+
+
+
+
+
