@@ -841,10 +841,10 @@ flex-direction: column;
 <div class="quiz-step active" id="step1">
 <h3 class="quiz-question">Welche Art von Unternehmen sind Sie?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="klein">Kleines Unternehmen (<50 MA)</div>
-<div class="quiz-option" data-value="mittel">Mittelständisches Unternehmen (50-250 MA)</div>
-<div class="quiz-option" data-value="gross">Großunternehmen (>250 MA)</div>
-<div class="quiz-option" data-value="startup">Startup</div>
+<div class="quiz-option" data-value="kleines">Kleines Unternehmen (<50 MA)</div>
+<div class="quiz-option" data-value="mittleres">Mittelständisches Unternehmen (50-250 MA)</div>
+<div class="quiz-option" data-value="grosses">Großunternehmen (>250 MA)</div>
+<div class="quiz-option" data-value="neues">Startup</div>
 </div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary quiz-prev">Zurück</button>
@@ -1211,7 +1211,7 @@ function requestOffer() {
     const emailSubject = encodeURIComponent('Business-Angebotsanfrage von Boxology Website');
     const emailBody = encodeURIComponent(`Sehr geehrtes Boxology Team,
 
-ich interessiere mich für eine Kooperation mit Ihnen. Wir sind ein ${companyType}es Unternehmen,
+ich interessiere mich für eine Kooperation mit Ihnen. Wir sind ein ${companyType} Unternehmen,
 und würden Ihr Service für ${occasion} benötigen. Wir bräuchten ${quantity} Stk.
 Unser Budget pro Box liegt bei: ${budget} €.
 
