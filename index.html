@@ -1158,7 +1158,24 @@ function confirmAppointment() {
         day: 'numeric'
     });
     
-    alert(`Termin bestätigt!\n\nDatum: ${formattedDate}\nUhrzeit: ${selectedTime}\n\nWir freuen uns auf unser Gespräch!`);
+    // Prepare email data
+    const emailSubject = encodeURIComponent('Terminanfrage Boxology Business-Beratung');
+    const emailBody = encodeURIComponent(`Sehr geehrtes Boxology Team,
+
+ich möchte gerne einen Beratungstermin am ${formattedDate} um  ${selectedTime} mit Ihnen vereinbaren.
+
+Bitte bestätigen Sie mir diesen Termin oder schlagen Sie mir bitte einen Alternativtermin vor.
+
+Mit freundlichen Grüßen,
+[Ihr Name]
+[Ihre Firma]
+[Ihre Telefonnummer]
+[Ihre E-Mail Adresse]`);
+
+    // Open email client
+    window.location.href = `mailto:boxology.help@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+    
+    alert(`Terminanfrage gesendet!\n\nDatum: ${formattedDate}\nUhrzeit: ${selectedTime}\n\nIhr E-Mail-Client wird geöffnet. Bitte senden Sie die Nachricht ab, um Ihren Termin anzufragen. Wir werden uns umgehend bei Ihnen melden.`);
     
     // Reset selection
     selectedDate = null;
