@@ -855,11 +855,11 @@ flex-direction: column;
 <div class="quiz-step" id="step2">
 <h3 class="quiz-question">Für welchen Anlass benötigen Sie die Boxen?</h3>
 <div class="quiz-options">
-<div class="quiz-option" data-value="weihnachten">Weihnachtsgeschenke</div>
-<div class="quiz-option" data-value="jubilaeum">Firmenjubiläum</div>
-<div class="quiz-option" data-value="kunden">Kundengeschenke</div>
-<div class="quiz-option" data-value="mitarbeiter">Mitarbeiter-Incentives</div>
-<div class="quiz-option" data-value="event">Event/Conference</div>
+<div class="quiz-option" data-value="Weihnachten">Weihnachtsgeschenke</div>
+<div class="quiz-option" data-value="ein Jubilaeum">Firmenjubiläum</div>
+<div class="quiz-option" data-value="Kundengeschenke">Kundengeschenke</div>
+<div class="quiz-option" data-value="Mitarbeiter-Geschenke">Mitarbeiter-Geschenke</div>
+<div class="quiz-option" data-value="ein Event/Conference">Event/Conference</div>
 <div class="quiz-option" data-value="andere">Anderer Anlass</div>
 </div>
 <div class="quiz-navigation">
@@ -1211,8 +1211,8 @@ function requestOffer() {
     const emailSubject = encodeURIComponent('Business-Angebotsanfrage von Boxology Website');
     const emailBody = encodeURIComponent(`Sehr geehrtes Boxology Team,
 
-ich interessiere mich für eine Kooperation mit Ihnen. Wir sind ein Unternehmensart: ${companyType},
-und würden Ihr Service für den Anlass: ${occasion} benötigen. Wir bräuchten Menge: ${quantity} Stk.
+ich interessiere mich für eine Kooperation mit Ihnen. Wir sind ein ${companyType}es Unternehmen,
+und würden Ihr Service für ${occasion} benötigen. Wir bräuchten ${quantity} Stk.
 Unser Budget pro Box liegt bei: ${budget} €.
 
 Bitte senden Sie mir ein maßgeschneidertes Angebot zu.
