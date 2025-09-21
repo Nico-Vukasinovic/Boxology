@@ -876,6 +876,9 @@ flex-direction: column;
 <div class="quiz-option" data-value="100-500">100-500 Boxen</div>
 <div class="quiz-option" data-value="500+">500+ Boxen</div>
 </div>
+<div id="custom-quantity-input" style="display: none; margin-top: 20px;">
+  <input type="number" id="custom-quantity" placeholder="Spezifische Anzahl eingeben (z.B. 750)" min="500" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+</div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary quiz-prev">Zurück</button>
 <button class="btn btn-primary quiz-next">Weiter</button>
@@ -890,9 +893,12 @@ flex-direction: column;
 <div class="quiz-option" data-value="150-200">€150-€200</div>
 <div class="quiz-option" data-value="200+">€200+</div>
 </div>
+<div id="custom-budget-input" style="display: none; margin-top: 20px;">
+  <input type="number" id="custom-budget" placeholder="Spezifisches Budget eingeben (z.B. 250)" min="200" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white;">
+</div>
 <div class="quiz-navigation">
 <button class="btn btn-secondary quiz-prev">Zurück</button>
-<button class="btn btn-primary quiz-submit">Angebot anfordern</button>
+<button class="btn btn-primary quiz-submit" onclick="requestOffer()">Angebot anfordern</button>
 </div>
 </div>
 </div>
@@ -993,6 +999,20 @@ parentStep.querySelectorAll('.quiz-option').forEach(opt => {
     opt.classList.remove('selected');
 });
 this.classList.add('selected');
+    
+// Show/hide custom quantity input
+if (this.getAttribute('data-value') === '500+') {
+    document.getElementById('custom-quantity-input').style.display = 'block';
+} else {
+    document.getElementById('custom-quantity-input').style.display = 'none';
+}
+    
+// Show/hide custom budget input
+if (this.getAttribute('data-value') === '200+') {
+    document.getElementById('custom-budget-input').style.display = 'block';
+} else {
+    document.getElementById('custom-budget-input').style.display = 'none';
+}
 });
 });
 
@@ -1149,6 +1169,64 @@ function confirmAppointment() {
         slot.style.opacity = '0.5';
         slot.style.cursor = 'not-allowed';
     });
+}
+
+// Offer request function
+function requestOffer() {
+    // Collect all selected answers
+    const companyType = document.querySelector('#step1 .quiz-option.selected')?.getAttribute('data-value') || '';
+    const occasion = document.querySelector('#step2 .quiz-option.selected')?.getAttribute('data-value') || '';
+    const quantityOption = document.querySelector('#step3 .quiz-option.selected')?.getAttribute('data-value') || '';
+    const budgetOption = document.querySelector('#step4 .quiz-option.selected')?.getAttribute('data-value') || '';
+    
+    // Validate that all questions are answered
+    if (!companyType || !occasion || !quantityOption || !budgetOption) {
+        alert('Bitte beantworten Sie alle Fragen, bevor Sie ein Angebot anfordern');
+        return;
+    }
+    
+    // Handle custom quantity
+    let quantity = quantityOption;
+    if (quantityOption === '500+') {
+        const customQuantity = document.getElementById('custom-quantity').value;
+        if (!customQuantity || parseInt(customQuantity) < 500) {
+            alert('Bitte geben Sie eine Menge von mindestens 500 Boxen ein');
+            return;
+        }
+        quantity = customQuantity + ' Boxen';
+    }
+    
+    // Handle custom budget
+    let budget = budgetOption;
+    if (budgetOption === '200+') {
+        const customBudget = document.getElementById('custom-budget').value;
+        if (!customBudget || parseInt(customBudget) < 200) {
+            alert('Bitte geben Sie ein Budget von mindestens €200 ein');
+            return;
+        }
+        budget = customBudget + '€';
+    }
+    
+    // Prepare email data
+    const emailSubject = encodeURIComponent('Business-Angebotsanfrage von Boxology Website');
+    const emailBody = encodeURIComponent(`Sehr geehrtes Boxology Team,
+
+ich interessiere mich für eine Kooperation mit Ihnen. Wir sind ein Unternehmensart: ${companyType},
+und würden Ihr Service für den Anlass: ${occasion} benötigen. Wir bräuchten Menge: ${quantity} Stk.
+Unser Budget pro Box liegt bei: ${budget} €.
+
+Bitte senden Sie mir ein maßgeschneidertes Angebot zu.
+
+Mit freundlichen Grüßen,
+[Ihr Name]
+[Ihre Firma]
+[Ihre Telefonnummer]`);
+
+    // Open email client
+    window.location.href = `mailto:boxology.help@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+    
+    // Show confirmation
+    alert('Vielen Dank! Ihr E-Mail-Client wird geöffnet. Bitte senden Sie die Nachricht ab, um Ihr Angebot anzufordern.');
 }
 </script>
 </body>
