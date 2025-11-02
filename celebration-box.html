@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Celebration Box - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-96 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-yellow-900/70 via-yellow-800/40 to-yellow-900/70 z-10"></div>
+            <img src="http://static.photos/celebration/1920x1080/42" alt="Celebration Box" class="absolute w-full h-full object-cover">
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 text-white animate__animated animate__fadeInDown">The Celebration Box</h1>
+                <p class="text-xl md:text-2xl text-gray-200 animate__animated animate__fadeIn animate__delay-1s">For life's brightest moments that deserve to shine</p>
+            </div>
+        </section>
+
+        <!-- Box Details -->
+        <section class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold mb-6 relative">
+                        <span class="absolute -left-8 top-3 h-1 w-6 bg-yellow-500"></span>
+                        About This Box
+                    </h2>
+                    <p class="text-gray-400 mb-6">Our limited edition Celebration Box is designed to make every occasion extraordinary. Whether it's a birthday, graduation, promotion, or just a Tuesday worth celebrating, this box transforms ordinary moments into unforgettable memories.</p>
+                    <p class="text-gray-400 mb-8">Each item is carefully selected to create a multi-sensory experience that builds anticipation and joy from the first unwrapping to the last surprise.</p>
+                    <div class="bg-yellow-900/30 p-6 rounded-xl border-l-4 border-yellow-500 mb-6">
+                        <h3 class="text-xl font-medium mb-4">What Makes It Special</h3>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-start">
+                                <i data-feather="star" class="w-5 h-5 text-yellow-400 mr-3 mt-1"></i>
+                                <span>Personalized congratulatory message on premium cardstock</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="star" class="w-5 h-5 text-yellow-400 mr-3 mt-1"></i>
+                                <span>Custom confetti with your choice of colors and shapes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="star" class="w-5 h-5 text-yellow-400 mr-3 mt-1"></i>
+                                <span>Each item wrapped like a present within the present</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center" id="addToCart">
+                            Add to Cart <i data-feather="shopping-cart" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <img src="http://static.photos/celebration/1024x576/42" alt="Celebration Box Contents" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Contents Section -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-yellow-500 mx-auto w-24"></span>
+                    What's Inside
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-yellow-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-900/40 transition-colors duration-300">
+                            <i data-feather="gift" class="w-12 h-12 text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Mini Champagne Bottle</h3>
+                        <p class="text-gray-400 mb-4">Premium sparkling wine with custom celebratory label</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="star" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: The perfect toast for any achievement</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-yellow-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-900/40 transition-colors duration-300">
+                            <i data-feather="award" class="w-12 h-12 text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Achievement Trophy</h3>
+                        <p class="text-gray-400 mb-4">Custom engraved acrylic trophy for their accomplishment</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="star" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Tangible recognition of their success</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-yellow-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-900/40 transition-colors duration-300">
+                            <i data-feather="camera" class="w-12 h-12 text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Polaroid Camera</h3>
+                        <p class="text-gray-400 mb-4">Mini instant camera with film to capture the moment</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="star" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Preserve memories in real time</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-yellow-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-900/40 transition-colors duration-300">
+                            <i data-feather="music" class="w-12 h-12 text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Celebration Playlist</h3>
+                        <p class="text-gray-400 mb-4">QR code linking to a custom celebration soundtrack</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="star" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Sets the mood for celebration</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-yellow-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-900/40 transition-colors duration-300">
+                            <i data-feather="clock" class="w-12 h-12 text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Countdown Calendar</h3>
+                        <p class="text-gray-400 mb-4">Beautifully designed calendar for upcoming celebrations</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="star" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Builds anticipation for future joy</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-yellow-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-900/40 transition-colors duration-300">
+                            <i data-feather="heart" class="w-12 h-12 text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Memory Capsule</h3>
+                        <p class="text-gray-400 mb-4">Elegant box to store mementos from the celebration</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="star" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Keeps the memory alive for years to come</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-yellow-500 mx-auto w-24"></span>
+                    Celebration Stories
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Sarah K.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"I sent this to my sister for her graduation and she said it was the most thoughtful gift she's ever received. The way each item built up to the big moment made her feel so special!"</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-red-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Michael T.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"My team sent me this after a big project launch. The trophy now sits on my desk as a constant reminder that hard work gets recognized. The champagne didn't last long though!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <section class="bg-gradient-to-r from-yellow-600 to-orange-600 p-12 rounded-2xl text-center">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-white">Ready to Celebrate in Style?</h2>
+                <p class="text-xl text-yellow-100 mb-8">Each Celebration Box can be customized for birthdays, graduations, promotions, and more</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/build.html" class="bg-white hover:bg-gray-100 text-yellow-600 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center hover:shadow-lg">
+                        Customize This Box <i data-feather="edit-3" class="ml-2 w-5 h-5"></i>
+                    </a>
+                    <a href="/collections.html" class="border border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        Explore Other Collections <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
