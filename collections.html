@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    <main class="min-h-screen pb-20">
+        <!-- Hero Section -->
+        <section class="relative h-96 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80 z-10"></div>
+            <video autoplay muted loop class="absolute w-full h-full object-cover">
+                <source src="https://static.videezy.com/system/resources/previews/000/052/107/original/box-opening.mp4" type="video/mp4">
+            </video>
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 text-white">Curated Collections</h1>
+                <p class="text-xl md:text-2xl text-gray-200">Each box tells a story - which one will you give?</p>
+            </div>
+        </section>
+
+        <!-- Collections Grid -->
+        <section class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Love Collection -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                    <div class="relative h-80">
+                        <img src="http://static.photos/love/1024x576/42" alt="Love Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-primary text-white text-xs rounded-full mb-2">BESTSELLER</span>
+                            <h3 class="text-2xl font-medium text-white">The Love Box</h3>
+                            <p class="text-gray-300 mt-1">When words aren't enough</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold">$129</span>
+                            <div class="flex text-secondary">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                            <a href="/love-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                                View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                            </a>
+</div>
+                </div>
+
+                <!-- Celebration Collection -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                    <div class="relative h-80">
+                        <img src="http://static.photos/celebration/1024x576/42" alt="Celebration Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-secondary text-white text-xs rounded-full mb-2">LIMITED</span>
+                            <h3 class="text-2xl font-medium text-white">The Celebration Box</h3>
+                            <p class="text-gray-300 mt-1">For life's special moments</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold">$149</span>
+                            <div class="flex text-secondary">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                        <a href="/celebration-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                            View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+</div>
+                </div>
+
+                <!-- Appreciation Collection -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                    <div class="relative h-80">
+                        <img src="http://static.photos/office/1024x576/42" alt="Appreciation Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-gray-600 text-white text-xs rounded-full mb-2">NEW</span>
+                            <h3 class="text-2xl font-medium text-white">The Appreciation Box</h3>
+                            <p class="text-gray-300 mt-1">Gratitude made tangible</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold">$159</span>
+                            <div class="flex text-secondary">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                        <a href="/appreciation-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                            View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+</div>
+                </div>
+
+                <!-- Wellness Collection -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                    <div class="relative h-80">
+                        <img src="http://static.photos/wellness/1024x576/42" alt="Wellness Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-medium text-white">The Wellness Box</h3>
+                            <p class="text-gray-300 mt-1">Self-care essentials</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold">$99</span>
+                            <div class="flex text-secondary">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <a href="/wellness-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                            View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+</div>
+                </div>
+
+                <!-- Adventure Collection -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                    <div class="relative h-80">
+                        <img src="http://static.photos/travel/1024x576/42" alt="Adventure Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-medium text-white">The Adventure Box</h3>
+                            <p class="text-gray-300 mt-1">For the explorer's soul</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold">$119</span>
+                            <div class="flex text-secondary">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <a href="/adventure-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                            View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+</div>
+                </div>
+
+                <!-- Gourmet Collection -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                    <div class="relative h-80">
+                        <img src="http://static.photos/food/1024x576/42" alt="Gourmet Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-secondary text-white text-xs rounded-full mb-2">POPULAR</span>
+                            <h3 class="text-2xl font-medium text-white">The Gourmet Box</h3>
+                            <p class="text-gray-300 mt-1">A culinary journey</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold">$139</span>
+                            <div class="flex text-secondary">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <a href="/gourmet-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                            View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-primary to-blue-800">
+            <div class="max-w-4xl mx-auto text-center px-4">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 text-white">Can't Find What You're Looking For?</h2>
+                <p class="text-xl text-gray-200 mb-8">Our custom box builder lets you create the perfect gift from scratch</p>
+                <a href="/build.html" class="bg-white hover:bg-gray-100 text-primary font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center hover:shadow-lg">
+                    Build Your Own Box <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+<custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
