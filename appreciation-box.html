@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Appreciation Box - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-96 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-800/40 to-blue-900/70 z-10"></div>
+            <img src="http://static.photos/office/1920x1080/42" alt="Appreciation Box" class="absolute w-full h-full object-cover">
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 text-white animate__animated animate__fadeInDown">The Appreciation Box</h1>
+                <p class="text-xl md:text-2xl text-gray-200 animate__animated animate__fadeIn animate__delay-1s">Gratitude wrapped in thoughtfulness</p>
+            </div>
+        </section>
+
+        <!-- Box Details -->
+        <section class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold mb-6 relative">
+                        <span class="absolute -left-8 top-3 h-1 w-6 bg-blue-500"></span>
+                        About This Box
+                    </h2>
+                    <p class="text-gray-400 mb-6">Our Appreciation Box is designed to help you express gratitude in a meaningful way. Whether it's for a colleague, mentor, teacher, or anyone who deserves recognition, this box transforms a simple "thank you" into a memorable experience.</p>
+                    <p class="text-gray-400 mb-8">Each element is carefully selected to convey appreciation with elegance and sincerity, making the recipient feel truly valued.</p>
+                    <div class="bg-blue-900/30 p-6 rounded-xl border-l-4 border-blue-500 mb-6">
+                        <h3 class="text-xl font-medium mb-4">What Makes It Special</h3>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-start">
+                                <i data-feather="award" class="w-5 h-5 text-blue-400 mr-3 mt-1"></i>
+                                <span>Handwritten appreciation note on premium stationery</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="award" class="w-5 h-5 text-blue-400 mr-3 mt-1"></i>
+                                <span>Customizable recognition elements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="award" class="w-5 h-5 text-blue-400 mr-3 mt-1"></i>
+                                <span>Professional yet personal presentation</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center" id="addToCart">
+                            Add to Cart <i data-feather="shopping-cart" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <img src="http://static.photos/office/1024x576/42" alt="Appreciation Box Contents" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Contents Section -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-blue-500 mx-auto w-24"></span>
+                    What's Inside
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-blue-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-900/40 transition-colors duration-300">
+                            <i data-feather="pen-tool" class="w-12 h-12 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Executive Pen Set</h3>
+                        <p class="text-gray-400 mb-4">Premium fountain pen with engraving option</p>
+                        <div class="flex items-center text-blue-400">
+                            <i data-feather="award" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: A lasting tool for their work</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-blue-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-900/40 transition-colors duration-300">
+                            <i data-feather="book" class="w-12 h-12 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Leadership Journal</h3>
+                        <p class="text-gray-400 mb-4">Leather-bound notebook for reflections</p>
+                        <div class="flex items-center text-blue-400">
+                            <i data-feather="award" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Encourages growth and insight</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-blue-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-900/40 transition-colors duration-300">
+                            <i data-feather="coffee" class="w-12 h-12 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Artisan Coffee Blend</h3>
+                        <p class="text-gray-400 mb-4">Specialty roast with custom label</p>
+                        <div class="flex items-center text-blue-400">
+                            <i data-feather="award" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: A thoughtful break from work</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-blue-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-900/40 transition-colors duration-300">
+                            <i data-feather="clock" class="w-12 h-12 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Desk Clock</h3>
+                        <p class="text-gray-400 mb-4">Minimalist timepiece with engraving</p>
+                        <div class="flex items-center text-blue-400">
+                            <i data-feather="award" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Reminder of valued time</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-blue-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-900/40 transition-colors duration-300">
+                            <i data-feather="message-square" class="w-12 h-12 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Thank You Cards</h3>
+                        <p class="text-gray-400 mb-4">Set of premium blank cards</p>
+                        <div class="flex items-center text-blue-400">
+                            <i data-feather="award" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Pay the appreciation forward</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-blue-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-900/40 transition-colors duration-300">
+                            <i data-feather="box" class="w-12 h-12 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Keepsake Box</h3>
+                        <p class="text-gray-400 mb-4">Wooden box for mementos</p>
+                        <div class="flex items-center text-blue-400">
+                            <i data-feather="award" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Safekeeping for meaningful items</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-blue-500 mx-auto w-24"></span>
+                    Appreciation Stories
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">David R.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"I gave this to my mentor after a big promotion and he said it was the most thoughtful professional gift he'd ever received. The pen set with his name engraved is now his daily driver."</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-teal-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Lisa M.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Our team pooled together to get this for our manager after a tough project. The clock on her desk with our thank you message is a constant reminder of how much we value her leadership."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <section class="bg-gradient-to-r from-blue-600 to-indigo-600 p-12 rounded-2xl text-center">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-white">Ready to Show Your Appreciation?</h2>
+                <p class="text-xl text-blue-100 mb-8">Each Appreciation Box can be customized for colleagues, mentors, teachers, or anyone deserving recognition</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/build.html" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center hover:shadow-lg">
+                        Customize This Box <i data-feather="edit-3" class="ml-2 w-5 h-5"></i>
+                    </a>
+                    <a href="/collections.html" class="border border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        Explore Other Collections <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
