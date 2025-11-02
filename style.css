@@ -30,16 +30,68 @@ body {
 .fade-in {
     animation: fadeIn 0.8s ease-in-out;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+.animate-fadeIn {
+    animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-quote {
+    position: relative;
+}
+
+.hero-quote::before {
+    content: '"';
+    position: absolute;
+    font-size: 5rem;
+    opacity: 0.1;
+    top: -2rem;
+    left: -1rem;
+}
 .hover-grow {
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .hover-grow:hover {
     transform: scale(1.03);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Collection Card Hover Effect */
+.hover-grow {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-grow:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart button animation */
+#addToCart {
+    transition: all 0.3s ease;
+}
+
+#addToCart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+#addToCart:active {
+    transform: translateY(0);
+}
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.dotted-bg {
+    background-image: radial-gradient(#3b82f6 1px, transparent 1px);
+    background-size: 16px 16px;
 }
