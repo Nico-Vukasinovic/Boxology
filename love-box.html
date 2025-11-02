@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Love Box - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-96 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-pink-900/70 via-pink-800/40 to-pink-900/70 z-10"></div>
+            <img src="http://static.photos/love/1920x1080/42" alt="Love Box" class="absolute w-full h-full object-cover">
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 text-white animate__animated animate__fadeInDown">The Love Box</h1>
+                <p class="text-xl md:text-2xl text-gray-200 animate__animated animate__fadeIn animate__delay-1s">When "I love you" needs to be felt, not just heard</p>
+            </div>
+        </section>
+
+        <!-- Box Details -->
+        <section class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold mb-6 relative">
+                        <span class="absolute -left-8 top-3 h-1 w-6 bg-pink-500"></span>
+                        About This Box
+                    </h2>
+                    <p class="text-gray-400 mb-6">Our bestselling Love Box is designed to create moments of connection and intimacy. Each carefully selected item serves as a tangible expression of love, creating a multi-sensory experience that lingers in memory long after the box is opened.</p>
+                    <p class="text-gray-400 mb-8">Perfect for anniversaries, Valentine's Day, or just because - this box transforms ordinary moments into cherished memories.</p>
+                    <div class="bg-pink-900/30 p-6 rounded-xl border-l-4 border-pink-500 mb-6">
+                        <h3 class="text-xl font-medium mb-4">What Makes It Special</h3>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+<li class="flex items-start">
+                                <i data-feather="heart" class="w-5 h-5 text-pink-400 mr-3 mt-1"></i>
+                                <span>Handwritten love note on premium stationery</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="heart" class="w-5 h-5 text-pink-400 mr-3 mt-1"></i>
+                                <span>Custom photo insert with your favorite memory</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="heart" class="w-5 h-5 text-pink-400 mr-3 mt-1"></i>
+                                <span>Each item wrapped with intention and care</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center" id="addToCart">
+                            Add to Cart <i data-feather="shopping-cart" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+</div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <img src="http://static.photos/love/1024x576/42" alt="Love Box Contents" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Contents Section -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-pink-500 mx-auto w-24"></span>
+                    What's Inside
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-pink-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-900/40 transition-colors duration-300">
+                            <i data-feather="book-open" class="w-12 h-12 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Love Letters Journal</h3>
+                        <p class="text-gray-400 mb-4">Premium leather-bound journal with prompts to inspire your love notes</p>
+                        <div class="flex items-center text-pink-400">
+                            <i data-feather="heart" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Encourages ongoing expressions of love</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-pink-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-900/40 transition-colors duration-300">
+                            <i data-feather="droplet" class="w-12 h-12 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Scented Candle</h3>
+                        <p class="text-gray-400 mb-4">Hand-poured rose and vanilla candle with 40+ hour burn time</p>
+                        <div class="flex items-center text-pink-400">
+                            <i data-feather="heart" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Creates romantic ambiance for special moments</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-pink-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-900/40 transition-colors duration-300">
+                            <i data-feather="map" class="w-12 h-12 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Adventure Tokens</h3>
+                        <p class="text-gray-400 mb-4">Set of 12 date night ideas to redeem throughout the year</p>
+                        <div class="flex items-center text-pink-400">
+                            <i data-feather="heart" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Keeps romance alive with shared experiences</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-pink-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-900/40 transition-colors duration-300">
+                            <i data-feather="music" class="w-12 h-12 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Custom Playlist</h3>
+                        <p class="text-gray-400 mb-4">QR code linking to a personalized Spotify playlist of your songs</p>
+                        <div class="flex items-center text-pink-400">
+                            <i data-feather="heart" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Soundtrack to your love story</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-pink-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-900/40 transition-colors duration-300">
+                            <i data-feather="coffee" class="w-12 h-12 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Blend of Love Tea</h3>
+                        <p class="text-gray-400 mb-4">Artisanal herbal tea blend for cozy moments together</p>
+                        <div class="flex items-center text-pink-400">
+                            <i data-feather="heart" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Encourages quality time and conversation</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-pink-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-900/40 transition-colors duration-300">
+                            <i data-feather="lock" class="w-12 h-12 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Keepsake Box</h3>
+                        <p class="text-gray-400 mb-4">Beautiful wooden box to store mementos from your journey</p>
+                        <div class="flex items-center text-pink-400">
+                            <i data-feather="heart" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Grows more valuable as your love story unfolds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-pink-500 mx-auto w-24"></span>
+                    Love Stories
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Jessica & Mark</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"We've been together 12 years and this was the most thoughtful gift I've ever received. The way each item built on the next created this beautiful journey of our relationship. The playlist had me in tears!"</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-red-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Alex & Taylor</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"I sent this for our anniversary while I was deployed overseas. The adventure tokens gave us something to look forward to when I got home, and the tea became our nightly ritual for reconnecting."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <section class="bg-gradient-to-r from-pink-600 to-purple-600 p-12 rounded-2xl text-center">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-white">Ready to Create Your Love Story?</h2>
+                <p class="text-xl text-pink-100 mb-8">Each Love Box is hand-packed with care and can be customized to your relationship</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/build.html" class="bg-white hover:bg-gray-100 text-pink-600 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center hover:shadow-lg">
+                        Customize This Box <i data-feather="edit-3" class="ml-2 w-5 h-5"></i>
+                    </a>
+                    <a href="/collections.html" class="border border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        Explore Other Collections <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
