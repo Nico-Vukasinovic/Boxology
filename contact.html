@@ -1,0 +1,245 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-blue-800/70 to-blue-900/90 z-10"></div>
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
+            <div class="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f15530648874c5f977e91c1/5f6c8e49b3918b1bc0f0844e_noise.png')] opacity-10"></div>
+            
+            <div class="relative z-20 text-center px-4 max-w-6xl mx-auto animate__animated animate__fadeInDown">
+                <div class="floating inline-block mb-8">
+                    <div class="w-28 h-28 rounded-full bg-white/10 backdrop-blur-lg border-2 border-white/20 flex items-center justify-center shadow-2xl">
+                        <i data-feather="mail" class="w-14 h-14 text-white"></i>
+                    </div>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 text-white drop-shadow-xl">Let's <span class="bg-clip-text bg-gradient-to-r from-primary to-blue-400">Connect</span></h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-medium leading-relaxed">We're here to help with any questions about our gift boxes, customization options, or your order</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-6 mt-12 animate__animated animate__fadeInUp animate__delay-1s">
+                    <a href="#contact-form" class="bg-white hover:bg-gray-100 text-primary font-bold py-4 px-10 rounded-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-lg flex items-center">
+                        Send a Message
+                        <span class="ml-3 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-primary"></i>
+                        </span>
+                    </a>
+                    <a href="#contact-cards" class="border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-10 rounded-full transition-all duration-300 text-lg flex items-center backdrop-blur-sm">
+                        <i data-feather="phone" class="w-5 h-5 mr-2"></i>
+                        Contact Options
+                    </a>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center z-20">
+                <a href="#contact-cards" class="animate-bounce w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
+                    <i data-feather="chevron-down" class="w-5 h-5 text-white"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Cards -->
+        <section id="contact-cards" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-blue-950">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">How Can We <span class=" bg-clip-text bg-gradient-to-r from-primary to-blue-400">Help?</span></h2>
+                    <p class="text-xl text-blue-200 max-w-3xl mx-auto font-medium leading-relaxed">Choose the contact method that works best for you</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800/50 rounded-2xl p-8 contact-card transition-all duration-500 hover:shadow-2xl border border-blue-900/50 backdrop-blur-sm overflow-hidden relative group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-500"></div>
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-8 shadow-lg">
+                            <i data-feather="mail" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-5">Email Us</h3>
+                        <p class="text-white-300 mb-6 leading-relaxed">Send us a message and we'll get back to you within 24 hours.</p>
+                        <div class="mt-8 pt-6 border-t border-gray-700/50">
+                            <a href="mailto:hello@boxology.com" class="text-primary hover:text-blue-400 font-medium text-lg inline-flex items-center group">
+                                hello@boxology.com
+                                <i data-feather="arrow-right" class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-2xl p-8 contact-card transition-all duration-500 hover:shadow-2xl border border-blue-900/50 backdrop-blur-sm overflow-hidden relative group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-500"></div>
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-8 shadow-lg">
+                            <i data-feather="phone" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-5">Call Us</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">Speak directly with our customer care team during business hours.</p>
+                        <div class="mt-8 pt-6 border-t border-gray-700/50">
+                            <a href="tel:+18005551234" class="text-primary hover:text-blue-400 font-medium text-lg inline-flex items-center group">
+                                +1 (800) 555-1234
+                                <i data-feather="arrow-right" class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+                            </a>
+                            <p class="text-blue-300 mt-2">Mon-Fri, 9am-5pm EST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-2xl p-8 contact-card transition-all duration-500 hover:shadow-2xl border border-blue-900/50 backdrop-blur-sm overflow-hidden relative group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-500"></div>
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-8 shadow-lg">
+                            <i data-feather="message-square" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-5">Live Chat</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">Get instant answers from our virtual assistant or a team member.</p>
+                        <div class="mt-8 pt-6 border-t border-gray-700/50">
+                            <button class="bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 w-full text-left flex items-center justify-between">
+                                Start Chat
+                                <i data-feather="arrow-right" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact-form" class="py-24 px-4 relative">
+            <div class="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f15530648874c5f977e91c1/5f6c8e49b3918b1bc0f0844e_noise.png')] opacity-10 z-0"></div>
+            <div class="max-w-4xl mx-auto bg-gray-900/50 backdrop-blur-lg rounded-3xl p-10 border border-blue-900/50 shadow-2xl overflow-hidden relative z-10">
+                <div class="absolute -top-5 -right-5 w-14 h-14 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg">
+                    <i data-feather="edit" class="w-6 h-6 text-white"></i>
+                </div>
+                <div class="absolute -bottom-5 -left-5 w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center shadow-lg">
+                    <i data-feather="lock" class="w-5 h-5 text-white"></i>
+                </div>
+                
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4 text-white">Send Us a <span class="text bg-clip-text bg-gradient-to-r from-primary to-blue-400">Message</span></h2>
+                    <p class="text-blue-300 max-w-2xl mx-auto">Fill out the form below and we'll get back to you as soon as possible</p>
+                </div>
+                
+                <form class="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Your Name *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg form-input focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg form-input focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-gray-300 mb-2">Subject *</label>
+                        <select id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg form-input focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="">Select a subject</option>
+                            <option value="order">Order Inquiry</option>
+                            <option value="custom">Custom Box Request</option>
+                            <option value="shipping">Shipping Question</option>
+                            <option value="returns">Returns & Exchanges</option>
+                            <option value="other">Other Question</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-gray-300 mb-2">Your Message *</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg form-input focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="subscribe" name="subscribe" class="w-4 h-4 text-primary bg-gray-800 border-gray-700 rounded focus:ring-primary">
+                        <label for="subscribe" class="ml-2 text-gray-300">Subscribe to our newsletter for updates and special offers</label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white font-medium py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center hover:shadow-lg">
+                        Send Message <i data-feather="send" class="ml-2 w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-20 px-4 bg-gray-800">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-serif font-bold mb-12 text-center gradient-text">Frequently Asked Questions</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left">
+                            <h3 class="text-xl font-medium text-white">How long does shipping take?</h3>
+                            <i data-feather="chevron-down" class="w-6 h-6 text-primary transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-gray-400 hidden">
+                            <p>Standard shipping typically takes 3-5 business days within the continental US. Expedited shipping options are available at checkout for faster delivery.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left">
+                            <h3 class="text-xl font-medium text-white">Can I customize a gift box?</h3>
+                            <i data-feather="chevron-down" class="w-6 h-6 text-primary transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-gray-400 hidden">
+                            <p>Absolutely! Our custom box builder allows you to select each item, add personal notes, and even include photos. You can also choose from our curated collections and add personal touches.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left">
+                            <h3 class="text-xl font-medium text-white">What's your return policy?</h3>
+                            <i data-feather="chevron-down" class="w-6 h-6 text-primary transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-gray-400 hidden">
+                            <p>We offer a 30-day return policy for unopened and unused items. Customized boxes may have different return conditions - please contact our team for details.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left">
+                            <h3 class="text-xl font-medium text-white">Do you offer corporate/bulk discounts?</h3>
+                            <i data-feather="chevron-down" class="w-6 h-6 text-primary transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-gray-400 hidden">
+                            <p>Yes! We have special programs for corporate gifting. Visit our <a href="/contact-b2b.html" class="text-primary hover:underline">B2B page</a> or contact our enterprise team for volume discounts and customization options.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class
