@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gourmet Box - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-96 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-amber-900/70 via-amber-800/40 to-amber-900/70 z-10"></div>
+            <img src="http://static.photos/food/1920x1080/42" alt="Gourmet Box" class="absolute w-full h-full object-cover">
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 text-white animate__animated animate__fadeInDown">The Gourmet Box</h1>
+                <p class="text-xl md:text-2xl text-gray-200 animate__animated animate__fadeIn animate__delay-1s">A culinary journey for the senses</p>
+            </div>
+        </section>
+
+        <!-- Box Details -->
+        <section class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold mb-6 relative">
+                        <span class="absolute -left-8 top-3 h-1 w-6 bg-amber-500"></span>
+                        About This Box
+                    </h2>
+                    <p class="text-gray-400 mb-6">Our Gourmet Box is a carefully curated selection of artisanal foods and culinary delights designed to transport the recipient on a global gastronomic adventure. Each item is hand-selected from small producers who prioritize quality and flavor above all else.</p>
+                    <p class="text-gray-400 mb-8">Perfect for food lovers, home chefs, or anyone who appreciates the finer things in life - this box transforms ordinary meals into extraordinary culinary experiences.</p>
+                    <div class="bg-amber-900/30 p-6 rounded-xl border-l-4 border-amber-500 mb-6">
+                        <h3 class="text-xl font-medium mb-4">What Makes It Special</h3>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-start">
+                                <i data-feather="coffee" class="w-5 h-5 text-amber-400 mr-3 mt-1"></i>
+                                <span>Hand-selected premium ingredients from around the world</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="coffee" class="w-5 h-5 text-amber-400 mr-3 mt-1"></i>
+                                <span>Recipe cards featuring creative ways to use each item</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="coffee" class="w-5 h-5 text-amber-400 mr-3 mt-1"></i>
+                                <span>Beautiful presentation worthy of a gourmet shop</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center" id="addToCart">
+                            Add to Cart <i data-feather="shopping-cart" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <img src="http://static.photos/food/1024x576/42" alt="Gourmet Box Contents" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Contents Section -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-amber-500 mx-auto w-24"></span>
+                    What's Inside
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-amber-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-900/40 transition-colors duration-300">
+                            <i data-feather="coffee" class="w-12 h-12 text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Single-Origin Coffee</h3>
+                        <p class="text-gray-400 mb-4">Ethiopian Yirgacheffe with floral and citrus notes</p>
+                        <div class="flex items-center text-amber-400">
+                            <i data-feather="coffee" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Best paired with: Morning rituals</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-amber-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-900/40 transition-colors duration-300">
+                            <i data-feather="droplet" class="w-12 h-12 text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Truffle Infused Olive Oil</h3>
+                        <p class="text-gray-400 mb-4">Italian extra virgin oil with black truffle</p>
+                        <div class="flex items-center text-amber-400">
+                            <i data-feather="coffee" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Best paired with: Pasta, risotto, bread</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-amber-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-900/40 transition-colors duration-300">
+                            <i data-feather="box" class="w-12 h-12 text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Aged Balsamic Vinegar</h3>
+                        <p class="text-gray-400 mb-4">12-year traditional aceto balsamico</p>
+                        <div class="flex items-center text-amber-400">
+                            <i data-feather="coffee" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Best paired with: Cheese, strawberries, salads</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-amber-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-900/40 transition-colors duration-300">
+                            <i data-feather="heart" class="w-12 h-12 text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Artisanal Chocolate</h3>
+                        <p class="text-gray-400 mb-4">Single-origin dark chocolate with sea salt</p>
+                        <div class="flex items-center text-amber-400">
+                            <i data-feather="coffee" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Best paired with: Evening relaxation</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-amber-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-900/40 transition-colors duration-300">
+                            <i data-feather="feather" class="w-12 h-12 text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Himalayan Pink Salt</h3>
+                        <p class="text-gray-400 mb-4">Hand-harvested finishing salt with minerals</p>
+                        <div class="flex items-center text-amber-400">
+                            <i data-feather="coffee" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Best paired with: Meats, vegetables, desserts</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-amber-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-900/40 transition-colors duration-300">
+                            <i data-feather="book" class="w-12 h-12 text-amber-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Recipe Journal</h3>
+                        <p class="text-gray-400 mb-4">Handbound notebook for culinary creations</p>
+                        <div class="flex items-center text-amber-400">
+                            <i data-feather="coffee" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Best paired with: Inspiration and creativity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-amber-500 mx-auto w-24"></span>
+                    Gourmet Stories
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Chef Marco</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"The quality of ingredients in this box rivals what we use in my restaurant. The truffle oil has become my secret weapon for finishing dishes with depth and complexity."</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-amber-400 to-red-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Olivia & James</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"We've made the recipe cards part of our date night tradition - choosing one item each week to explore together. The balsamic vinegar drizzled over fresh strawberries was life-changing!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <section class="bg-gradient-to-r from-amber-600 to-orange-600 p-12 rounded-2xl text-center">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-white">Ready to Elevate Your Culinary Experience?</h2>
+                <p class="text-xl text-amber-100 mb-8">Each Gourmet Box can be customized for coffee lovers, chocolate enthusiasts, or international flavors</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/build.html" class="bg-white hover:bg-gray-100 text-amber-600 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center hover:shadow-lg">
+                        Customize This Box <i data-feather="edit-3" class="ml-2 w-5 h-5"></i>
+                    </a>
+                    <a href="/collections.html" class="border border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        Explore Other Collections <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
