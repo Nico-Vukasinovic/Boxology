@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wellness Box - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-96 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-green-900/70 via-green-800/40 to-green-900/70 z-10"></div>
+            <img src="http://static.photos/wellness/1920x1080/42" alt="Wellness Box" class="absolute w-full h-full object-cover">
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 text-white animate__animated animate__fadeInDown">The Wellness Box</h1>
+                <p class="text-xl md:text-2xl text-gray-200 animate__animated animate__fadeIn animate__delay-1s">Self-care essentials for mind, body and soul</p>
+            </div>
+        </section>
+
+        <!-- Box Details -->
+        <section class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold mb-6 relative">
+                        <span class="absolute -left-8 top-3 h-1 w-6 bg-green-500"></span>
+                        About This Box
+                    </h2>
+                    <p class="text-gray-400 mb-6">Our Wellness Box is designed to help you pause, recharge and reconnect with yourself. Each carefully curated item supports different aspects of well-being, creating a holistic self-care experience that nourishes from the inside out.</p>
+                    <p class="text-gray-400 mb-8">Perfect for stress relief, relaxation, or simply taking time for yourself - this box is a gentle reminder that self-care isn't selfish, it's essential.</p>
+                    <div class="bg-green-900/30 p-6 rounded-xl border-l-4 border-green-500 mb-6">
+                        <h3 class="text-xl font-medium mb-4">What Makes It Special</h3>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-start">
+                                <i data-feather="leaf" class="w-5 h-5 text-green-400 mr-3 mt-1"></i>
+                                <span>All-natural, organic and sustainable products</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="leaf" class="w-5 h-5 text-green-400 mr-3 mt-1"></i>
+                                <span>Guided self-care rituals and practices</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="leaf" class="w-5 h-5 text-green-400 mr-3 mt-1"></i>
+                                <span>Thoughtfully designed for sensory relaxation</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center" id="addToCart">
+                            Add to Cart <i data-feather="shopping-cart" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <img src="http://static.photos/wellness/1024x576/42" alt="Wellness Box Contents" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Contents Section -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-green-500 mx-auto w-24"></span>
+                    What's Inside
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-green-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-900/40 transition-colors duration-300">
+                            <i data-feather="droplet" class="w-12 h-12 text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Aromatherapy Roller</h3>
+                        <p class="text-gray-400 mb-4">Organic essential oil blend for stress relief</p>
+                        <div class="flex items-center text-green-400">
+                            <i data-feather="leaf" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Instant calm and relaxation</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-green-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-900/40 transition-colors duration-300">
+                            <i data-feather="book-open" class="w-12 h-12 text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Mindfulness Journal</h3>
+                        <p class="text-gray-400 mb-4">Guided prompts for reflection and gratitude</p>
+                        <div class="flex items-center text-green-400">
+                            <i data-feather="leaf" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Mental clarity and awareness</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-green-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-900/40 transition-colors duration-300">
+                            <i data-feather="moon" class="w-12 h-12 text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Sleep Tea Blend</h3>
+                        <p class="text-gray-400 mb-4">Herbal tea with chamomile and lavender</p>
+                        <div class="flex items-center text-green-400">
+                            <i data-feather="leaf" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Promotes restful sleep</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-green-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-900/40 transition-colors duration-300">
+                            <i data-feather="activity" class="w-12 h-12 text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Gua Sha Stone</h3>
+                        <p class="text-gray-400 mb-4">Rose quartz facial massage tool</p>
+                        <div class="flex items-center text-green-400">
+                            <i data-feather="leaf" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Lymphatic drainage and glow</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-green-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-900/40 transition-colors duration-300">
+                            <i data-feather="wind" class="w-12 h-12 text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Breathing Card Deck</h3>
+                        <p class="text-gray-400 mb-4">Guided breathing exercises</p>
+                        <div class="flex items-center text-green-400">
+                            <i data-feather="leaf" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Stress relief and focus</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-full h-48 bg-green-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-900/40 transition-colors duration-300">
+                            <i data-feather="heart" class="w-12 h-12 text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Self-Love Affirmation Cards</h3>
+                        <p class="text-gray-400 mb-4">Positive reminders of your worth</p>
+                        <div class="flex items-center text-green-400">
+                            <i data-feather="leaf" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Purpose: Emotional well-being</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center relative inline-block">
+                    <span class="absolute -bottom-2 left-0 right-0 h-1 bg-green-500 mx-auto w-24"></span>
+                    Wellness Stories
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-teal-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">Emma S.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"After a particularly stressful quarter at work, this box was exactly what I needed. The guided journal helped me process my thoughts and the aromatherapy roller is now my go-to for stressful moments."</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-blue-500 mr-4"></div>
+                            <div>
+                                <h4 class="font-medium">James T.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"I bought this for my wife who's been burning the candle at both ends. She said the breathing exercises and tea ritual have become her non-negotiable evening routine. The quality of everything is exceptional."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <section class="bg-gradient-to-r from-green-600 to-teal-600 p-12 rounded-2xl text-center">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-white">Ready to Prioritize Your Wellbeing?</h2>
+                <p class="text-xl text-green-100 mb-8">Each Wellness Box can be customized for stress relief, sleep support, or general self-care</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/build.html" class="bg-white hover:bg-gray-100 text-green-600 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center hover:shadow-lg">
+                        Customize This Box <i data-feather="edit-3" class="ml-2 w-5 h-5"></i>
+                    </a>
+                    <a href="/collections.html" class="border border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        Explore Other Collections <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
