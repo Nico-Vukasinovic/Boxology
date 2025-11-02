@@ -1,134 +1,262 @@
-
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en" class="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Warenkorb - Boxology</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root{--navy:#0a2342;--gold:#d4af37;--white:#fff;--light-gray:#f1f1f1}
-    body{font-family:Montserrat, sans-serif;background:var(--light-gray);margin:0;color:#222}
-    .container{max-width:1000px;margin:40px auto;padding:20px}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
-    a.logo{font-family:Playfair Display, serif;color:var(--gold);font-size:22px;text-decoration:none}
-    .cart-list{background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-    .cart-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #eee}
-    .cart-item:last-child{border-bottom:none}
-    .item-img{width:110px;height:80px;flex:0 0 110px;border-radius:6px;object-fit:cover;background:#fafafa}
-    .item-meta{flex:1}
-    .item-meta h4{margin:0 0 6px}
-    .price{font-weight:700}
-    .qty{display:flex;align-items:center;gap:8px}
-    .qty input{width:60px;padding:8px;text-align:center}
-    .summary{margin-top:20px;padding:18px;background:#faf9f6;border-radius:8px}
-    .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:18px}
-    .btn{background:var(--gold);color:var(--navy);border:none;padding:12px 18px;border-radius:6px;cursor:pointer}
-    .btn.secondary{background:#fff;border:1px solid #ddd;color:#333}
-    .empty{padding:60px;text-align:center;color:#666}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <a href="index.html" class="logo">Boxology</a>
-      <nav>
-        <a href="index.html">Shop</a>
-      </nav>
-    </header>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main class="min-h-screen py-20 px-4 max-w-7xl mx-auto">
+        <h1 class="text-4xl font-serif font-bold mb-12 text-center">Your Gift Box</h1>
+    <div class="grid md:grid-cols-3 gap-8" id="cart-container">
+        <div class="md:col-span-3 text-center py-12">
+            <i data-feather="shopping-bag" class="w-12 h-12 mx-auto text-gray-500 mb-4"></i>
+            <h3 class="text-xl font-medium mb-2">Your cart is empty</h3>
+            <p class="text-gray-400 mb-6">Start adding some beautiful gift boxes</p>
+            <a href="/collections.html" class="bg-primary hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-full inline-flex items-center">
+                Browse Collections <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+            </a>
+        </div>
+    </div>
+</main>
 
-    <main>
-      <h1>Warenkorb</h1>
-      <div id="cart-root" class="cart-list">
-        <div class="empty">Warenkorb wird geladen …</div>
-      </div>
-      <div class="actions">
-        <button id="clear-cart" class="btn secondary">Warenkorb leeren</button>
-        <button id="checkout" class="btn">Zur Kasse</button>
-      </div>
-    </main>
-  </div>
+    <custom-footer></custom-footer>
 
-  <script src="assets/cart.js"></script>
-  <script>
-    // Render cart page using BoxologyCart API
-    function formatPrice(n){return '€' + Number(n).toFixed(2).replace('.', ',');}
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load cart items
+            function loadCart() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartContainer = document.getElementById('cart-container');
+                
+                if (cart.length === 0) {
+                    cartContainer.innerHTML = `
+                        <div class="md:col-span-3 text-center py-12">
+                            <i data-feather="shopping-bag" class="w-12 h-12 mx-auto text-gray-500 mb-4"></i>
+                            <h3 class="text-xl font-medium mb-2">Your cart is empty</h3>
+                            <p class="text-gray-400 mb-6">Start adding some beautiful gift boxes</p>
+                            <a href="/collections.html" class="bg-primary hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-full inline-flex items-center">
+                                Browse Collections <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    `;
+                    feather.replace();
+                    return;
+                }
 
-    function render() {
-      const root = document.getElementById('cart-root');
-      const cart = window.BoxologyCart.getCart();
-      if (!cart || cart.length === 0) {
-        root.innerHTML = '<div class="empty">Ihr Warenkorb ist leer. Stöbern Sie in unseren <a href="index.html">Produkten</a>.</div>';
-        return;
-      }
+                let subtotal = 0;
+                let html = `
+                    <div class="md:col-span-2 space-y-6">
+                        <div class="flex justify-between items-center pb-4 border-b border-gray-700">
+                            <h2 class="text-2xl font-medium">Items (${cart.length})</h2>
+                            <a href="/collections.html" class="text-primary hover:text-blue-400 flex items-center">
+                                <i data-feather="plus" class="w-4 h-4 mr-2"></i> Add Another Box
+                            </a>
+                        </div>
+                `;
 
-      let subtotal = 0;
-      const html = cart.map(item => {
-        const line = (item.price || 0) * (item.qty || 1);
-        subtotal += line;
-        return `
-          <div class="cart-item" data-id="${item.id}">
-            <img class="item-img" src="${item.img||''}" onerror="this.style.display='none'" />
-            <div class="item-meta">
-              <h4>${item.name}</h4>
-              <div class="price">Einzelpreis: ${formatPrice(item.price)}</div>
-              <div class="qty" style="margin-top:8px">
-                <label style="font-size:14px;color:#666">Anzahl</label>
-                <input type="number" min="1" value="${item.qty}" class="qty-input" />
-                <button class="btn remove" style="background:#fff;border:1px solid #ddd;color:#333;padding:8px 10px;margin-left:8px">Entfernen</button>
-              </div>
-            </div>
-            <div style="min-width:120px;text-align:right">
-              <div style="font-weight:700">${formatPrice(line)}</div>
-            </div>
-          </div>`;
-      }).join('');
+                cart.forEach(item => {
+                    subtotal += item.price * item.quantity;
+                    html += `
+                        <div class="bg-gray-800 rounded-xl p-6 flex flex-col md:flex-row gap-6 relative" data-item-id="${item.id}">
+                            <div class="w-full md:w-48 h-48 bg-gray-700 rounded-lg overflow-hidden">
+                                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-medium mb-2">${item.name}</h3>
+                                <p class="text-gray-400 mb-4">${item.description || ''}</p>
+                                
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center border border-gray-700 rounded-full">
+                                        <button class="px-3 py-1 text-gray-400 hover:text-white cart-quantity-btn" data-action="decrease" data-id="${item.id}">-</button>
+                                        <span class="px-3 cart-quantity">${item.quantity}</span>
+                                        <button class="px-3 py-1 text-gray-400 hover:text-white cart-quantity-btn" data-action="increase" data-id="${item.id}">+</button>
+                                    </div>
+                                    <span class="text-xl font-bold cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
 
-      root.innerHTML = html + `
-        <div class="summary">
-          <div style="display:flex;justify-content:space-between;font-weight:700">
-            <div>Zwischensumme</div>
-            <div id="subtotal">${formatPrice(subtotal)}</div>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-top:8px;color:#2d7a30">
-            <div>Versand</div>
-            <div>Kostenlos</div>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:1.25rem">
-            <div>Gesamtsumme</div>
-            <div id="total">${formatPrice(subtotal)}</div>
-          </div>
-        </div>`;
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i data-feather="truck" class="w-4 h-4 mr-2"></i>
+                                    <span>Estimated delivery: 3-5 business days</span>
+                                </div>
+                            </div>
+                            <button class="absolute top-4 right-4 text-gray-400 hover:text-white remove-item" data-id="${item.id}">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                    `;
+                });
 
-      // wire qty and remove buttons
-      root.querySelectorAll('.cart-item').forEach(el => {
-        const id = el.dataset.id;
-        const input = el.querySelector('.qty-input');
-        input.addEventListener('change', e => {
-          const v = Number(e.target.value || 1);
-          if (v < 1) { e.target.value = 1; return; }
-          window.BoxologyCart.updateQty(id, v);
-          render();
+                const tax = subtotal * 0.08;
+                const total = subtotal + tax;
+
+                html += `
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h3 class="text-xl font-medium mb-4">Order Summary</h3>
+                            
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Subtotal</span>
+                                    <span class="cart-subtotal">$${subtotal.toFixed(2)}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Shipping</span>
+                                    <span>Free</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Tax</span>
+                                    <span>$${tax.toFixed(2)}</span>
+                                </div>
+                                <div class="border-t border-gray-700 pt-3 flex justify-between font-bold text-lg">
+                                    <span>Total</span>
+                                    <span class="cart-total">$${total.toFixed(2)}</span>
+                                </div>
+                            </div>
+                            
+                            <div id="paypal-button-container" class="mb-4"></div>
+                            
+                            <button class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center">
+                                <i data-feather="lock" class="w-4 h-4 mr-2"></i>
+                                Secure Checkout
+                            </button>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h3 class="text-xl font-medium mb-4">What You'll Receive</h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 text-green-400 mr-2 mt-1"></i>
+                                    <span>Premium gift box with your personal message</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 text-green-400 mr-2 mt-1"></i>
+                                    <span>All listed items beautifully arranged</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 text-green-400 mr-2 mt-1"></i>
+                                    <span>Handwritten note on premium stationery</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 text-green-400 mr-2 mt-1"></i>
+                                    <span>Free standard shipping (3-5 business days)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+
+                cartContainer.innerHTML = html;
+                feather.replace();
+
+                // Initialize PayPal button if there are items
+                if (cart.length > 0 && window.paypal) {
+                    paypal.Buttons({
+                        style: {
+                            layout: 'vertical',
+                            color: 'blue',
+                            shape: 'rect',
+                            label: 'paypal'
+                        },
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        value: total.toFixed(2)
+                                    }
+                                }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                                alert('Transaction completed by ' + details.payer.name.given_name);
+                            // Clear cart after successful purchase
+                            localStorage.setItem('cart', JSON.stringify([]));
+window.location.href = "/thank-you.html";
+                            });
+                        }
+                    }).render('#paypal-button-container');
+                }
+            }
+
+            // Handle quantity changes
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.cart-quantity-btn')) {
+                    const btn = e.target.closest('.cart-quantity-btn');
+                    const action = btn.dataset.action;
+                    const itemId = btn.dataset.id;
+                    const container = btn.closest('[data-item-id]');
+                    const quantityElement = container.querySelector('.cart-quantity');
+                    let quantity = parseInt(quantityElement.textContent);
+                    
+                    if (action === 'increase') {
+                        quantity++;
+                    } else if (action === 'decrease' && quantity > 1) {
+                        quantity--;
+                    }
+                    
+                    // Update cart in localStorage
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const itemIndex = cart.findIndex(item => item.id === itemId);
+                    if (itemIndex !== -1) {
+                        cart[itemIndex].quantity = quantity;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        loadCart();
+                    }
+                }
+                // Handle item removal
+                if (e.target.closest('.remove-item')) {
+                    const btn = e.target.closest('.remove-item');
+                    const itemId = btn.dataset.id;
+                    
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    // Handle both regular items and custom boxes
+                    cart = cart.filter(item => {
+                        if (item.id) {
+                            return item.id !== itemId;
+                        } else if (item.customization) { // This is a custom box
+                            return false; // Remove all custom boxes for simplicity
+                            // OR implement a more sophisticated check if needed
+                        }
+                        return true;
+                    });
+                    localStorage.setItem('cart', JSON.stringify(cart));
+// Check if cart is now empty
+                    if (cart.length === 0) {
+                        // Show empty cart message
+                        const cartContainer = document.getElementById('cart-container');
+                        cartContainer.innerHTML = `
+                            <div class="md:col-span-3 text-center py-12">
+                                <i data-feather="shopping-bag" class="w-12 h-12 mx-auto text-gray-500 mb-4"></i>
+                                <h3 class="text-xl font-medium mb-2">Your cart is empty</h3>
+                                <p class="text-gray-400 mb-6">Start adding some beautiful gift boxes</p>
+                                <a href="/collections.html" class="bg-primary hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-full inline-flex items-center">
+                                    Browse Collections <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                                </a>
+                            </div>
+                        `;
+                        feather.replace();
+                    } else {
+                        // Reload cart to update UI
+                        loadCart();
+                    }
+}
+            });
+
+            // Initial load
+            loadCart();
         });
-        el.querySelector('.remove').addEventListener('click', () => {
-          window.BoxologyCart.removeFromCart(id);
-          render();
-        });
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      render();
-      document.getElementById('clear-cart').addEventListener('click', () => {
-        if (!confirm('Warenkorb wirklich leeren?')) return;
-        window.BoxologyCart.clearCart();
-        render();
-      });
-      document.getElementById('checkout').addEventListener('click', () => {
-        // simple stub - in a real site you'd go to checkout flow
-        alert('Weiter zur Kasse (Demo) — Implementieren Sie Ihre Zahlungs- / Bestell-Integration.');
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
