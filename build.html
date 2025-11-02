@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Box - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    <main class="min-h-screen py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-serif font-bold mb-4">Create Your Perfect Gift Box</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Handpick each item, customize the packaging, and create a truly unique gift experience
+            </p>
+        </div>
+        
+        <custom-box-builder></custom-box-builder>
+    </main>
+
+    <script src="components/box-builder.js"></script>
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
