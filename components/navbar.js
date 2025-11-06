@@ -267,7 +267,7 @@ class CustomNavbar extends HTMLElement {
           Boxology
         </a>
         <div class="nav-links">
-          <a href="/collections.html" class="nav-link">
+          <a href="/Boxology/collections.html" class="nav-link">
             <i data-feather="gift"></i>
             Collections
           </a>
