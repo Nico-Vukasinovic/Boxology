@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
 body {
     font-family: 'Inter', sans-serif;
 }
 
+/* All pages start below navbar */
+main {
+    padding-top: 4rem; /* = h-16 (Tailwind navbar height) */
+}
+/* Ensure navbar is always on top */
+custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
 .font-serif {
     font-family: 'Playfair Display', serif;
 }
@@ -42,7 +53,6 @@ body {
 .hero-quote {
     position: relative;
 }
-
 .hero-quote::before {
     content: '"';
     position: absolute;
@@ -50,6 +60,50 @@ body {
     opacity: 0.1;
     top: -2rem;
     left: -1rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 2.5rem !important;
+    }
+    
+    section.relative h1 {
+        font-size: 3rem !important;
+    }
+    
+    .featured-boxes .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .testimonials .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .how-it-works .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section.relative h1 {
+        font-size: 2.25rem !important;
+    }
+    
+    .hero-text {
+        font-size: 2rem !important;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .cta-buttons a {
+        width: 100%;
+        text-align: center;
+    }
 }
 .hover-grow {
     transition: all 0.3s ease;
@@ -64,10 +118,13 @@ body {
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
 }
-
 /* Collection Card Hover Effect */
 .hover-grow {
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-card {
+    display: grid; /* Sicherstellen, dass Grid funktioniert */
 }
 .hover-grow:hover {
     transform: translateY(-8px);
@@ -95,3 +152,9 @@ body {
     background-image: radial-gradient(#3b82f6 1px, transparent 1px);
     background-size: 16px 16px;
 }
+<style>
+  /* Reserviert Platz für fixed navbar */
+  main {
+    padding-top: 4rem;   /* = h-16 (Tailwind) */
+  }
+</style>
