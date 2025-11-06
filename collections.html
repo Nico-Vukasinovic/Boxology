@@ -10,6 +10,7 @@
 </head>
 <body class="bg-gray-900 text-gray-100">
     <custom-navbar></custom-navbar>
+    
     <main class="min-h-screen pb-20">
         <!-- Hero Section -->
         <section class="relative h-96 flex items-center justify-center overflow-hidden">
@@ -23,11 +24,66 @@
             </div>
         </section>
 
-        <!-- Collections Grid -->
-        <section class="py-20 px-4 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Enhanced Collections Header -->
+        <section class="py-16 px-4 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Curated Collections</h2>
+                <p class="text-xl text-blue-400 max-w-3xl mx-auto">Each box tells a story - discover the perfect one for your occasion</p>
+            </div>
+
+            <!-- Enhanced Filter System -->
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 mb-12 border border-gray-700 shadow-lg">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="w-full md:w-auto">
+                        <h3 class="text-lg font-medium text-gray-300 mb-2">Filter by Category</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="filter-chip active" data-filter="all">
+                                <i data-feather="grid" class="w-4 h-4 mr-2"></i> All Collections
+                            </button>
+                            <button class="filter-chip" data-filter="romantic">
+                                <i data-feather="heart" class="w-4 h-4 mr-2"></i> Romantic
+                            </button>
+                            <button class="filter-chip" data-filter="celebration">
+                                <i data-feather="gift" class="w-4 h-4 mr-2"></i> Celebration
+                            </button>
+                            <button class="filter-chip" data-filter="professional">
+                                <i data-feather="briefcase" class="w-4 h-4 mr-2"></i> Professional
+                            </button>
+                            <button class="filter-chip" data-filter="wellness">
+                                <i data-feather="activity" class="w-4 h-4 mr-2"></i> Wellness
+                            </button>
+                            <button class="filter-chip" data-filter="adventure">
+                                <i data-feather="compass" class="w-4 h-4 mr-2"></i> Adventure
+                            </button>
+                            <button class="filter-chip" data-filter="gourmet">
+                                <i data-feather="coffee" class="w-4 h-4 mr-2"></i> Gourmet
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-auto">
+                        <h3 class="text-lg font-medium text-gray-300 mb-2">Filter by Price</h3>
+                        <div class="flex items-center gap-4">
+                            <select id="price-range" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="all">All Prices</option>
+                                <option value="0-50">Under $50</option>
+                                <option value="50-100">$50 - $100</option>
+                                <option value="100-150">$100 - $150</option>
+                                <option value="150+">Over $150</option>
+                            </select>
+                            <button id="reset-filters" class="text-gray-400 hover:text-white flex items-center">
+                                <i data-feather="refresh-cw" class="w-4 h-4 mr-1"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collections Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="collections-grid">
+                
                 <!-- Love Collection -->
-                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                <div class="collection-card bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group" data-category="romantic" data-price="129">
                     <div class="relative h-80">
                         <img src="http://static.photos/love/1024x576/42" alt="Love Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -40,22 +96,31 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="text-2xl font-bold">$129</span>
-                            <div class="flex text-secondary">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            <div class="flex items-center">
+                                <div class="flex text-secondary mr-2">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="text-gray-400 text-sm">(128 reviews)</span>
                             </div>
                         </div>
-                            <a href="/Boxology/love-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
-                                View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
-                            </a>
-</div>
+                        <p class="text-gray-400 mb-4">Perfect for anniversaries, Valentine's Day, or just because. Each item is chosen to express love in tangible ways.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Romantic</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Handwritten Note</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Customizable</span>
+                        </div>
+                        <a href="/love-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                            View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Celebration Collection -->
-                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                <div class="collection-card bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group" data-category="celebration" data-price="149">
                     <div class="relative h-80">
                         <img src="http://static.photos/celebration/1024x576/42" alt="Celebration Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -68,22 +133,31 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="text-2xl font-bold">$149</span>
-                            <div class="flex text-secondary">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            <div class="flex items-center">
+                                <div class="flex text-secondary mr-2">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="text-gray-400 text-sm">(97 reviews)</span>
                             </div>
                         </div>
-                        <a href="/Boxology/celebration-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        <p class="text-gray-400 mb-4">Birthday, graduation, promotion – everything you need to turn any milestone into a memory.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Celebration</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Confetti Pop</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Personalised Card</span>
+                        </div>
+                        <a href="/celebration-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
                             View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
                         </a>
-</div>
+                    </div>
                 </div>
 
                 <!-- Appreciation Collection -->
-                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                <div class="collection-card bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group" data-category="professional" data-price="159">
                     <div class="relative h-80">
                         <img src="http://static.photos/office/1024x576/42" alt="Appreciation Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -96,22 +170,31 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="text-2xl font-bold">$159</span>
-                            <div class="flex text-secondary">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            <div class="flex items-center">
+                                <div class="flex text-secondary mr-2">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="text-gray-400 text-sm">(63 reviews)</span>
                             </div>
                         </div>
-                        <a href="/Boxology/appreciation-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        <p class="text-gray-400 mb-4">Say "thank you" in a way they will remember – perfect for employees, teachers, mentors.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Professional</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Thank-You Card</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Eco-Friendly</span>
+                        </div>
+                        <a href="/appreciation-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
                             View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
                         </a>
-</div>
+                    </div>
                 </div>
 
                 <!-- Wellness Collection -->
-                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                <div class="collection-card bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group" data-category="wellness" data-price="99">
                     <div class="relative h-80">
                         <img src="http://static.photos/wellness/1024x576/42" alt="Wellness Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -123,22 +206,31 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="text-2xl font-bold">$99</span>
-                            <div class="flex text-secondary">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4"></i>
+                            <div class="flex items-center">
+                                <div class="flex text-secondary mr-2">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-gray-400 text-sm">(82 reviews)</span>
                             </div>
                         </div>
-                        <a href="/Boxology/wellness-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        <p class="text-gray-400 mb-4">Curated self-care items to relax body & mind – bath salts, candles, tea and more.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Wellness</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Vegan</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Cruelty-Free</span>
+                        </div>
+                        <a href="/wellness-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
                             View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
                         </a>
-</div>
+                    </div>
                 </div>
 
                 <!-- Adventure Collection -->
-                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                <div class="collection-card bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group" data-category="adventure" data-price="119">
                     <div class="relative h-80">
                         <img src="http://static.photos/travel/1024x576/42" alt="Adventure Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -150,22 +242,31 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="text-2xl font-bold">$119</span>
-                            <div class="flex text-secondary">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4"></i>
+                            <div class="flex items-center">
+                                <div class="flex text-secondary mr-2">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-gray-400 text-sm">(91 reviews)</span>
                             </div>
                         </div>
-                        <a href="/Boxology/adventure-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        <p class="text-gray-400 mb-4">Compact gear and tasty trailside treats for the next hike, road-trip or spontaneous getaway.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Adventure</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Travel-Size</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Outdoor</span>
+                        </div>
+                        <a href="/adventure-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
                             View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
                         </a>
-</div>
+                    </div>
                 </div>
 
                 <!-- Gourmet Collection -->
-                <div class="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group">
+                <div class="collection-card bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover-grow group" data-category="gourmet" data-price="139">
                     <div class="relative h-80">
                         <img src="http://static.photos/food/1024x576/42" alt="Gourmet Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -178,38 +279,194 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="text-2xl font-bold">$139</span>
-                            <div class="flex text-secondary">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4"></i>
+                            <div class="flex items-center">
+                                <div class="flex text-secondary mr-2">
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-feather="star" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-gray-400 text-sm">(156 reviews)</span>
                             </div>
                         </div>
-                        <a href="/Boxology/gourmet-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
+                        <p class="text-gray-400 mb-4">Small-batch delicacies and artisanal treats that turn every bite into a discovery.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Gourmet</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Artisan</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs text-gray-300">Eco-Friendly</span>
+                        </div>
+                        <a href="/gourmet-box.html" class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center">
                             View Details <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
                         </a>
-</div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-20 bg-gradient-to-r from-primary to-blue-800">
-            <div class="max-w-4xl mx-auto text-center px-4">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 text-white">Can't Find What You're Looking For?</h2>
-                <p class="text-xl text-gray-200 mb-8">Our custom box builder lets you create the perfect gift from scratch</p>
-                <a href="/build.html" class="bg-white hover:bg-gray-100 text-primary font-medium py-3 px-8 rounded-full transition-all duration-300 inline-flex items-center hover:shadow-lg">
-                    Build Your Own Box <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
-                </a>
+        <!-- Enhanced CTA Section -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-blue-800 z-10"></div>
+            <div class="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f15530648874c5f977e91c1/5f6c8e49b3918b1bc0f0844e_noise.png')] opacity-10"></div>
+            
+            <div class="relative z-20 max-w-5xl mx-auto text-center px-4">
+                <div class="floating inline-block mb-8">
+                    <div class="w-20 h-20 rounded-full bg-white/10 backdrop-blur-lg border-2 border-white/20 flex items-center justify-center shadow-2xl">
+                        <i data-feather="edit" class="w-10 h-10 text-white"></i>
+                    </div>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">Design Your Perfect Gift</h2>
+                <p class="text-xl text-blue-200 max-w-2xl mx-auto mb-8">Can't find exactly what you're looking for? Our custom box builder lets you create a one-of-a-kind gift experience.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/build.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-4 px-10 rounded-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-lg flex items-center justify-center">
+                        Start Building 
+                        <i data-feather="chevron-right" class="ml-3 w-5 h-5"></i>
+                    </a>
+                    <a href="/quiz.html" class="border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-10 rounded-full transition-all duration-300 text-lg flex items-center justify-center backdrop-blur-sm">
+                        <i data-feather="help-circle" class="w-5 h-5 mr-2"></i>
+                        Take Our Quiz
+                    </a>
+                </div>
             </div>
         </section>
     </main>
-<custom-footer></custom-footer>
+
+    <custom-footer></custom-footer>
+
+    <style>
+        /* Enhanced Filter Chips */
+        .filter-chip {
+            padding: 0.5rem 1rem;
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #9CA3AF;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .filter-chip.active {
+            background: linear-gradient(to right, #3B82F6, #8B5CF6);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .filter-chip:hover:not(.active) {
+            background: rgba(75, 85, 99, 0.7);
+            color: white;
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Collection Card Hover Effect */
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Einmalige Initialisierung der Icons
+    feather.replace();
+    
+    // Filter-Elemente
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const priceRange = document.getElementById('price-range');
+    const resetBtn = document.getElementById('reset-filters');
+    const collectionCards = document.querySelectorAll('.collection-card');
+    
+    // Fehlerbereinigte Filter-Funktion
+    function filterCollections() {
+        const activeCategory = document.querySelector('.filter-chip.active').dataset.filter;
+        const priceValue = priceRange.value;
+        
+        collectionCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            const cardPrice = parseInt(card.dataset.price);
+            
+            // Kategorie prüfen
+            const categoryMatch = activeCategory === 'all' || cardCategory === activeCategory;
+            
+            // Preis prüfen (korrigierter Algorithmus)
+            let priceMatch = true;
+            if (priceValue !== 'all') {
+                if (priceValue.endsWith('+')) {
+                    // Für "150+"格式
+                    const min = parseInt(priceValue);
+                    priceMatch = cardPrice >= min;
+                } else {
+                    // Für "50-100"格式
+                    const [min, max] = priceValue.split('-').map(p => parseInt(p));
+                    priceMatch = cardPrice >= min && cardPrice <= max;
+                }
+            }
+            
+            // Anzeige steuern (wichtig: '' statt 'block' für Grid)
+            if (categoryMatch && priceMatch) {
+                card.style.display = ''; // Grid-Layout beibehalten
+                card.classList.add('fade-in');
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    // Event Listeners
+    filterChips.forEach(chip => {
+        chip.addEventListener('click', function() {
+            filterChips.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            filterCollections();
+        });
+    });
+    
+    priceRange.addEventListener('change', filterCollections);
+    
+    resetBtn.addEventListener('click', function() {
+        filterChips.forEach(c => c.classList.remove('active'));
+        document.querySelector('.filter-chip[data-filter="all"]').classList.add('active');
+        priceRange.value = 'all';
+        filterCollections();
+    });
+    
+    // Initiale Filterung beim Laden
+    filterCollections();
+});
+
+// Minimaler CSS für Fade-In-Animation (ersetzt fehlende Animate.css)
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+        animation: fadeInUp 0.5s ease-out;
+    }
+`;
+document.head.appendChild(style);
+</script>
 
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
     <script src="script.js"></script>
-    <script>feather.replace();</script>
+
 </body>
 </html>
