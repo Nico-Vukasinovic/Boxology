@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - Boxology</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <custom-navbar></custom-navbar>
+    
+    <main class="min-h-screen py-16 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Impressum</h1>
+            <p class="text-xl text-gray-400">Legal information according to § 5 TMG</p>
+        </div>
+
+        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-gray-700 max-w-4xl mx-auto">
+            <div class="prose prose-invert max-w-none">
+                <h2 class="text-2xl font-serif font-bold mb-4 text-primary">Service Provider</h2>
+                <p>
+                    Boxology GmbH<br>
+                    Giftstraße 123<br>
+                    10115 Berlin, Germany
+                </p>
+
+                <h2 class="text-2xl font-serif font-bold mb-4 text-primary mt-8">Represented by</h2>
+                <p>Max Mustermann (CEO)</p>
+
+                <h2 class="text-2xl font-serif font-bold mb-4 text-primary mt-8">Contact</h2>
+                <p>
+                    Phone: +49 30 12345678<br>
+                    Email: <a href="mailto:info@boxology.com" class="text-primary hover:underline">info@boxology.com</a>
+                </p>
+
+                <h2 class="text-2xl font-serif font-bold mb-4 text-primary mt-8">Commercial Register</h2>
+                <p>
+                    HRB 123456<br>
+                    Registergericht: Amtsgericht Berlin-Charlottenburg
+                </p>
+
+                <h2 class="text-2xl font-serif font-bold mb-4 text-primary mt-8">VAT Identification Number</h2>
+                <p>DE123456789</p>
+
+                <h2 class="text-2xl font-serif font-bold mb-4 text-primary mt-8">Responsible for Content</h2>
+                <p>
+                    Max Mustermann<br>
+                    Giftstraße 123<br>
+                    10115 Berlin, Germany
+                </p>
+
+                <h2 class="text-2xl font-serif font-bold mb-4 text-primary mt-8">Consumer Dispute Resolution</h2>
+                <p>
+                    We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
+                </p>
+
+                <div class="mt-12 pt-6 border-t border-gray-700">
+                    <h3 class="text-xl font-medium mb-4">Disclaimer</h3>
+                    <p>Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
