@@ -134,28 +134,28 @@ class CustomFooter extends HTMLElement {
                     
                     <div class="footer-section">
                         <h3>Collections</h3>
-                        <a href="/boxolog/love-box.html">The Love Box</a>
-                        <a href="/boxolog/celebration-box.html">The Celebration Box</a>
-                        <a href="/boxolog/appreciation-box.html">The Appreciation Box</a>
-                        <a href="/boxolog/build.html">Build Your Own</a>
+                        <a href="/Boxology/love-box.html">The Love Box</a>
+                        <a href="/Boxology/celebration-box.html">The Celebration Box</a>
+                        <a href="/Boxology/appreciation-box.html">The Appreciation Box</a>
+                        <a href="/Boxology/build.html">Build Your Own</a>
                     </div>
                     
                     <div class="footer-section">
                         <h3>Company</h3>
-                        <a href="/boxolog/about.html">Our Story</a>
-                        <a href="/boxolog/contact.html">Contact Us</a>
-                        <a href="/boxolog/contact-b2b.html">B2B Solutions</a>
-                        <a href="/boxolog/careers.html">Careers</a>
+                        <a href="/Boxology/about.html">Our Story</a>
+                        <a href="/Boxology/contact.html">Contact Us</a>
+                        <a href="/Boxology/contact-b2b.html">B2B Solutions</a>
+                        <a href="/Boxology/careers.html">Careers</a>
                     </div>
                     
 <div class="footer-section">
     <h3>Support</h3>
-    <a href="/boxology/faq.html">FAQ</a>
-    <a href="/boxolog/shipping.html">Shipping Info</a>
-    <a href="/boxolog/returns.html">Returns</a>
-    <a href="/boxolog/terms.html">Terms & Conditions</a>
-    <a href="/boxolog/imprint.html">Impressum</a>
-    <a href="/boxolog/privacy.html" class="hover:underline">Privacy Policy</a>
+    <a href="/Boxology/faq.html">FAQ</a>
+    <a href="/Boxology/shipping.html">Shipping Info</a>
+    <a href="/Boxology/returns.html">Returns</a>
+    <a href="/Boxology/terms.html">Terms & Conditions</a>
+    <a href="/Boxology/imprint.html">Impressum</a>
+    <a href="/Boxology/privacy.html" class="hover:underline">Privacy Policy</a>
 </div>
                 </div>
                 
