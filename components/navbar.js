@@ -271,28 +271,28 @@ class CustomNavbar extends HTMLElement {
             <i data-feather="gift"></i>
             Collections
           </a>
-          <a href="/build.html" class="nav-link">
+          <a href="/Boxology/build.html" class="nav-link">
             <i data-feather="edit"></i>
             Build a Box
           </a>
-          <a href="/about.html" class="nav-link">
+          <a href="/Boxology/about.html" class="nav-link">
             <i data-feather="info"></i>
             Our Story
           </a>
-          <a href="/contact.html" class="nav-link">
+          <a href="/Boxology/contact.html" class="nav-link">
             <i data-feather="mail"></i>
             Contact
           </a>
-          <a href="/contact-b2b.html" class="nav-link">
+          <a href="/Boxology/contact-b2b.html" class="nav-link">
             <i data-feather="briefcase"></i>
             B2B
           </a>
-          <a href="/cart.html" class="nav-link">
+          <a href="/Boxology/cart.html" class="nav-link">
             <i data-feather="shopping-cart"></i>
             Cart
             <span class="cart-count" id="cart-count">0</span>
           </a>
-          <a href="/build.html" class="cta-button">
+          <a href="/Boxology/build.html" class="cta-button">
             Get Started
           </a>
         </div>
